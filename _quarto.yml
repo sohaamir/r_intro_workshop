@@ -1,0 +1,67 @@
+project: 
+  type: website
+  output-dir: _site
+  
+website: 
+  page-navigation: true
+  title: "An IntRoduction to R and RStudio" 
+  site-url: https://alpn-lab.github.io/BayesCog
+  repo-url: https://github.com/alpn-lab/BayesCog
+  repo-actions: [issue]
+  
+  page-footer:
+    right: "This page is built with 🧠, ☕ and [Quarto](https://quarto.org/)."
+    left: "&copy; Sohail, 2025"
+    
+  sidebar:
+    logo: "images/alpn_logo_with_text.png"
+    pinned: true
+    align: center
+    tools: 
+      - icon: globe
+        href: https://alpn-lab.github.io
+        text: "ALPN Lab Website"
+      - icon: github
+        href: https://github.com/alpn-lab
+        text: "ALPN Lab GitHub"
+      - icon: twitter
+        href: https://twitter.com/ALPN_Lab
+        text: "ALPN Lab Twitter"         
+
+    style: "docked"
+    search: true
+    collapse-level: 1
+    contents:
+      - href: index.qmd
+        text: An intRoduction to R and RStudio
+      - section: "Workshop 1: R Basics"
+        contents: 
+          - text: "Workshop 1: Overview"
+            href: workshops/01.R_basics/qmd/intro.qmd
+          - text: "Introduction to R/RStudio"
+            href: workshops/01.R_basics/qmd/introduction_to_r.qmd
+          - text: "Working with data in R"
+            href: workshops/01.R_basics/qmd/working_with_data.qmd
+      - text: Resources
+        href: resources.qmd
+
+format:
+  html:
+    theme: cosmo
+    code-copy: true
+    code-overflow: wrap
+    toc: true
+    grid:
+      sidebar-width: 300px
+      body-width: 1300px
+      margin-width: 300px
+      gutter-width: 1.5rem
+    css: styles.css
+    include-in-header:
+      text: |
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+jupyter: .venv
+
+filters:
+  - quarto

@@ -1,0 +1,18 @@
+# R project files and history
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.Rhistory
+*.pper
+
+# Quarto and site build directories
+/.quarto/
+/_site/
+
+# renv cache (optional, usually outside project dir)
+/renv/library/
+/renv/python/
+
+# macOS system files
+**/.DS_Store
