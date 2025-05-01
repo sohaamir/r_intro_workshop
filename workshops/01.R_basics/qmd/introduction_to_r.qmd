@@ -17,6 +17,10 @@ execute:
   eval: true
 ---
 
+:::{.callout-tip title="Running code in the browser"}
+Certain code chunks in the course are executable. Press <i class="fa-solid fa-play" style="color: #28f064;"></i> to run the code!
+:::
+
 `R` is a powerful open-source programming language and software environment primarily designed for statistical computing, data analysis, and graphical visualization.
 `R` has its own interface; when you install `R` onto your own computer(Windows/Mac) you can open `R` on it's own. However, working in this way with `R` ('base `R`') isn't very user friendly!
 
@@ -28,10 +32,10 @@ Instead, we use an IDE (Integrated Development Environment) to work with the `R`
 
 The RStudio interface consists of 4 windows:
 
-**1. Script editor:** Where you write and edit your `R` code
-**2. Console:** Where you run `R` commands and see their output
-**3. Environment/History:** Shows your workspace variables and command history
-**4. Files/Plots/Packages/Help:** A multi-purpose pane for viewing files, plots, managing packages, and accessing help documentation
+- **Script editor:** Where you write and edit your `R` code
+- **Console:** Where you run `R` commands and see their output
+- **Environment/History:** Shows your workspace variables and command history
+- **Files/Plots/Packages/Help:** A multi-purpose pane for viewing files, plots, managing packages, and accessing help documentation
 
 You can check your versions of both `R` and RStudio using the following commands:
 
@@ -54,10 +58,6 @@ $release_name
 [1] "Kousa Dogwood"
 ```
 
-:::{.callout-important title="Asking for help"}
-Some problems in `R` may be specific to the version, so make sure to include the version that you are using if asking for help online!
-:::
-
 ## Basic R operations
 
 We will now cover some basic operations and values within `R`.
@@ -69,6 +69,7 @@ We can perform basic mathematical operations:
 
 ```{webr-r}
 #| context: interactive
+
 # Addition and Subtraction
 3 + 2
 3 - 2
@@ -110,32 +111,36 @@ NULL
 
 There are many types of data in `R`, here are some commonly used:
 
-**Numeric** - Decimal numbers (the most common numeric type)
+::: {.callout-tip title="Checking your data type"}
+You can check data types using the `class` command.
+:::
+
+**Numeric** - Decimal and 'whole' numbers (the most common numeric type)
 ```{webr-r}
+
 #| context: interactive
-typeof(1.1)
+class(1.1)
 ```
 
-**Integer** - Whole numbers only
+<br>
+**Character** - Text data in quotes
 ```{webr-r}
+
 #| context: interactive
-typeof(1)
+class("hello world!")
+class("42") # Numbers in quotes are characters
 ```
 
-**Character/String** - Text data in quotes
-```{r, eval=FALSE}
-typeof("hello world!")
-typeof("42") # Numbers in quotes are characters
-```
-
+<br>
 **Logical** - Boolean values for conditional logic
 ```{webr-r}
 #| context: interactive
 
-typeof(TRUE)
-typeof(F) # F is shorthand for FALSE
+class(TRUE)
+class(F) # F is shorthand for FALSE
 ```
 
+<br>
 **Factor** - a data type for categorical variables with fixed levels (categories).
 
 In the example below, we create a vector of letters, some of which are repeated. However, the levels within are limited to each individual letter.
@@ -144,20 +149,15 @@ In the example below, we create a vector of letters, some of which are repeated.
 # Define a factor using letters
 f <- factor(letters[c(1, 1, 2, 2, 3:10)])  # Create factor from letters with some repetition
 f
+```
+
+```{webr-r}
+#| context: interactive
 
 class(f)  # Check class
 ```
 
-::: {.callout-tip title="Checking your data type"}
-You can check data types using the following commands: `class`, `typeof` and `str`
-```{webr-r}
-#| context: interactive
-class(1.1)      # Shows type
-typeof("text")   # Shows underlying type
-str(data)       # Shows structure
-```
-:::
-
+<br>
 **Storing and manipulating variables**
 
 We commonly assign numbers and data to variables, which we can then compute directly:
@@ -176,99 +176,6 @@ x * y
 R is case sensitive, so `X` and `x` are not the same object!
 :::
 
-### Basic `R` functions
-
-We can perform basic statistics and operations on variables, such as getting the variance, standard deviation and summary statistics:
-```{webr-r}
-#| context: interactive
-# Combine variables together to form a vector (a sequence of elements of the same type)
-c(1, 3, -2)                         # Creates numeric vector
-c("a", "a", "b", "b", "a")          # Creates character vector
-
-print(c)
-```
-
-
-```{webr-r}
-#| context: interactive
-# Create a vector to work with
-x <- c(1, 3, -2)
-
-# Variance and Standard Deviation
-var(x)   # Calculates variance
-sd(x)    # Calculates standard deviation
-
-# Basic Statistics
-sum(x)   # Sums all elements
-mean(x)  # Calculates mean
-
-# Range Functions
-min(x)   # Finds minimum
-max(x)   # Finds maximum
-```
-
-## Miscellaneous commands
-
-Here are some other commands that will be useful when working with `R` more generally:
-
-<div style="font-size: 22px;"><strong>Directory and Workspace Management</strong></div>
-```{webr-r}
-#| context: interactive
-# getwd() - Get current working directory
-getwd()
-
-# setwd() - Set working directory (example with different OS paths)
-setwd("")           # Windows style
-setwd("")           # Unix/Mac style
-
-# List files in current directory
-dir()                                   # Same as list.files()
-```
-
-<div style="font-size: 22px;"><strong>Environment Management</strong></div>
-```{webr-r}
-#| context: interactive
-# List objects in workspace
-ls()
-
-# Remove all objects from workspace
-rm(list = ls())
-```
-
-<div style="font-size: 22px;"><strong>Getting Help</strong></div>
-```{webr-r}
-#| context: interactive
-# Get help on functions
-?mean                                   # Help for mean function
-help("mean")                            # Same as above
-```
-
-```{webr-r}
-#| context: interactive
-# Find functions containing keyword
-help.search("correlation")              # Search help for "correlation"
-??correlation                           # Same as above
-```
-
-::: {.callout-tip title="Essential RStudio Shortcuts"}
-Here are some shortcuts that you can use in RStudio:
-
-<div style="text-align: center; width: 50%; margin: 0 auto;">
-
-| Shortcut | Action |
-|----------|---------|
-| `Ctrl + L` | Clean console |
-| `Ctrl + Shift + N` | Create a new script |
-| `↑` | Access command history |
-| `Ctrl(hold) + ↑` | Search command history with current input |
-| `Ctrl + Enter` | Execute selected code in script |
-
-</div>
-<div style="height: 20px;"></div>
-
-These shortcuts work on Windows/Linux. For Mac, replace Ctrl with Cmd (⌘).
-:::
-
 ## Data structures
 
 `R` offers several data structures that serve different purposes. Each structure is designed to handle specific types of data organization, from simple one-dimensional vectors to complex nested lists[^1].
@@ -277,95 +184,111 @@ These shortcuts work on Windows/Linux. For Mac, replace Ctrl with Cmd (⌘).
 
 ![](/images/01.R_basics/data_types.png){fig-align="center" width="60%"}
 
-**Vector (1-dimensional)**
-
-- One-dimensional sequence of elements
-- All elements must be of the same type (numeric, character, etc.)
-- Example: `c(1, 2, 3) or c("a", "b", "c")`
-
-**Matrix (2-dimensional)**
-
-- Two-dimensional arrangement of elements
-- All elements must be of the same type
-- Organized in rows and columns
-- Example: `matrix(1:9, nrow = 3, ncol = 3)`
-
-**Array (n-dimensional)**
-
-- Extension of matrices to multiple dimensions
-- All elements must be of the same type
-- Can have 3 or more dimensions
-- Example: `array(1:27, dim = c(3, 3, 3))`
-
-**Data Frame**
-
-- Two-dimensional structure similar to a spreadsheet
-- Different columns can contain different types of data
-- Most common structure for statistical analysis
-
 Here are some examples of each datatype:
 
 <div style="font-size: 22px;"><strong>Vector</strong></div>
+
+- One-dimensional sequence of elements
+- All elements must be of the same type (numeric, character, etc.)
 ```{webr-r}
 #| context: interactive
 v1 <- 1:12  # Create numeric vector using sequence
 v2 <- c(2,4,1,5,1,6, 13:18)  # Create numeric vector by combining values and sequence
 v3 <- c(rep('aa',4), rep('bb',4), rep('cc',4))  # Create character vector with repeated values
+
+v1
+v2
+v3
+```
+
+Now let's check the class of each vector:
+```{webr-r}
+#| context: interactive
 class(v1)  # Check class of v1
 class(v2)  # Check class of v2
 class(v3)  # Check class of v3
 ```
 
 <div style="font-size: 22px;"><strong>Matrix and array</strong></div>
+
+- Two-dimensional (matrix) and three-dimensional (array) arrangement of elements
+- All elements must be of the same type
+- Organized in rows and columns
 ```{webr-r}
 #| context: interactive
 m1 <- matrix(v1, nrow=3, ncol=4)  # Create matrix filled by column
-m2 <- matrix(v1, nrow=3, ncol=4, byrow = T)  # Create matrix filled by row
 arr <- array(v1, dim=c(2,2,3))  # Create 3D array
+
+m1
+```
+
+```{webr-r}
+#| context: interactive
+arr
+```
+
+Let's check the class of the matrix and array:
+```{webr-r}
+#| context: interactive
 
 class(m1)  # Check class of matrix
 class(arr)  # Check class of array
 ```
 
 <div style="font-size: 22px;"><strong>Data frame</strong></div>
+
+- Two-dimensional structure similar to a spreadsheet
+- Different columns can contain different types of data
+- Most common structure for statistical analysis
+
+Suppose we have a data frame of students' grades and demographics:
 ```{webr-r}
 #| context: interactive
-df <- data.frame(v1=v1, v2=v2, v3=v3, f=f)  # Create dataframe from vectors
-
-class(df)  # Check class of dataframe
-str(df)    # Display structure of dataframe
-class(df$v1)  # Check class of first column
-class(df$v2)  # Check class of second column
-class(df$v3)  # Check class of third column
-class(df$f)   # Check class of fourth column (factor)
-```
-
-::: {.callout-tip title="Using the `$` Operator in `R`"}
-The `$` operator is used to access specific columns or elements within a list or data frame by name.
-
-Suppose we have a data frame of students' grades and want to access the 'Math' column:
-```{r}
 # Create a data frame
 students <- data.frame(
   Name = c("Alice", "Bob", "Charlie"),
+  Gender = c("F", "M", "M"),
   Math = c(95, 88, 92),
   Science = c(89, 94, 90)
 )
 
-# Access the Math column
-math_scores <- students$Math
-print(math_scores)
+students
 ```
 
-Or if we wanted to get the `class` type for a column:
-```{r}
-# Get the class of the "Math" column
-math_class <- class(students$Math)
-print(math_class)
+Check the class of the dataframe and a column, and display the structure of the dataframe:
+```{webr-r}
+#| context: interactive
+class(students)  # Check class of dataframe
+class(students$Name)  # Check class of Name column
 
-# Get the class of the "Name" column
-name_class <- class(students$Name)
-print(name_class)
+str(students)    # Display structure of dataframe
+```
+
+We can use the `$` operator to access specific columns in the data frame:
+```{webr-r}
+#| context: interactive
+students$Name  # print Name column
+students$Gender  # print Gender column
+```
+
+Or we can use the `[[` operator:
+```{webr-r}
+#| context: interactive
+
+students[["Math"]]    # print Math column
+students[["Science"]] # print Science column
+```
+
+We can assign values within a specific column or row to a new variable:
+```{webr-r}
+#| context: interactive
+# Get the "Math" column
+students_math <- students$Math
+print(students_math)
+
+# Get the first row
+students_alice <- students[1, ]
+print(students_alice)
 ```
 
 ## Logical operators, control flow and functions
@@ -388,45 +311,83 @@ We commonly use logical operators in `R` to help make decisions in code and are 
 
 </div>
 
-### Control flow
+### Basic `R` functions
 
-Control flow structures are fundamental building blocks in programming that determine how code executes. Two essential control flow mechanisms are **if-else statements and for-loops:**
-
-- **If-else statements** allow programs to make decisions based on conditions, enabling different code execution paths depending on whether conditions are true or false. 
-- **For-loops** provide a way to automate repetitive tasks by executing code multiple times over a sequence of elements.
-
-Here's a simple example involving reaction time (RT) data, which we often want to clean by removing outliers and incorrect responses. 
-We typically exclude RTs that are too fast (suggesting anticipatory responses) or too slow (suggesting inattention), as well as trials where participants made errors.
-
-Here's how we can do that using an if-else statement and a for-loop:
+We can perform basic statistics and operations on variables, such as getting the variance, standard deviation and summary statistics:
 ```{webr-r}
 #| context: interactive
-# Sample reaction time data (in milliseconds) with accuracy (1 = correct, 0 = error)
-rt_data <- c(245, 892, 123, 456, 2891, 567, 432, 345, 178, 654)
-accuracy <- c(1, 1, 0, 1, 1, 1, 0, 1, 1, 1)
+# Create a vector of 10 random numbers between 1-100 using the sample() command
+x <- sample(1:100, 10)
 
-# Initialize vector for cleaned data
-clean_rt <- numeric(length(rt_data))
+# Variance and Standard Deviation
+var(x)   # Calculates variance
+sd(x)    # Calculates standard deviation
 
-# Process each trial
-for (i in 1:length(rt_data)) {
-    if (accuracy[i] == 1 && rt_data[i] > 200 && rt_data[i] < 2000) {
-        # Include trial if:
-        # - Response was correct (accuracy = 1)
-        # - RT is above 200ms (not anticipatory)
-        # - RT is below 2000ms (not too slow)
-        clean_rt[i] <- rt_data[i]
-    } else {
-        clean_rt[i] <- NA  # Mark excluded trials as NA
-    }
-}
+# Basic Statistics
+sum(x)   # Sums all elements
+mean(x)  # Calculates mean
 
-# Calculate mean RT for clean trials only
-mean_rt <- mean(clean_rt, na.rm = TRUE)
-mean_rt
+# Range Functions
+min(x)   # Finds minimum
+max(x)   # Finds maximum
 ```
 
-In this example, the for-loop processes each trial, while the if-else statement excludes responses that are too fast (<200ms), too slow (>2000ms), or incorrect.
+## Miscellaneous commands
+
+Here are some other commands that will be useful when working with `R` more generally:
+
+<div style="font-size: 22px;"><strong>Directory and Workspace Management</strong></div>
+```{r, eval=FALSE}
+#| context: interactive
+
+getwd() # Get current working directory
+
+setwd("your/path/here")  # Set working directory to your path
+
+dir() # List files in current directory
+```
+
+<div style="font-size: 22px;"><strong>Environment Management</strong></div>
+```{r, eval=FALSE}
+#| context: interactive
+# List objects in workspace
+ls()
+
+# Remove all objects from workspace
+rm(list = ls())
+```
+
+<div style="font-size: 22px;"><strong>Getting Help</strong></div>
+```{webr-r}
+#| context: interactive
+
+?mean                                   # Help for mean function
+```
+
+```{webr-r}
+#| context: interactive
+
+help("mean")                            # Same as above
+```
+
+::: {.callout-tip title="Essential RStudio Shortcuts"}
+Here are some shortcuts that you can use in RStudio:
+
+<div style="text-align: center; width: 50%; margin: 0 auto;">
+
+| Shortcut | Action |
+|----------|---------|
+| `Ctrl + L` | Clean console |
+| `Ctrl + Shift + N` | Create a new script |
+| `↑` | Access command history |
+| `Ctrl(hold) + ↑` | Search command history with current input |
+| `Ctrl + Enter` | Execute selected code in script |
+
+</div>
+<div style="height: 20px;"></div>
+
+These shortcuts work on Windows/Linux. For Mac, replace Ctrl with Cmd (⌘).
+:::
 
 ## Packages
 
@@ -476,14 +437,9 @@ You can find and install R packages from a number of sources:
 - [Bioconductor](https://www.bioconductor.org/): A repository specializing in bioinformatics packages.
 - [GitHub](https://github.com/): Many `R` developers host their packages on GitHub, which you can install using `devtools` or `remotes` packages.
 
-
 ## Data visualization using `ggplot2()`
 
-One of the main benefits of `R` is to create publication quality figures and graphs. There are a number of different functions within `R` that we can use:
-
-- built-in plotting functions e.g., `plot()`
-- `lattice` - similar to built-in plotting functions
-- `ggplot2()` - making nicer plots using a layering approach
+One of the main benefits of `R` is to create publication quality figures and graphs. There are a number of different functions within `R` that we can use.
 
 We will now briefly cover `ggplot2()` as it is the most versatile and used approach to create complex figures.
 
