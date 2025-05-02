@@ -4,7 +4,7 @@ subtitle: "Analysing and plotting behavioural choice data"
 format: html
 webr: 
   show-startup-message: true
-  packages: ['ggplot2', 'tidyverse', 'tidyr', 'ggpubr', 'viridis', 'gridExtra']
+  packages: ['tidyverse', 'ggpubr', 'viridis', 'gridExtra']
   channel-type: "post-message"
 filters:
   - webr
@@ -30,16 +30,19 @@ It is quite robust for this purpose, in that it also reads in data of many diffe
 
 ## Working with behavioural data in R
 
-In this section we will directly work with some experimental data from the HAVEN study.
+In this section we will directly work with some experimental data from the [HAVEN](https://research.reading.ac.uk/cinn/research-studies/haven/) study.
 
-The HAVEN study was a study investigating the relationship between cognition, neurovascular health and platelet function in older adults. 
-For the purposes of this workshop, we will be using a subset of the data from the study, specifically focusing on the cognitive task data.
+HAVEN was a study investigating the relationship between cognition, neurovascular health and platelet function in older adults. 
+For the purposes of this workshop, we will be using a subset of the data from the study, specifically focusing on simple demographical and behavioural data.
 
 We will firstly plot the data using a variety of plots to understand how certain graphs are preferred for certain data. We will then perform basic statistical tests to understand whether the relationship between the variables are significant.
 
 ### Load and display the data
 
-First thing first, we need to load and read the data. The first dataset is in the `participant_data.csv` file. This file format is called 'comma separated values' or CSV, which we can read into R using the `read_csv` function. We firstly assign the data to a variable called `data`, which we can now work directly with. You can see this on the right hand panel called `Data` in R -\>
+First thing first, we need to load and read the data. The first dataset is in the `participant_data.csv` file. This file format is called 'comma separated values' or CSV, which we can read into R using the `read_csv` function. We firstly assign the data to a variable called `data`, which we can now work directly with.
+
+In the code below, we are downloading the data from the internet and saving it to our working directory. We can then read it in using `read.csv`. 
+The first two lines are specific to our online implementation of code; in `R` you can just run the bottom line.
 
 ```{webr-r}
 #| context: interactive
@@ -67,7 +70,7 @@ summary(data)
 
 We can also visualize the data using various plots. For example, if we wanted to understand whether people who are older have a higher lesion volume (possibly as a result of aging) we can create a scatter plot of age and total lesion volume, and add a line of best fit.
 
-### Scatter plot of age and Total lesion volume
+### Scatter plot of age and lesion volume
 
 ```{webr-r}
 #| context: interactive
@@ -81,9 +84,12 @@ ggplot(data, aes(x = age, y = `lesion_volume`)) +
   theme_minimal()
 ```
 
+Here we are using the `ggplot2` package using the `geom_point` function to create the points, and the `geom_smooth` function to add a line of best fit. 
+The `method = "lm"` argument specifies that we want to use a simple linear regression model for the line of best fit.
+
 So, you can see a positive correlation, namely that (generally) the older you are, the higher the total lesion volume will be.
 
-### Violin plot of Total lesion volume by sex
+### Violin plot of lesion volume by sex
 
 We can also group these results by sex, if for example we wanted to know whether there is a gender effect. We can do this using a boxplot, specficially a violin plot, a type of boxplot but which looks a bit nicer.
 
@@ -137,62 +143,7 @@ ggplot(data, aes(x = bmi)) +
         axis.title.y = element_text(face = "bold"))
 ```
 
-So you can see that the most common BMI is 25. You can see that the distribution of BMI is lower for both low and high bmi (under and overweight) and higher in the middle. This variable is said to be 'normally distributed'. More examples of normally distributed data include height and weight (which makes sense as they constitute BMI!).
-
-Height:
-
-```{webr-r}
-#| context: interactive
-
-ggplot(data, aes(x = height)) +
-  geom_histogram(aes(y = after_stat(density)), binwidth = 0.01, fill = "steelblue", color = "black") +
-  geom_density(color = "darkred", linetype = "solid", linewidth = 1) +
-  labs(title = "Histogram of height with Density Curve",
-       x = "height",
-       y = "Density") +
-  theme_minimal() +
-  theme(plot.title = element_text(face = "bold", hjust = 0.5),
-        axis.title.x = element_text(face = "bold"),
-        axis.title.y = element_text(face = "bold"))
-```
-
-Weight:
-
-```{webr-r}
-#| context: interactive
-
-ggplot(data, aes(x = weight)) +
-  geom_histogram(aes(y = after_stat(density)), binwidth = 5, fill = "steelblue", color = "black") +
-  geom_density(color = "darkred", linetype = "solid", linewidth = 1) +
-  labs(title = "Histogram of weight with Density Curve",
-       x = "weight",
-       y = "Density") +
-  theme_minimal() +
-  theme(plot.title = element_text(face = "bold", hjust = 0.5),
-        axis.title.x = element_text(face = "bold"),
-        axis.title.y = element_text(face = "bold"))
-```
-
-### Histogram of age
-
-Let's do the same but for age:
-
-```{webr-r}
-#| context: interactive
-
-ggplot(data, aes(x = age)) +
-  geom_histogram(aes(y = after_stat(density)), binwidth = 1, fill = "steelblue", color = "black") +
-  geom_density(color = "darkred", linetype = "solid", linewidth = 1) +
-  labs(title = "Histogram of age with Density Curve",
-       x = "age",
-       y = "Density") +
-  theme_minimal() +
-  theme(plot.title = element_text(face = "bold", hjust = 0.5),
-        axis.title.x = element_text(face = "bold"),
-        axis.title.y = element_text(face = "bold"))
-```
-
-Conversely to BMI, height and weight we see that age is not normally distributed, but this makes because we only recruited those over 50. If we were recruiting across all age ranges from the general population (i.e., not just from the university where most would be students between 18-25), then we probably would see a normal distribution.
+So you can see that the most common BMI is 25, with the variable normally distributed.
 
 ## Basic statistics and significance testing
 
@@ -232,13 +183,26 @@ men<-data[which(data$sex=="M"),]
 
 t.test(women$height, men$height)
 t.test(women$weight, men$weight)
+
+# one-tailed t-test
+t.test(women$height, men$height, alternative = "greater")
+t.test(women$weight, men$weight, alternative = "greater")
 ```
 
-So, we can see in the p-values that there is a statistically significant difference between the height and weight between males and females. (9.77e-10 is a 0 followed by 10 more zeroes so 0.000000000977).
+So, we can see in either case, the p-values that there is a statistically significant difference between the height and weight between males and females. (9.77e-10 is a 0 followed by 10 more zeroes so 0.000000000977).
 
-In the case that we want to see whether there is a significant relationship between two continuous variables, i.e., between age and Lesion Volume across the entire group, we can run a correlation. A correlation just checks whether or not as one measure increases, the other also increases and vice versa. For example, we can run a correlation between lesion volume and age to see if as lesion volume increases age also increases:
+In the case that we want to see whether there is a significant relationship between two continuous variables, i.e., between age and lesion volume across the entire group, we can run a correlation. A correlation just checks whether or not as one measure increases, the other also increases and vice versa. For example, we can run a correlation between lesion volume and age to see if as lesion volume increases age also increases:
 
 ### Correlation between Lesion Volume and age:
+
+```{webr-r}
+#| context: interactive
+
+
+cor_result <- cor.test(data$age, data$lesion_volume)
+r_value <- cor_result$estimate
+p_value <- cor_result$p.value
+```
 
 ```{webr-r}
 #| context: interactive
@@ -261,7 +225,7 @@ ggplot(data, aes(x = age, y = `lesion_volume`)) +
            hjust = 0, vjust = 1)
 ```
 
-So, whilst there is a significant relationship between age and Lesion Volume, we can see one or two outliers in our data. What would the data look like if we removed them?
+So, whilst there is a significant relationship between age and lesion volume (excluding other predictors), we can see one or two outliers in our data. What would the data look like if we removed them?
 
 ```{webr-r}
 #| context: interactive
@@ -407,238 +371,6 @@ print(percent_plot)
 ```
 
 So we can see that older participants took longer (on correct trials), and made more mistakes. Both of these are significant.
-
-Let's now finally look at each of these but separated by gender:
-
-```{webr-r}
-#| context: interactive
-
-# Create a theme for scientific publication
-theme_publication <- theme_minimal() +
-  theme(
-    plot.title = element_text(face = "bold", size = 14, hjust = 0.5),
-    axis.title = element_text(face = "bold", size = 12),
-    axis.text = element_text(size = 10),
-    legend.title = element_blank(),
-    legend.text = element_text(size = 10),
-    legend.position = "bottom"
-  )
-
-# Plot Age against correct_rt separated by Sex
-rt_model_m <- lm(correct_rt ~ Age, data = rt_data[rt_data$Sex == "M", ])
-rt_model_f <- lm(correct_rt ~ Age, data = rt_data[rt_data$Sex == "F", ])
-rt_p_value_m <- summary(rt_model_m)$coefficients[2, "Pr(>|t|)"]
-rt_p_value_f <- summary(rt_model_f)$coefficients[2, "Pr(>|t|)"]
-
-rt_plot <- ggplot(rt_data, aes(x = Age, y = correct_rt, color = Sex)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = FALSE, linetype = "solid") +
-  labs(title = "Reaction Time vs. Age by Sex",
-       x = "Age",
-       y = "Correct Reaction Time (ms)") +
-  scale_color_manual(values = c("darkblue", "darkred"),
-                     labels = c("Female", "Male")) +
-  theme_publication +
-  annotate("text", x = min(rt_data$Age), y = max(rt_data$correct_rt),
-           label = paste("Males: p-value =", format.pval(rt_p_value_m, digits = 3),
-                         "\nFemales: p-value =", format.pval(rt_p_value_f, digits = 3)),
-           hjust = 0, vjust = 1, size = 4) +
-  guides(color = guide_legend(title = "Sex"))
-
-# Plot Age against correct_percent separated by Sex
-percent_model_m <- lm(correct_percent ~ Age, data = rt_data[rt_data$Sex == "M", ])
-percent_model_f <- lm(correct_percent ~ Age, data = rt_data[rt_data$Sex == "F", ])
-percent_p_value_m <- summary(percent_model_m)$coefficients[2, "Pr(>|t|)"]
-percent_p_value_f <- summary(percent_model_f)$coefficients[2, "Pr(>|t|)"]
-
-percent_plot <- ggplot(rt_data, aes(x = Age, y = correct_percent, color = Sex)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = FALSE, linetype = "solid") +
-  labs(title = "Correct Percentage vs. Age by Sex",
-       x = "Age",
-       y = "Correct Percentage (%)") +
-  scale_color_manual(values = c("darkblue", "darkred"),
-                     labels = c("Female", "Male")) +
-  theme_publication +
-  annotate("text", x = min(rt_data$Age), y = min(rt_data$correct_percent),
-           label = paste("Males: p-value =", format.pval(percent_p_value_m, digits = 3),
-                         "\nFemales: p-value =", format.pval(percent_p_value_f, digits = 3)),
-           hjust = 0, vjust = 0, size = 4) +
-  guides(color = guide_legend(title = "Sex"))
-
-# Display the plots
-print(rt_plot)
-print(percent_plot)
-```
-
-So here we can see that there is a significant relationship between female age and reaction time (but not for males), but neither sex with correct percentage, although there are trends (i.e., the p-value is close to 0.05).
-
-Finally, we would like to see if there is an effect of lesions on the reaction time or percent accuracy. We can firstly plot this for the entire group:
-
-```{webr-r}
-#| context: interactive
-
-# Create a theme for scientific publication
-theme_publication <- theme_minimal() +
-  theme(
-    plot.title = element_text(face = "bold", size = 14, hjust = 0.5),
-    axis.title = element_text(face = "bold", size = 12),
-    axis.text = element_text(size = 10),
-    legend.position = "none"
-  )
-
-# Plot lesion_number against correct_percent
-model_ln_cp <- lm(correct_percent ~ lesion_number, data = rt_data)
-p_value_ln_cp <- summary(model_ln_cp)$coefficients[2, "Pr(>|t|)"]
-
-plot_ln_cp <- ggplot(rt_data, aes(x = lesion_number, y = correct_percent)) +
-  geom_point(color = "darkblue", alpha = 0.7) +
-  geom_smooth(method = "lm", se = FALSE, color = "darkblue", linetype = "solid") +
-  labs(title = "Lesion Number vs. Correct Percentage",
-       x = "Lesion Number",
-       y = "Correct Percentage (%)") +
-  annotate("text", x = max(rt_data$lesion_number), y = max(rt_data$correct_percent),
-           label = paste("p-value =", format.pval(p_value_ln_cp, digits = 3)),
-           hjust = 1, vjust = 1, size = 4) +
-  theme_publication
-
-# Plot lesion_number against correct_rt
-model_ln_rt <- lm(correct_rt ~ lesion_number, data = rt_data)
-p_value_ln_rt <- summary(model_ln_rt)$coefficients[2, "Pr(>|t|)"]
-
-plot_ln_rt <- ggplot(rt_data, aes(x = lesion_number, y = correct_rt)) +
-  geom_point(color = "darkred", alpha = 0.7) +
-  geom_smooth(method = "lm", se = FALSE, color = "darkred", linetype = "solid") +
-  labs(title = "Lesion Number vs. Correct Reaction Time",
-       x = "Lesion Number",
-       y = "Correct Reaction Time (ms)") +
-  annotate("text", x = max(rt_data$lesion_number), y = max(rt_data$correct_rt),
-           label = paste("p-value =", format.pval(p_value_ln_rt, digits = 3)),
-           hjust = 1, vjust = 1, size = 4) +
-  theme_publication
-
-# Plot lesion_volume against correct_percent
-model_lv_cp <- lm(correct_percent ~ lesion_volume, data = rt_data)
-p_value_lv_cp <- summary(model_lv_cp)$coefficients[2, "Pr(>|t|)"]
-plot_lv_cp <- ggplot(rt_data, aes(x = lesion_volume, y = correct_percent)) +
-  geom_point(color = "darkblue", alpha = 0.7) +
-  geom_smooth(method = "lm", se = FALSE, color = "darkblue", linetype = "solid") +
-  geom_vline(xintercept = 3, color = "red", linetype = "dashed") +  # Add this line
-  labs(title = "Lesion Volume vs. Correct Percentage",
-       x = "Lesion Volume",
-       y = "Correct Percentage (%)") +
-  annotate("text", x = max(rt_data$lesion_volume), y = max(rt_data$correct_percent),
-           label = paste("p-value =", format.pval(p_value_lv_cp, digits = 3)),
-           hjust = 1, vjust = 1, size = 4) +
-  theme_publication
-
-# Plot lesion_volume against correct_rt
-model_lv_rt <- lm(correct_rt ~ lesion_volume, data = rt_data)
-p_value_lv_rt <- summary(model_lv_rt)$coefficients[2, "Pr(>|t|)"]
-plot_lv_rt <- ggplot(rt_data, aes(x = lesion_volume, y = correct_rt)) +
-  geom_point(color = "darkred", alpha = 0.7) +
-  geom_smooth(method = "lm", se = FALSE, color = "darkred", linetype = "solid") +
-  geom_vline(xintercept = 3, color = "red", linetype = "dashed") +  # Add this line
-  labs(title = "Lesion Volume vs. Correct Reaction Time",
-       x = "Lesion Volume",
-       y = "Correct Reaction Time (ms)") +
-  annotate("text", x = max(rt_data$lesion_volume), y = max(rt_data$correct_rt),
-           label = paste("p-value =", format.pval(p_value_lv_rt, digits = 3)),
-           hjust = 1, vjust = 1, size = 4) +
-  theme_publication
-
-# Display the plots
-print(plot_ln_cp)
-print(plot_ln_rt)
-print(plot_lv_cp)
-print(plot_lv_rt)
-```
-
-But you can see that there are outliers for the last two graphs, indicated by those beyond the red line. What would happen if we removed these from the plots?
-
-```{webr-r}
-#| context: interactive
-
-# Create a theme for scientific publication
-theme_publication <- theme_minimal() +
-  theme(
-    plot.title = element_text(face = "bold", size = 14, hjust = 0.5),
-    axis.title = element_text(face = "bold", size = 12),
-    axis.text = element_text(size = 10),
-    legend.position = "none"
-  )
-
-# Subset the data to exclude lesion_volume greater than 3
-rt_data_subset <- subset(rt_data, lesion_volume <= 3)
-
-# Plot lesion_number against correct_percent
-model_ln_cp <- lm(correct_percent ~ lesion_number, data = rt_data_subset)
-p_value_ln_cp <- summary(model_ln_cp)$coefficients[2, "Pr(>|t|)"]
-
-plot_ln_cp <- ggplot(rt_data_subset, aes(x = lesion_number, y = correct_percent)) +
-  geom_point(color = "darkblue", alpha = 0.7) +
-  geom_smooth(method = "lm", se = FALSE, color = "darkblue", linetype = "solid") +
-  labs(title = "Lesion Number vs. Correct Percentage",
-       x = "Lesion Number",
-       y = "Correct Percentage (%)") +
-  annotate("text", x = max(rt_data_subset$lesion_number), y = max(rt_data_subset$correct_percent),
-           label = paste("p-value =", format.pval(p_value_ln_cp, digits = 3)),
-           hjust = 1, vjust = 1, size = 4) +
-  theme_publication
-
-# Plot lesion_number against correct_rt
-model_ln_rt <- lm(correct_rt ~ lesion_number, data = rt_data_subset)
-p_value_ln_rt <- summary(model_ln_rt)$coefficients[2, "Pr(>|t|)"]
-
-plot_ln_rt <- ggplot(rt_data_subset, aes(x = lesion_number, y = correct_rt)) +
-  geom_point(color = "darkred", alpha = 0.7) +
-  geom_smooth(method = "lm", se = FALSE, color = "darkred", linetype = "solid") +
-  labs(title = "Lesion Number vs. Correct Reaction Time",
-       x = "Lesion Number",
-       y = "Correct Reaction Time (ms)") +
-  annotate("text", x = max(rt_data_subset$lesion_number), y = max(rt_data_subset$correct_rt),
-           label = paste("p-value =", format.pval(p_value_ln_rt, digits = 3)),
-           hjust = 1, vjust = 1, size = 4) +
-  theme_publication
-
-# Plot lesion_volume against correct_percent
-model_lv_cp <- lm(correct_percent ~ lesion_volume, data = rt_data_subset)
-p_value_lv_cp <- summary(model_lv_cp)$coefficients[2, "Pr(>|t|)"]
-
-plot_lv_cp <- ggplot(rt_data_subset, aes(x = lesion_volume, y = correct_percent)) +
-  geom_point(color = "darkblue", alpha = 0.7) +
-  geom_smooth(method = "lm", se = FALSE, color = "darkblue", linetype = "solid") +
-  labs(title = "Lesion Volume vs. Correct Percentage",
-       x = "Lesion Volume",
-       y = "Correct Percentage (%)") +
-  annotate("text", x = max(rt_data_subset$lesion_volume), y = max(rt_data_subset$correct_percent),
-           label = paste("p-value =", format.pval(p_value_lv_cp, digits = 3)),
-           hjust = 1, vjust = 1, size = 4) +
-  theme_publication
-
-# Plot lesion_volume against correct_rt
-model_lv_rt <- lm(correct_rt ~ lesion_volume, data = rt_data_subset)
-p_value_lv_rt <- summary(model_lv_rt)$coefficients[2, "Pr(>|t|)"]
-
-plot_lv_rt <- ggplot(rt_data_subset, aes(x = lesion_volume, y = correct_rt)) +
-  geom_point(color = "darkred", alpha = 0.7) +
-  geom_smooth(method = "lm", se = FALSE, color = "darkred", linetype = "solid") +
-  labs(title = "Lesion Volume vs. Correct Reaction Time",
-       x = "Lesion Volume",
-       y = "Correct Reaction Time (ms)") +
-  annotate("text", x = max(rt_data_subset$lesion_volume), y = max(rt_data_subset$correct_rt),
-           label = paste("p-value =", format.pval(p_value_lv_rt, digits = 3)),
-           hjust = 1, vjust = 1, size = 4) +
-  theme_publication
-
-# Display the plots
-print(plot_ln_cp)
-print(plot_ln_rt)
-print(plot_lv_cp)
-print(plot_lv_rt)
-```
-
-So you can see a difference (particularly in the last graph) although none of the relationships become significant by removing the outliers.
 
 ## Linear regression 
 

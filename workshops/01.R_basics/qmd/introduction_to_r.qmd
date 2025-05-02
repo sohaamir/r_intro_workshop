@@ -4,7 +4,7 @@ subtitle: "An overview of data structures, functions, packages and data visualiz
 format: html
 webr: 
   show-startup-message: true
-  packages: ['ggplot2', 'tidyverse', 'tidyr']
+  packages: ['tidyverse']
   channel-type: "post-message"
 filters:
   - webr
@@ -18,7 +18,11 @@ execute:
 ---
 
 :::{.callout-tip title="Running code in the browser"}
-Certain code chunks in the course are executable. Press <i class="fa-solid fa-play" style="color: #28f064;"></i> to run the code!
+The workshop uses executable code chunks in the browser via [`WebR`](https://docs.r-wasm.org/webr/latest/). Press <i class="fa-solid fa-play" style="color: #28f064;"></i> to run the code!
+:::
+
+:::{.callout-caution title="Setting variables"}
+If the code fails to run or throws up an error, it is most likely because it relies upon variables that were set in a previous chunk which were not run. Please make sure that you run all of the chunks in order!
 :::
 
 `R` is a powerful open-source programming language and software environment primarily designed for statistical computing, data analysis, and graphical visualization.
@@ -176,6 +180,12 @@ x * y
 R is case sensitive, so `X` and `x` are not the same object!
 :::
 
+```{webr-r}
+#| context: interactive
+
+X * y # This will throw an error
+```
+
 ## Data structures
 
 `R` offers several data structures that serve different purposes. Each structure is designed to handle specific types of data organization, from simple one-dimensional vectors to complex nested lists[^1].
@@ -310,10 +320,32 @@ We commonly use logical operators in `R` to help make decisions in code and are 
 | `x & y`      | x AND y                   |
 
 </div>
+<br>
 
-### Basic `R` functions
+Some example using the `students` dataframe:
+```{webr-r}
+#| context: interactive
 
-We can perform basic statistics and operations on variables, such as getting the variance, standard deviation and summary statistics:
+# Less than (<) - Students with Math below 90
+subset(students, Math < 90) # Returns Bob (88)
+
+# Equal to (==) - Male students
+subset(students, Gender == "M") # Returns Bob & Charlie
+
+# Not equal to (!=) - Non-female students
+subset(students, Gender != "F") # Returns Bob & Charlie
+
+# OR (|) - Math OR Science > 90
+subset(students, Math > 90 | Science > 90) # Returns all three students
+
+# AND (&) - Math & Science > 90
+subset(students, Math > 90 & Science >= 90) # Returns Charlie only
+```
+
+### Basic statistical functions in `R`
+
+We can also perform basic statistics and operations on variables, such as getting the variance, standard deviation and summary statistics. 
+These are done using built-in functions in `R` including `var()`, `sd()`, `sum()`, `mean()`, `min()`, and `max()`.
 ```{webr-r}
 #| context: interactive
 # Create a vector of 10 random numbers between 1-100 using the sample() command
@@ -341,9 +373,7 @@ Here are some other commands that will be useful when working with `R` more gene
 #| context: interactive
 
 getwd() # Get current working directory
-
 setwd("your/path/here")  # Set working directory to your path
-
 dir() # List files in current directory
 ```
 
@@ -402,6 +432,10 @@ They are not part of the base `R` installation but can be easily added and used 
 
 - **Enable special features:** Packages can implement specialized features like statistical models, machine learning algorithms, or tools for web scraping, reporting, and more.
 
+::: {.callout-tip title="Loading packages for this workshop"}
+I have written 'hidden' code which automatically installs and then loads in the packages needed for this workshop everytime the browser is refreshed. However you would need to write code to load packages in the RStudio environment when writing your own scripts.
+:::
+
 ### How to use packages in R
 
 Installing: You can install a package from CRAN (the Comprehensive R Archive Network) using the `install.packages()` function.
@@ -430,6 +464,8 @@ Popular R packages include:
 - `dplyr`: A package for data manipulation (filtering, selecting, grouping, etc.).
 - `tidyr`: Used for tidying data, such as reshaping and pivoting.
 - `shiny`: For building interactive web applications in `R`.
+
+We will be using `tidyverse` - a collection of packages for data manipulation and visualization including `dplyr`, `tidyr`, and `ggplot2` - in this workshop.
 
 You can find and install R packages from a number of sources:
 
