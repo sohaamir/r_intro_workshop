@@ -19,12 +19,12 @@ execute:
 
 Now that you have a basic understanding how how `R` works, and what it is used for, let's put our newly learned skills to practical use.
 
-When working with data in our studies, we can consider `R` to be the central software for data management, analysis and plotting.
-It is quite robust for this purpose, in that it also reads in data of many different types and from many different sources [^1]:
+When working with data in our studies, we can consider `R` to be the central software for data management, analysis and plotting. It is quite robust for this purpose, in that it also reads in data of many different types and from many different sources [^1]:
 
-[^1]: Kabacoff, R. I. (2022). R in action: data analysis and graphics with R and Tidyverse. Simon and Schuster. 
+[^1]: Kabacoff, R. I. (2022). R in action: data analysis and graphics with R and Tidyverse. Simon and Schuster.
 
-<div style="height: 5px;"></div>
+::: {style="height: 5px;"}
+:::
 
 ![](/images/01.R_basics/data_management.png){fig-align="center" width="60%"}
 
@@ -32,8 +32,7 @@ It is quite robust for this purpose, in that it also reads in data of many diffe
 
 In this section we will directly work with some experimental data from the [HAVEN](https://research.reading.ac.uk/cinn/research-studies/haven/) study.
 
-HAVEN was a study investigating the relationship between cognition, neurovascular health and platelet function in older adults. 
-For the purposes of this workshop, we will be using a subset of the data from the study, specifically focusing on simple demographical and behavioural data.
+HAVEN was a study investigating the relationship between cognition, neurovascular health and platelet function in older adults. For the purposes of this workshop, we will be using a subset of the data from the study, specifically focusing on simple demographical and behavioural data.
 
 We will firstly plot the data using a variety of plots to understand how certain graphs are preferred for certain data. We will then perform basic statistical tests to understand whether the relationship between the variables are significant.
 
@@ -41,8 +40,7 @@ We will firstly plot the data using a variety of plots to understand how certain
 
 First thing first, we need to load and read the data. The first dataset is in the `participant_data.csv` file. This file format is called 'comma separated values' or CSV, which we can read into R using the `read_csv` function. We firstly assign the data to a variable called `data`, which we can now work directly with.
 
-In the code below, we are downloading the data from the internet and saving it to our working directory. We can then read it in using `read.csv`. 
-The first two lines are specific to our online implementation of code; in `R` you can just run the bottom line.
+In the code below, we are downloading the data from the internet and saving it to our working directory. We can then read it in using `read.csv`. The first two lines are specific to our online implementation of code; in `R` you can just run the bottom line.
 
 ```{webr-r}
 #| context: interactive
@@ -84,8 +82,7 @@ ggplot(data, aes(x = age, y = `lesion_volume`)) +
   theme_minimal()
 ```
 
-Here we are using the `ggplot2` package using the `geom_point` function to create the points, and the `geom_smooth` function to add a line of best fit. 
-The `method = "lm"` argument specifies that we want to use a simple linear regression model for the line of best fit.
+Here we are using the `ggplot2` package using the `geom_point` function to create the points, and the `geom_smooth` function to add a line of best fit. The `method = "lm"` argument specifies that we want to use a simple linear regression model for the line of best fit.
 
 So, you can see a positive correlation, namely that (generally) the older you are, the higher the total lesion volume will be.
 
@@ -191,18 +188,23 @@ t.test(women$weight, men$weight, alternative = "greater")
 
 So, we can see in either case, the p-values that there is a statistically significant difference between the height and weight between males and females. (9.77e-10 is a 0 followed by 10 more zeroes so 0.000000000977).
 
-In the case that we want to see whether there is a significant relationship between two continuous variables, i.e., between age and lesion volume across the entire group, we can run a correlation. A correlation just checks whether or not as one measure increases, the other also increases and vice versa. For example, we can run a correlation between lesion volume and age to see if as lesion volume increases age also increases:
+### Correlation
 
-### Correlation between Lesion Volume and age:
+In the case that we want to see whether there is a significant relationship between two continuous variables, i.e., between age and lesion volume across the entire group, we can run a correlation. We can do this using the `cor.test` function, which will give us the correlation coefficient (r) and the corresponding p-value.
 
 ```{webr-r}
 #| context: interactive
 
-
+# Perform correlation test between age and lesion volume
 cor_result <- cor.test(data$age, data$lesion_volume)
 r_value <- cor_result$estimate
 p_value <- cor_result$p.value
+
+print(p_value)
+print(r_value)
 ```
+
+And we can also directly plot this using `ggplot`:
 
 ```{webr-r}
 #| context: interactive
@@ -227,11 +229,29 @@ ggplot(data, aes(x = age, y = `lesion_volume`)) +
 
 So, whilst there is a significant relationship between age and lesion volume (excluding other predictors), we can see one or two outliers in our data. What would the data look like if we removed them?
 
+We need to remove those with lesion volumes greater than 5. In `R` there are often several ways to perform the same operation, here are some examples which we can use:
+
+```{r, eval=FALSE}
+
+# Remove rows where lesion_volume exceeds 5
+data_removed <- data[data$lesion_volume <= 5, ]
+
+# Alternatively, using dplyr
+library(dplyr)
+data_removed <- data %>%
+  filter(lesion_volume <= 5)
+
+# Or using the subset function
+data_removed <- subset(data, lesion_volume <= 5)
+```
+
+Let's use the first approach and then plot the relationship with a line of best fit:
+
 ```{webr-r}
 #| context: interactive
 
-# Remove 21st and 30th rows
-data_removed <- data[-c(21, 30),]
+# Remove rows where lesion_volume exceeds 5
+data_removed <- data[data$lesion_volume <= 5, ]
 
 # Perform linear regression
 model <- lm(`lesion_volume` ~ age, data = data_removed)
@@ -282,11 +302,11 @@ ggplot(data_removed, aes(x = age, y = `lesion_volume`, color = sex)) +
            hjust = 0, vjust = 1)
 ```
 
-We can now see that there is only a significant difference in the relationship between age and total lesion volume for females, and not for males. Why do you think that this is? Regardless, by looking at the data in this way we have found something interesting (which we didn't see before) that we can subsequently look at further.
+We can now see that there is only a significant difference in the relationship between age and total lesion volume for females, and not for males. Regardless, by looking at the data in this way we have found something interesting (which we didn't see before) that we can subsequently look at further.
 
-## Reaction times and accuracy
+## Regression models
 
-Finally, we may also be interested with understanding the potential impact of demographic and brain factors upon behaviour. To do this we can look at participants' reaction times and accuracy during the episodic memory task using the `rt_data` dataset.
+In the HAVEN study, we were interested with understanding the potential impact of demographic and brain factors upon behaviour. To do this we can look at participants' reaction times and accuracy during an episodic memory task using the `rt_data` dataset.
 
 ```{webr-r}
 #| context: interactive
@@ -312,17 +332,17 @@ And `summary`:
 summary(rt_data)
 ```
 
-At a first glance, there are some clear questions that we can investigate:
+It is essentially an expanded version of the previous dataset, which included accuracy and mean reaction time for correct and incorrect responses.
 
--   Does age affect reaction time/accuracy?
--   Does sex affect reaction time/accuracy?
--   Is there a sex by age effect?
--   Does lesion volume/number affect reaction time/accuracy?
+Our goal is to create a model to describe how various factors influence participants' performance on the task.
 
-### Age and reaction time/accuracy
+But first, lets plot the relationship between age and performance on the task, both for the reaction time (only for ones they got correct) and the percentage accuracy.
 
-Firstly, lets plot the relationship between age and performance on the task, both for the reaction time (only for ones they got correct) and the percentage accuracy:
+:::{.callout-tip title="Look at your data"}
+Before running any modelling analyses, it is always a good idea to look at your data and it's relationships, even it is rudimentary!
+:::
 
+We can do this using `ggplot2` and the `lm` function to create a simple linear model. We will also add a line of best fit to the plot, and annotate it with the p-value from the model.
 ```{webr-r}
 #| context: interactive
 
@@ -372,8 +392,82 @@ print(percent_plot)
 
 So we can see that older participants took longer (on correct trials), and made more mistakes. Both of these are significant.
 
-## Linear regression 
+### Creating a linear regression model for task performance
+
+Linear regression helps us understand how different factors ("predictors") influence an outcome ("dependent variable"). In our case, we want to see how age, sex, and education affect task performance (reaction time and accuracy).
+
+Let's start with one predictor - age:
+```{webr-r}
+#| context: interactive
+
+# Simple regression model
+model1 <- lm(correct_rt ~ Age, data = rt_data)
+
+# View results
+summary(model1)
+```
+
+Now let's add sex and education:
+```{webr-r}
+#| context: interactive
+
+# Multiple regression model
+model2 <- lm(correct_rt ~ Age + Sex + education, data = rt_data)
+
+# View results
+summary(model2)
+```
+
+Is the more complex model significantly better?
+```{webr-r}
+#| context: interactive
+#| context: interactive
+anova(model1, model2)
+```
 
 
+## Calculating group differences using ANOVA 
+
+We know that there is a correlation between age and lesion volume, but is there a difference between groups? We can use ANOVA to test this.
+
+Firstly, let's see the summary statistics for Males and Females:
+
+```{webr-r}
+#| context: interactive
+
+# Calculate summary statistics
+sex_stats <- rt_data %>%
+  group_by(Sex) %>%
+  summarise(
+    n = n(),
+    mean_rt = mean(correct_rt, na.rm = TRUE),
+    sd_rt = sd(correct_rt, na.rm = TRUE),
+    mean_acc = mean(correct_percent, na.rm = TRUE),
+    sd_acc = sd(correct_percent, na.rm = TRUE)
+  )
+
+sex_stats
+```
+
+
+```{webr-r}
+#| context: interactive
+# ANOVA for reaction time
+rt_anova <- aov(correct_rt ~ Sex, data = rt_data)
+
+# View results
+summary(rt_anova)
+```
+
+
+
+```{webr-r}
+#| context: interactive
+# ANOVA for accuracy
+acc_anova <- aov(correct_percent ~ Sex, data = rt_data)
+
+# View results
+summary(acc_anova)
+```
 
 
