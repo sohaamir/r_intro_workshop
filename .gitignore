@@ -5,6 +5,8 @@
 .Ruserdata
 *.Rhistory
 *.pper
+.Rprofile
+.Renviron
 
 # Quarto and site build directories
 /.quarto/
@@ -16,3 +18,6 @@
 
 # macOS system files
 **/.DS_Store
+
+# PPT
+haven_diagram.pptx

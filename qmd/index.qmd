@@ -3,7 +3,7 @@ title: "Introduction to R for Behavioural Researchers"
 subtitle: "Using R and RStudio for Simple Data Analysis and Visualization"
 ---
 
-![](images/introduction/.png){width="100%"}
+![](../images/introduction/.png){width="100%"}
 
 ::: {.content-visible when-format="html"}
 ![Visitors](https://pageview.vercel.app/?github_user=alpn-lab/BayesCog)
@@ -20,7 +20,7 @@ In the course, students will learn basics of the R programming language, navigat
 
 ## Contributors
 
-![](images/introduction/aamir.png){width="20%"}
+![](../images/introduction/aamir.png){width="20%"}
 
 <span style="font-size: 1.2em;">**Aamir Sohail**</span>
 
@@ -44,7 +44,7 @@ This course is licensed under a [Creative Commons Attribution-ShareAlike 4.0 Int
 You are free to share, copy, and redistribute the material in any medium or format. Additionally, you can adapt, remix, transform, and build upon the material for any purpose, including commercial use.
 However, you must provide appropriate attribution, including credit to the original source, a link to the license, and an indication if changes were made. Furthermore, if you remix, transform, or build upon the material, you are required to distribute your contributions under the same license as the original.
 
-![](images/introduction/cc_by_sa.png){width="10%"}
+![](../images/introduction/cc_by_sa.png){width="10%"}
 
 ## Contact
 

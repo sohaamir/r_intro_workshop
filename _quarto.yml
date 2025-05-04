@@ -19,27 +19,31 @@ website:
     align: center
     tools: 
       - icon: globe
-        href: https://alpn-lab.github.io
-        text: "ALPN Lab Website"
+        href: https://sohaamir.github.io
+        text: "Aamir Website"
       - icon: github
-        href: https://github.com/alpn-lab
-        text: "ALPN Lab GitHub"
+        href: https://github.com/sohaamir
+        text: "Aamir GitHub"
       - icon: twitter
-        href: https://twitter.com/ALPN_Lab
-        text: "ALPN Lab Twitter"         
+        href: https://twitter.com/AamirNSohail
+        text: "Aamir Twitter"         
 
     style: "docked"
     search: true
     collapse-level: 1
     contents:
-      - href: index.qmd
-        text: Welcome
-      - text: "Introduction to R/RStudio"
-        href: workshops/01.R_basics/qmd/introduction_to_r.qmd
-      - text: "Basic data analysis and plotting"
-        href: workshops/01.R_basics/qmd/working_with_data.qmd
-      - text: Resources
-        href: resources.qmd
+      - href: qmd/index.qmd
+        text: "Welcome"
+      - href: qmd/introduction_to_r.qmd
+        text: "Introduction to R/RStudio"
+      - href: qmd/working_with_data.qmd
+        text: "Basic data analysis and plotting"
+      - href: qmd/r_tips.qmd
+        text: "Tips for programming in R"
+      - href: qmd/resources.qmd
+        text: "Resources"
+      - href: qmd/acknowledgments.qmd
+        text: "Acknowledgments"
 
 format:
   html:

@@ -1,0 +1,53 @@
+---
+title: "Acknowledgments"
+format: html
+webr: 
+  show-startup-message: true
+  packages: ['tidyverse', 'ggtext']
+  channel-type: "post-message"
+filters:
+  - webr
+editor_options: 
+  chunk_output_type: console
+execute:
+  echo: true
+  warning: false
+  message: false
+  eval: true
+---
+
+This resource would not be possible without the support and contributions of others, in particular the following:
+
+- Gabriella Rossetti (MMU), Julie Lovegrove (Reading), Jon Gibbins (Reading) and Anastasia Christakou (Reading) as well as the rest of the HAVEN team for data
+- Lei Zhang (Birmingham) for figures and feedback on the material
+
+
+Run the code below!
+```{webr-r}
+#| context: interactive
+
+finish_plot <- ggplot() +
+  annotate("text", x = 0, y = 0.5, 
+           label = "THANK YOU!", 
+           size = 20, 
+           fontface = "bold",
+           color = "#2E86AB") +
+  annotate("text", x = -0.3, y = 0.3, label = "✨", size = 10, color = "#F24236") +
+  annotate("text", x = 0.3, y = 0.3, label = "✨", size = 10, color = "#F24236") +
+  annotate("text", x = -0.2, y = 0.7, label = "🙏", size = 15, color = "#F6AE2D") +
+  annotate("text", x = 0.2, y = 0.7, label = "😊", size = 15, color = "#F6AE2D") +
+  annotate("text", x = 0, y = 0.2, 
+           label = "", 
+           size = 8, 
+           fontface = "italic",
+           color = "#666666") +
+  theme_void() +
+  theme(
+    plot.background = element_rect(fill = "#F5F5F5", color = NA),
+    plot.margin = margin(20, 20, 20, 20)
+  ) +
+  xlim(-0.5, 0.5) +
+  ylim(0, 1)
+
+print(finish_plot)
+```
