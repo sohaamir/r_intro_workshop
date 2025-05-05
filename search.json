@@ -140,11 +140,11 @@
     ]
   },
   {
-    "objectID": "qmd/index.html#welcome",
-    "href": "qmd/index.html#welcome",
+    "objectID": "qmd/index.html",
+    "href": "qmd/index.html",
     "title": "Introduction to R for Behavioural Researchers",
-    "section": "Welcome",
-    "text": "Welcome\nThis website is an introduction to R, designed to be used as a course for students who are new to R and RStudio, assuming no prior programming experience.\nIn the course, students will learn basics of the R programming language, navigate RStudio and learn how to perform basic data analysis and visualization.\nThe course is designed for students with no prior programming experience, and will cover the following topics: - Introduction to R and RStudio - Data types and structures in R - Data visualization using ggplot2 - Basic statistical analysis including t-tests and ANOVA - Best practices for data analysis and reproducibility (e.g., using git and GitHub)\n\nWorking with the course material\nThe course is designed to be ran directly in the browser, using webR. This does not require any dependencies or software to be installed, and allows for changes to be made to the code directly in real time.\nHowever, you can also choose to run the code directly in RStudio as well. To do this, please do the following (assuming you have R, RStudio and git installed):\n\nClone the GitHub repository\n\ngit clone https://github.com/sohaamir/r_intro_workshop.git\ncd r_intro_workshop\n\nRestore the R environment\n\nrenv::restore()\n\nOpen the rmd folder and run the scripts",
+    "section": "",
+    "text": "This website is an introduction to R, designed to be used as a course for students who are new to R and RStudio, assuming no prior programming experience1:\nIn the course, students will learn basics of the R programming language, navigate RStudio and learn how to perform basic data analysis and visualization.\nThe course is designed for students with no prior programming experience, and will cover the following topics: - Introduction to R and RStudio - Data types and structures in R - Data visualization using ggplot2 - Basic statistical analysis including t-tests and ANOVA - Best practices for data analysis and reproducibility (e.g., using git and GitHub)",
     "crumbs": [
       "Welcome"
     ]
@@ -175,6 +175,16 @@
     "title": "Introduction to R for Behavioural Researchers",
     "section": "Contact",
     "text": "Contact\nFor bug reports, issues or comments, please contact Aamir Sohail, or open a thread on the GitHub repository.",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "qmd/index.html#footnotes",
+    "href": "qmd/index.html#footnotes",
+    "title": "Introduction to R for Behavioural Researchers",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nOpenAI (2025). Image created using ChatGPT (GPT4o) (https://chat.openai.com/). 5th May 2025.↩︎",
     "crumbs": [
       "Welcome"
     ]
