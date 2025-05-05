@@ -18,6 +18,16 @@ We will firstly plot the data using a variety of plots to understand how certain
 
 ### Load and display the data
 
+Install packages (only run this if you haven't restored the environment)
+
+```{r, message=FALSE, warning=FALSE}}
+rm(list=ls())
+
+install.packages("tidyverse", "dplyr")
+library(tidyverse)
+library(dplyr)
+```
+
 First thing first, we need to load and read the data. The first dataset is in the `participant_data.csv` file. This file format is called 'comma separated values' or CSV, which we can read into R using the `read_csv` function. We firstly assign the data to a variable called `sub_data` (short for subject data), which we can now work directly with.
 
 In the code below, we are downloading the data from a GitHub repository and saving it to our working directory. We can then read it in using the `read.csv` function from `tidyverse`. The first two lines are only required for the online workshop where we run code in the browser; in `R` you can just run the bottom line.

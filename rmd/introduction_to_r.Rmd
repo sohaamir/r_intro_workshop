@@ -4,9 +4,11 @@ subtitle: "Data structures, functions, packages and the RStudio environment"
 format: html
 ---
 
-Install packages
+Install packages (only run this if you haven't restored the environment)
 
 ```{r, message=FALSE, warning=FALSE}}
+rm(list=ls())
+
 install.packages("tidyverse", "dplyr")
 library(tidyverse)
 library(dplyr)

@@ -4,7 +4,7 @@ subtitle: "Using tidyverse and ggplot2 to analyse and plot data"
 format: html
 webr: 
   show-startup-message: true
-  packages: ['tidyverse', 'ggpubr', 'viridis', 'gridExtra']
+  packages: ['tidyverse']
   channel-type: "post-message"
 filters:
   - webr
@@ -23,7 +23,7 @@ When working with data in our studies, we can consider `R` to be the central sof
 
 [^1]: Kabacoff, R. I. (2022). R in action: data analysis and graphics with R and Tidyverse. Simon and Schuster.
 
-![](/images/01.R_basics/data_management.png){fig-align="center" width="60%"}
+![](/images/working_with_data/data_management.png){fig-align="center" width="60%"}
 
 ## Working with behavioural data in R
 
