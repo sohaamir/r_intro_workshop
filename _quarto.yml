@@ -7,8 +7,8 @@ project:
 website: 
   page-navigation: true
   title: "An IntRoduction to R and RStudio" 
-  site-url: https://alpn-lab.github.io/BayesCog
-  repo-url: https://github.com/alpn-lab/BayesCog
+  site-url: https://sohaamir.github.io/r_intro_workshop
+  repo-url: https://github.com/sohaamir/r_intro_workshop
   repo-actions: [issue]
   
   page-footer:
