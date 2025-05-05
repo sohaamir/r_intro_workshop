@@ -58,7 +58,7 @@ Just to see if we have loaded in the correct file and correctly assigned it, we 
 head(sub_data)
 ```
 
-So you can see we have a variety of different variables, including `age`, `sex`, `height`, `weight`, `bmi` and `lesion_volume`.
+So you can see we have a variety of different variables, including `age`, `gender`, `height`, `weight`, `bmi` and `lesion_volume`.
 
 We can calculate summary statistics for each variable using the `summary` function. The summary statistics will give us the mean, range etc. for each.
 
@@ -97,11 +97,11 @@ Here we are specifically using the `ggplot2` package using the `geom_point` func
 
 So, you can see a positive correlation, namely that (generally) the older you are, the higher the total lesion volume will be.
 
-If we wanted to understand whether there is a difference between the height and weight between males and females, we can also do this using a scatter plot, but grouped by sex:
+If we wanted to understand whether there is a difference between the height and weight between males and females, we can also do this using a scatter plot, but grouped by gender:
 ```{webr-r}
 #| context: interactive
 
-ggplot(sub_data, aes(x=height, y=weight, colour=sex)) + 
+ggplot(sub_data, aes(x=height, y=weight, colour=gender)) + 
   geom_point() +
     labs(x = "Height (m)",
          y = "Weight (kg)") +
@@ -116,19 +116,19 @@ To see the specific differences between males and females, we can create a boxpl
 ```{webr-r}
 #| context: interactive
 
-# Plot 1: Height by Sex
-ggplot(sub_data, aes(x = sex, y = height, fill = sex)) +
+# Plot 1: Height by gender
+ggplot(sub_data, aes(x = gender, y = height, fill = gender)) +
   geom_boxplot(width = 0.3) + 
   stat_summary(fun = mean, geom = "point", shape = 18, size = 4, color = "red") +
-  labs(x = "Sex",
+  labs(x = "gender",
        y = "Height (m)") +
   theme_minimal()
 
-# Plot 2: Weight by Sex
-ggplot(sub_data, aes(x = sex, y = weight, fill = sex)) +
+# Plot 2: Weight by gender
+ggplot(sub_data, aes(x = gender, y = weight, fill = gender)) +
   geom_boxplot(width = 0.3) +
   stat_summary(fun = mean, geom = "point", shape = 18, size = 4, color = "red") +
-  labs(x = "Sex",
+  labs(x = "gender",
        y = "Weight (kg)") +
   theme_minimal()
 ```
@@ -161,19 +161,19 @@ So you can see that the most common BMI is 25, with the variable normally distri
 
 So we have been able to visualise the data, and now have a general idea of some of the trends. But how can we test whether these relationships are significant? Can we statistically say that men are taller than women? Can we say that the older you are the higher lesion volume you have?
 
-To answer these questions, lets firstly get some more summary statistics, this time for height and weight specificially. We firstly group the data by sex and run the `summarise` function to calculate the mean and standard deviation for each group.
+To answer these questions, lets firstly get some more summary statistics, this time for height and weight specificially. We firstly group the data by gender and run the `summarise` function to calculate the mean and standard deviation for each group.
 
 ```{webr-r}
 #| context: interactive
 
-group_by(sub_data, sex) %>%
+group_by(sub_data, gender) %>%
   summarise(
     count = n(),
     mean = mean(height, na.rm = TRUE),
     sd = sd(height, na.rm = TRUE)
   )
 
-group_by(sub_data, sex) %>%
+group_by(sub_data, gender) %>%
   summarise(
     count = n(),
     mean = mean(weight, na.rm = TRUE),
@@ -190,8 +190,8 @@ But is this difference significant? To find out the statistical difference betwe
 #| context: interactive
 
 # filter the data
-males <- sub_data[sub_data$sex == "M", ]
-females <- sub_data[sub_data$sex == "F", ]
+males <- sub_data[sub_data$gender == "M", ]
+females <- sub_data[sub_data$gender == "F", ]
 
 # Two-tailed t-test (when you don't know the direction of the difference)
 
@@ -331,18 +331,18 @@ Finally, we may also want to see if there is a difference between males and fema
 #| context: interactive
 
 # Perform linear regression for males and females separately
-model_male <- lm(`lesion_volume` ~ age, data = sub_data_filtered[sub_data_filtered$sex == "M",])
-model_female <- lm(`lesion_volume` ~ age, data = sub_data_filtered[sub_data_filtered$sex == "F",])
+model_male <- lm(`lesion_volume` ~ age, data = sub_data_filtered[sub_data_filtered$gender == "M",])
+model_female <- lm(`lesion_volume` ~ age, data = sub_data_filtered[sub_data_filtered$gender == "F",])
 
 # Extract p-values
 p_value_male <- summary(model_male)$coefficients[2, "Pr(>|t|)"]
 p_value_female <- summary(model_female)$coefficients[2, "Pr(>|t|)"]
 
 # Create a scatter plot separating Males and Females
-ggplot(sub_data_filtered, aes(x = age, y = lesion_volume, color = sex)) +
+ggplot(sub_data_filtered, aes(x = age, y = lesion_volume, color = gender)) +
   geom_point() +
   geom_smooth(method = "lm", se = TRUE, linetype = "solid") +
-  labs(title = "Scatter plot of age and Total lesion volume by sex",
+  labs(title = "Scatter plot of age and Total lesion volume by gender",
        x = "age",
        y = "lesion_volume") +
   scale_y_continuous(limits = c(0, 5)) +
@@ -374,7 +374,7 @@ Let's load in the data:
 ```{webr-r}
 #| context: interactive
 
-url <- "https://raw.githubusercontent.com/sohaamir/placement_materials/refs/heads/main/data/rt_data.csv"
+url <- "https://raw.githubusercontent.com/sohaamir/r_intro_workshop/refs/heads/main/data/rt_data.csv"
 download.file(url, "rt_data.csv")
 rt_data <- read.csv("rt_data.csv")
 ```
@@ -394,14 +394,6 @@ summary(rt_data)
 ```
 
 You can see that it is essentially an expanded version of the previous dataset, which includes accuracy and mean reaction time for correct and incorrect responses. Our goal is to create a model to describe how various factors influence participants' performance on the task.
-
-Let's firstly change the column names to be lowercase using the `tolower()` function - this makes it easier to work with!
-```{webr-r}
-#| context: interactive
-
-names(rt_data) <- tolower(names(rt_data))
-names(rt_data)
-```
 
 As before, let's plot the relationship between age and performance on the task, both for the reaction time (only for ones they got correct) and the percentage accuracy.
 
@@ -472,23 +464,23 @@ But is there a difference between males and females? Let's plot the correct reac
 ```{webr-r}
 #| context: interactive
 
-## Calculate correlation and p-values for each sex
-male_data <- rt_data[rt_data$sex == "M", ]
-female_data <- rt_data[rt_data$sex == "F", ]
+## Calculate correlation and p-values for each gender
+male_data <- rt_data[rt_data$gender == "M", ]
+female_data <- rt_data[rt_data$gender == "F", ]
 
 male_corr <- cor.test(male_data$age, male_data$correct_rt)
 female_corr <- cor.test(female_data$age, female_data$correct_rt)
 
-# Create plot with separate colors and regression lines for each sex
-percent_plot_by_sex <- ggplot(rt_data, aes(x = age, y = correct_rt, color = sex, fill = sex)) +
+# Create plot with separate colors and regression lines for each gender
+percent_plot_by_gender <- ggplot(rt_data, aes(x = age, y = correct_rt, color = gender, fill = gender)) +
   geom_point(size = 3, alpha = 0.4) +
   geom_smooth(method = "lm", se = TRUE, alpha = 0.2) +
   scale_color_manual(values = c("M" = "#1E90FF", "F" = "#ff6666")) +  # Blue for male, pink for female
   scale_fill_manual(values = c("M" = "#1E90FF", "F" = "#ff6666")) +
   labs(x = "Age",
        y = "Correct Percentage (%)",
-       color = "Sex",
-       fill = "Sex") +
+       color = "gender",
+       fill = "gender") +
   scale_x_continuous(breaks = c(50, 60, 70, 80)) +
   theme_publication +
   theme(legend.position = "right") +
@@ -501,7 +493,7 @@ percent_plot_by_sex <- ggplot(rt_data, aes(x = age, y = correct_rt, color = sex,
            label = sprintf("Female: r = %.3f, p = %.3f", female_corr$estimate, female_corr$p.value),
            hjust = 0, vjust = -6, size = 4.5, color = "#ff6666")
 
-print(percent_plot_by_sex)
+print(percent_plot_by_gender)
 ```
 
 Importantly, we can see a gender effect; whilst females show a significantly positive correlation between age and task performance, there is no such effect within males.
@@ -532,23 +524,23 @@ summary(age_model)
 
 The coefficients tell us how much the dependent variable (correct reaction time) changes for each unit increase in the predictor variable (age). The p-value Pr(>|t|) tells us whether this relationship is statistically significant. Importantly, the age co-efficient is significant (p = 0.029) meaning that as people get older, their reaction times tend to increase.
 
-To specifically test the influence of age and sex on performance - as indicated by the correlation plot, we need to add sex to our model. But there are a few things to note:
+To specifically test the influence of age and gender on performance - as indicated by the correlation plot, we need to add gender to our model. But there are a few things to note:
 
-1) Because sex is a categorical variable, it should be implemented in the model as a factor. We actually do not need to do this explicitly, as the `lm` function will automatically convert it to a factor. However, it is good practice to do so, so we will do it explicitly as well.
-2) We should add sex as an interaction term with age, rather than a separate fixed effect. This is because we are explicitly interested in whether two slopes are significantly different. Adding both as separate terms would just test the effect of each separately, and not the interaction.
+1) Because gender is a categorical variable, it should be implemented in the model as a factor. We actually do not need to do this explicitly, as the `lm` function will automatically convert it to a factor. However, it is good practice to do so, so we will do it explicitly as well.
+2) We should add gender as an interaction term with age, rather than a separate fixed effect. This is because we are explicitly interested in whether two slopes are significantly different. Adding both as separate terms would just test the effect of each separately, and not the interaction.
 
 Here is the code to create and run this model:
 ```{webr-r}
 #| context: interactive
 
-# Convert sex to factor (not explicitly needed)
-rt_data$sex <- factor(rt_data$sex, levels = c("F", "M"))
+# Convert gender to factor (not explicitly needed)
+rt_data$gender <- factor(rt_data$gender, levels = c("F", "M"))
 
 # Multiple regression model - * indicates interaction
-age_sex_model <- lm(correct_rt ~ age * sex, data = rt_data)
+age_gender_model <- lm(correct_rt ~ age * gender, data = rt_data)
 
 # View results
-summary(age_sex_model)
+summary(age_gender_model)
 ```
 
 From the results, we can see that the interaction term is not significant (p = 0.249). This means that despite what we observed in our plot, the difference in how age affects reaction time between males and females is not statistically significant.
@@ -560,10 +552,10 @@ But which is the best model to use? We can run an ANOVA (analysis of variance) t
 #| context: interactive
 #| context: interactive
 
-anova(age_model, age_sex_model)
+anova(age_model, age_gender_model)
 ```
 
-We can see from the output that compared to the simple age model, adding in sex as an interaction significantly improves the model fit (p = 0.035).
+We can see from the output that compared to the simple age model, adding in gender as an interaction significantly improves the model fit (p = 0.035).
 
 :::{.callout-info title="ANOVA for model comparison"}
 ANOVA - in this specific case - compared the models by measuring how much the prediction accuracy (through the residual sum of squares - RSS) increases when you add each new predictor. It then tests whether this is statistically significant using an F-test. A significant p-value means the added predictor significantly improves the model, while a non-significant p-value suggests it doesn't.
@@ -575,10 +567,10 @@ For a more formal test of model selection, we can use information criterion. The
 
 # Calculate AIC and BIC for both models
 aic_age <- AIC(age_model)
-aic_age_sex <- AIC(age_sex_model)
+aic_age_gender <- AIC(age_gender_model)
 
 bic_age <- BIC(age_model)
-bic_age_sex <- BIC(age_sex_model)
+bic_age_gender <- BIC(age_gender_model)
 ```
 
 You can see that the AIC favours the more complex interaction model, whilst conversely, the BIC favors the simpler model. This is because the BIC penalizes complexity more heavily than the AIC. The choice of which model to use also depends on the specific context and goals of your analysis. In this case, because we are interested in specifically modeling the interaction effects, we can stick with that model.

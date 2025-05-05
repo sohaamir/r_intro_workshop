@@ -3,7 +3,7 @@ title: "Acknowledgments"
 format: html
 webr: 
   show-startup-message: true
-  packages: ['tidyverse', 'ggtext']
+  packages: ['ggplot2', 'ggtext']
   channel-type: "post-message"
 filters:
   - webr
@@ -22,7 +22,7 @@ This resource would not be possible without the support and contributions of oth
 - Lei Zhang (Birmingham) for figures and feedback on the material
 
 
-Run the code below!
+Run the code below to finish the course!
 ```{webr-r}
 #| context: interactive
 

@@ -1,4 +1,4 @@
-﻿BIDS_ID,age,sex,height,weight,bmi,lesion_volume,lesion_number,education
+﻿id,age,gender,height,weight,bmi,lesion_volume,lesion_number,education
 sub-0001,54,M,1.81,105,32.2,1.3144,11,6
 sub-0002,56,M,1.93,118,31.7,0.18424,5,7
 sub-0003,54,F,1.635,60,22.4,0.47588,5,3

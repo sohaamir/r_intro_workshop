@@ -1,6 +1,6 @@
 ---
 title: "Tips and best practices for programming in R"
-subtitle: "My tips as well as a collection of resources to learn further"
+subtitle: "Take them at face value..."
 format: html
 webr: 
   show-startup-message: true
@@ -21,15 +21,13 @@ Programming can be tricky, particularly for beginners who may not be aware of be
 
 Here are some of my tips for programming and data analysis, not that I'm an expert by any means, but this follows my own experience and the recommendations of others.
 
-## Tips for programming and data analysis in R
+## Organise your projects
 
-1. Organise your projects.
+For projects, particularly larger ones, organising your project folder appropriately is important. It makes it a lot easier to find files and to keep track of what you are doing. There's no single recommended way, but you can follow existing templates such as the `cookiecutter` initiative, which automatically creates a specific folder structure. `Cookiecutter` may be a bit overkill, particualrly if you are new to programming, but you can always simplify it. 
 
-For projects, particularly larger ones, organising your project folder is important. It makes it significantly easier to find files, and to keep track of what you are doing. There's no single recommended way, but you can follow existing templates such as the `cookiecutter` initiative, which automatically creates a specific folder structure. `Cookiecutter` may be a bit overkill, particualrly if you are new to programming, but you can adapt and simplify it. 
+For example, you may choose to have a folder structure like this where core features of your project i.e, data, scripts and results, are nicely organised into distinct folders and subfolders.
 
-For example, you can have a folder structure like this where core features of your project i.e, data, scripts and results, are nicely organised into distinct folders and subfolders.
-
-```
+```r
 my_project/
 ├── data/
 │   ├── raw/
@@ -46,48 +44,40 @@ my_project/
 └── my_project.Rproj
 ```
 
-2. Make your code discrete using Markdown chunks instead of writing continuous scripts
+## Discretize using Markdown chunks instead of writing continuous scripts
 
-Organisation is also important within the actual scripts that you write. Using Markdown is a great way to do this, which you can also use to create interactive documents - like this course!
+Organisation is also important within the scripts that you write. Markdown is a great way to do this, which you can also use to create interactive documents - like this course!
 
-Within each script, you can separate your analyses into discrete chunks, which will run independently, instead of having one long script. This makes it easier to understand both for yourself and for others who may not know your code. It also means that you can run each chunk independently, which is useful if you are working with a long pipeline and want to run a specific analysis without having to run the entire script.
+Within each script, you can separate your analyses into discrete chunks, which will run independently, instead of having one long script. This makes it easier to understand what exactly is being done at each step, both for yourself and for others who may not know your code. It also means that you can run each chunk independently, which is useful if you are working with a long pipeline and want to run a specific analysis without having to run the entire script.
 
 For example, you can have a script like this:
 
-```markdown
-
 ```r
-# Load packages
-```
-  
-```r
-# Process data
-```
-
-```r
-# Analysis 1
+Chunk 1 - Load packages
+...
+Chunk 2 - Process data
+...
+Chunk 3 - Analysis 1
+...
+Chunk 4 - Analysis 2
 ```
 
-```r
-# Analysis 2
-```
+If you have to make changes to a specific analysis, you can do so easily without having to change other analyses, as they naturally follow each other.
 
-```
+## Version control using `git`, share using GitHub
 
-3. Version control using `git`, share using GitHub.
+Similar to how you track changes made in a Word document, version control allows you to track changes made to your code. This is particularly useful when you are working on a project with multiple people, or if you want to keep track of your own changes over time. `git` is the most widely used version control system, and it is free and open source. GitHub on-the-other-hand is a web-based platform that uses `git` for version control, where you can share code with others, and download code that others have created. 
 
-Similar to how you track changes made in a Word document, version control allows you to track changes made to your code. This is particularly useful when you are working on a project with multiple people, or if you want to keep track of changes made over time. `git` is the most widely used version control system, and it is free and open source. GitHub is a web-based platform that uses `git` for version control, where you can share code with others, and download code that others have created. 
+`git` is mainly used as a command line tool, but there are many graphical user interfaces (GUIs) available which make it easier to use. Personally, I think using `git` through the command line is the best way, and it is simpler than you might think. Whilst there are many commands, the basic use of `git` for version control involves just four commands:
 
-`git` is a command line tool, but there are many graphical user interfaces (GUIs) available which make it easier to use. Personally, I think using `git` through the command line is the best way, and it is simpler than you might think. Whilst there are many commands, the basic use of `git` for version control involves four commands:
-
-```
+```bash
 git status
 git add <file>
 git commit -m "message"
 git push
 ```
 
-The first command `git status` checks the status of your project, and let's you know if there are any changes that you have made which need commiting. For example:
+The first command `git status` checks the status of your project, and let's you know if there are any changes that you have made which need committing. For example:
 
 ```bash
 git status
@@ -116,18 +106,32 @@ git commit -m "Added new function to script.R"
 
 And then finally - if you have a remote repository on GitHub - you push the changes to GitHub using the `git push` command. This isn't needed if you don't have a GitHub repository.
 
-`git` and GitHub are important for programming, particularly on collaborative projects, where multiple people are working on the same code. Sharing code on GitHub or OSF is also recommended when publishing papers for reproducibility.
+:::{.callout-tip title="Commit messages"}
+It is important to properly tag your commits with appropriate messages so you can track exactly what each commit has changed from before. For example, let's say you have the following commit history:
 
+```bash
+git commit -m "working correlation code for height and weight"
+git commit -m "working linear regression model with age and sex"
+```
 
-4. Leverage large language models but wisely
+Following these two prior commits, you work on an entirely new analysis, but it doesn't work, and now the regression model also doesn't work. You can just simply reset your analysis back to a point where it did work using `git`.
+:::
 
-Programming has significantly changes since the advent of large langauge models (LLMs), which can provide increasingly sophisticated code in response to user-generated prompts. However, using LLMs for this purpose is often a double-edged sword. Whilst you may be more productive, you may also be less likely to understand what the code is doing. In addition, LLMs may not be as appropriate for certain tasks, e.g., for advising analyses and hypotheses. 
+`git` and GitHub are important for programming, particularly on collaborative projects, where multiple people are working on the same code. Sharing code on GitHub or OSF is also recommended when publishing papers for transparency and reproducibility.
 
-LLMs are best suited to perform low-level tasks that don't require human-based reasoning. A great example would be for plot-generation, which doesn't require much reasoning, but does require a lot of code for more complex plots. For example, you can ask ChatGPT to generate a plot using `ggplot2` in R, and it will generate the code for you:
+## Leverage large language models but wisely
 
-<div style="height: 20px;"></div>
+Programming has significantly changes since the advent of large language models (LLMs), which can provide increasingly sophisticated code in response to user-generated prompts. However, using LLMs for this purpose is often a double-edged sword. Whilst you may be more productive, you may also be less likely to understand what the code is doing. In addition, LLMs may not be as appropriate for certain tasks, e.g., for advising analyses and hypotheses. 
 
-![](/images/r_tips/chatgpt_prompt.png){fig-align="center" width="80%"}
+LLMs are best suited to perform low-level tasks that don't require human-based reasoning. A great example would be for plot-generation, which doesn't require much reasoning, but does require a lot of code, particularly for more complex plots. For example, you can ask ChatGPT to generate a plot using `ggplot2` in R, and it will generate the code for you in no time!
+
+<div style="height: 10px;"></div>
+
+![](/images/r_tips/chatgpt_prompt.png){fig-align="center" width="60%"}
+
+::: {.image-caption style="font-size: 1.3em;"}
+Prompting ChatGPT to generate a plot using `ggplot2`
+:::
 
 Best practices for programming using LLMs is a whole separate topic in of itself, but ultimately, it is important to remember that LLMs are just that - language models. One framework for working with LLMs is presented below, where the first stage is to understand the task and whether it is suitable for the model. The second stage is to discern the model output, and whether it is appropriate for your aim. The third stage is to calibrate the output appropriately based on how well the code performs, and finally, you can iteratively refine the output by submitting follow-up prompts[^1].
 
@@ -137,65 +141,18 @@ Best practices for programming using LLMs is a whole separate topic in of itself
 
 ![](/images/r_tips/llm_workflow.png){fig-align="center" width="80%"}
 
-Academics currently use generative AI to facilitate a variety of tasks. This process can be adapted to maintain scientific autonomy in several areas. This includes understanding the task’s suitability for the model, discerning the model output, and calibrating appropriately. The user may also iteratively refine AI outputs through re-submission.
+::: {.image-caption style="font-size: 1.3em;"}
+A framework for using LLMs in scientific work (Sohail & Lin, 2025)
+:::
 
+## Tutorials are fine, but get stuck in
 
-5. ADD HERE!!!
+Ultimately, the best way to learn programming is through experience, ideally by working on your own project. This way you will get experience with all stages of the data analysis pipeline, including data preprocessing, analysis and visualisation. Whilst tutorials are useful, they don't reflect the process of working with data and the problems that may arise. There's a reason why the phrase "tutorial hell" exists! [^2]
 
+[^2]: OpenAI (2025). Image created using ChatGPT (GPT4o) (https://chat.openai.com/). 5th May 2025.
 
+<div style="height: 20px;"></div>
 
-## Resources for learning R and best practices for data analysis
+![](/images/r_tips/tutorial_hell.png){fig-align="center" width="30%"}
 
-
-There are so many resources available which help both with learning `R` and for developing appropriate practices. To start with, you can visit [my website](https://sohaamir.github.io/neuro_resources/) where I collate these, with a particular emphasis on practical examples which you can work with online (i.e., not through textbooks which are often hundreds of pages and cumbersome to work through).
-
-### Papers for conducting data analysis
-
-Here are some papers which provide a good overview of best practices for data analysis, often using practical examples. 
-
-- Balaban, G., Grytten, I., Rand, K. D., Scheffer, L., & Sandve, G. K. (2021). Ten simple rules for quick and dirty scientific programming. PLoS Computational Biology, 17(3), e1008549.
-- Gentzkow, M., & Shapiro, J. M. (2014). Code and data for the social sciences: A practitioner’s guide. Working Paper, University of Chicago.
-- Roth, J., Duan, Y., Mahner, F. P., Kaniuth, P., Wallis, T. S., & Hebart, M. N. (2025). Ten principles for reliable, efficient, and adaptable coding in psychology and cognitive neuroscience. Communications Psychology, 3(1), 62.
-- Wilson, G., Aruliah, D.A., Brown, C.T., Chue Hong, N.P., Davis, M., Guy, R.T., Haddock, S.H., Huff, K.D., Mitchell, I.M., Plumbley, M.D. and Waugh, B., 2014. Best practices for scientific computing. PLoS biology, 12(1), p.e1001745.
-
-### Guides/courses on programming and data science
-
-Complimenting the papers above, there are many guides and courses available which provide a good overview of best practices for data analysis.
-
-- [The Good Research Code Handbook](https://goodresearch.dev/index.html) A handbook for organising code with an emphasis on project management. Written by [Patrick Mineault](https://xcorr.net/about/).
-
-- [Friends Don't Make Friends Make Bad Graphs](https://github.com/cxli233/FriendsDontLetFriends) A self-titled 'opinionated essay about good and bad practices in data visualization' with examples demonstrated through R plots. Created by Chenxin Li, University of Georgia.
-
-- [Research Data Management (RDM) Workshop](https://julia-pfarr.github.io/rdm_workshop/) A workshop designed to give a generic overview of RDM principles and practices, including OSF, data management, pre-registration, project and data organisation, version control, data storage and sharing, and copyright and licenses. Created by Julia-Katharina Pfarr, Philipps-Universität Marburg.
-
-- [Computational and Inferential Thinking: The Foundations of Data Science](https://inferentialthinking.com/chapters/intro.html) A online course in data science originally developed for the UC Berkeley course Data 8: Foundations of Data Science by Ani Adhikari, John DeNero and David Wagner.
-
-- [Coding for data](https://lisds.github.io/textbook/intro.html) An introduction to data science by Matthew Brett, borrowing from the Berkeley textbook above.
-
-### Online courses for programming in R
-
-And finally, there are many online courses available which provide a good overview of programming in `R` and with incorporating best practices.
-
-- [Hands-On Programming with R](https://rstudio-education.github.io/hopr/index.html) The online (and free) version of Garrett Grolemund's R textbook, written for non-programmers using hands-on examples.
-
-- [PsyTeachR Courses](https://psyteachr.github.io) A whole range of courses covering different capabilities of R, created by the psyTeachR team at the University of Glasgow.
-
-- [R for Reproducible Scientific Analysis](https://unirdg-carpentries.github.io/r-novice-gapminder-modified/) Software Carpentries' 2-day workshop on R, with a theme on open and reproducible research. Ran by the University of Reading.
-
-- [R, Open Research, and Reproducibility](https://r-openresearch-reproducibility.netlify.app/) Andrew Stewart's 12-week workshop course on R, Open Research, and Reproducibility, taught to students at the University of Manchester.
-
-- [R, Git and bash](https://unirdg-carpentries.github.io/2021-07-27-Reading-R-Git-Bash/) Software Carpentries' 3-day workshop on `git`, `bash` and R, with a theme on open and reproducible research. Ran by the University of Reading.
-
-- [An introduction to R](https://intro2r.com/) An online interactive book detailing R for beginners, including: data manipulation, plotting with ggplot2, basic statistics, functions, markdown and reproducilbity with git/GitHub. Written by Alex Douglas, Deon Roos, Francesca Mancini, Ana Couto & David Lusseau.
-
-- [Introduction to R 2021](https://biocorecrg.github.io/CRG_RIntroduction/) A basic introduction to R, covering data types, functions and plotting. Created by Sarah Bonnin.
-
-- [Data Science for Psychologists](https://bookdown.org/hneth/ds4psy/) An introduction to data science that is tailored to the needs of students in psychology, but is also suitable for students of the humanities and other biological or social sciences. Created by Hansjorg Neth, University of Konstanz.
-
-- [Statistical Inference via Data Science: A ModernDive into R and the Tidyverse](https://moderndive.com/index.html) The electronic version of the data science book which covers data science with tidyverse, data modeling with moderndive and statistical inference with infer. Created by Chester Ismay (Flatiron School) and Albert Y. Kim (Smith College).
-
-- [An Introduction to Data Analysis](https://michael-franke.github.io/intro-data-analysis/index.html) Basic reading material for an introduction to data analysis with R, covering the use of R for data wrangling and plotting, and data analysis from a Bayesian and a frequentist tradition. Created by Michael Franke.
-
-- [Just Enough R](https://benwhalley.github.io/just-enough-r/) Working with data, models (regression, ANOVA, linear models), confidence intervals, multiple comparisons, fixed/random effects. Created by Ben Whalley.
-
-- [easystats](https://easystats.github.io/easystats/) 'a collection of R packages, which aims to provide a unifying and consistent framework to tame, discipline, and harness the scary R statistics and their pesky models.' Developed by Daniel Lüdecke, Dominique Makowski, Mattan S. Ben-Shachar, Indrajeet Patil, Brenton M. Wiernik, Etienne Bacher and Rémi Thériault.
+So, ultimately, use tutorials to get a basic understanding of a programming language or software, and determine whether that may be something that you could use. But then actually learn by working on your own projects.
