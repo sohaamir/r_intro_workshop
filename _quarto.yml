@@ -1,6 +1,8 @@
 project: 
   type: website
   output-dir: _site
+  render:
+    - "*.qmd"
   
 website: 
   page-navigation: true
@@ -20,13 +22,13 @@ website:
     tools: 
       - icon: globe
         href: https://sohaamir.github.io
-        text: "Aamir Website"
+        text: "Aamir's Website"
       - icon: github
         href: https://github.com/sohaamir
-        text: "Aamir GitHub"
+        text: "Aamir's GitHub"
       - icon: twitter
         href: https://twitter.com/AamirNSohail
-        text: "Aamir Twitter"         
+        text: "Aamir's Twitter"         
 
     style: "docked"
     search: true
@@ -39,7 +41,7 @@ website:
       - href: qmd/working_with_data.qmd
         text: "Basic data analysis and plotting"
       - href: qmd/r_tips.qmd
-        text: "Tips for programming in R"
+        text: "Tips for programming and project management"
       - href: qmd/resources.qmd
         text: "Resources"
       - href: qmd/acknowledgments.qmd

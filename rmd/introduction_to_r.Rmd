@@ -2,48 +2,17 @@
 title: "An introduction to R/RStudio"
 subtitle: "Data structures, functions, packages and the RStudio environment"
 format: html
-webr: 
-  show-startup-message: true
-  packages: ['tidyverse']
-  channel-type: "post-message"
-filters:
-  - webr
-editor_options: 
-  chunk_output_type: console
-execute:
-  echo: true
-  warning: false
-  message: false
-  eval: true
 ---
 
-:::{.callout-tip title="Running code in the browser"}
-The workshop uses executable code chunks in the browser via [`WebR`](https://docs.r-wasm.org/webr/latest/). Press <i class="fa-solid fa-play" style="color: #28f064;"></i> to run the code!
-:::
+Install packages
 
-:::{.callout-caution title="Setting variables"}
-If the code fails to run or throws up an error, it is most likely because it relies upon variables that were set in a previous chunk which were not run. Please make sure that you run all of the chunks in order! Refreshing the browser will also reset everything!
-:::
+```{r, message=FALSE, warning=FALSE}}
+install.packages("tidyverse", "dplyr")
+library(tidyverse)
+library(dplyr)
+```
 
-`R` is a powerful open-source programming language and software environment primarily designed for statistical computing, data analysis, and graphical visualization.
-`R` has its own interface; when you install `R` onto your own computer(Windows/Mac) you can open `R` on it's own. However, working in this way with `R` ('base `R`') isn't very user friendly!
-
-Instead, we use an IDE (Integrated Development Environment) to work with the `R` programming language. A popular example - and the one that we will be using - is [RStudio](https://posit.co/download/rstudio-desktop/).
-
-<div style="height: 20px;"></div>
-
-![](/images/r_basics/rstudio_environment.png){fig-align="center" width="100%"}
-
-The RStudio interface consists of 4 windows [^1]:
-
-[^1]: Zhang, L & Sohail, A. BayesCog: Bayesian Statistics and Hierarchical Bayesian Modeling for Psychological Science (2025). GitHub. https://alpn-lab.github.io/BayesCog/
-
-- **Script editor:** Where you write and edit your `R` code
-- **Console:** Where you run `R` commands and see their output
-- **Environment/History:** Shows your workspace variables and command history
-- **Files/Plots/Packages/Help:** A multi-purpose pane for viewing files, plots, managing packages, and accessing help documentation
-
-You can check your version of `R` using the following command:
+You can check your version of R using the following commands:
 
 ```{r}
 R.version
@@ -51,14 +20,11 @@ R.version
 
 ## Basic R operations
 
-We will now cover some basic operations and values within `R`.
-
-<div style="font-size: 22px;"><strong>Calculator Functions</strong></div>
-<div style="height: 16px;"></div>
+We will now cover some basic operations and values within R.
 
 We can perform basic mathematical operations:
 
-```{webr-r}
+```{r}
 #| context: interactive
 
 # Addition and Subtraction
@@ -78,12 +44,9 @@ pi
 exp(1)  # base of natural logarithm
 ```
 
-<div style="font-size: 22px;"><strong>Special values</strong></div>
-<div style="height: 16px;"></div>
-
 In addition to numbers, variables can also take on other values:
 
-```{webr-r}
+```{r}
 #| context: interactive
 
 Inf
@@ -99,60 +62,48 @@ NULL
 
 ## Data types, classes and variables
 
-There are many types of data in `R`, here are some commonly used:
+There are many types of data in R, here are some commonly used:
 
-::: {.callout-tip title="Checking your data type"}
-You can check data types using the `class` command.
-:::
+Numeric - Decimal and 'whole' numbers (the most common numeric type)
+```{r}
 
-**Numeric** - Decimal and 'whole' numbers (the most common numeric type)
-```{webr-r}
-
-#| context: interactive
 class(1.1)
 ```
 
-<br>
-**Character** - Text data in quotes
-```{webr-r}
+Character - Text data in quotes
+```{r}
 
-#| context: interactive
 class("hello world!")
 class("42") # Numbers in quotes are characters
 ```
 
-<br>
-**Logical** - Boolean values for conditional logic
-```{webr-r}
-#| context: interactive
+Logical - Boolean values for conditional logic
+```{r}
 
 class(TRUE)
 class(F) # F is shorthand for FALSE
 ```
 
-<br>
-**Factor** - a data type for categorical variables with fixed levels (categories).
+Factor - a data type for categorical variables with fixed levels (categories).
 
 In the example below, we create a vector of letters, some of which are repeated. However, the levels within are limited to each individual letter.
-```{webr-r}
-#| context: interactive
+```{r}
+
 # Define a factor using letters
 f <- factor(letters[c(1, 1, 2, 2, 3:10)])  # Create factor from letters with some repetition
 f
 ```
 
-```{webr-r}
-#| context: interactive
+```{r}
 
 class(f)  # Check class
 ```
 
-<br>
-**Storing and manipulating variables**
+Storing and manipulating variables
 
 We commonly assign numbers and data to variables, which we can then compute directly:
-```{webr-r}
-#| context: interactive
+```{r}
+
 # Define objects x and y with values of 3 and 2 respectively:
 x <- 3
 y <- 2
@@ -162,32 +113,22 @@ x + y
 x * y
 ```
 
-:::{.callout-warning title="Case sensitivity"}
 R is case sensitive, so `X` and `x` are not the same object!
-:::
-
-```{webr-r}
-#| context: interactive
+```{r}
 
 X * y # This will throw an error
 ```
 
 ## Data structures
 
-`R` offers several data structures that serve different purposes. Each structure is designed to handle specific types of data organization, from simple one-dimensional vectors to complex nested lists[^2].
+`R` offers several data structures that serve different purposes. Each structure is designed to handle specific types of data organization, from simple one-dimensional vectors to complex nested lists.
 
-[^2]: Kabacoff, R. I. (2022). R in action: data analysis and graphics with R and Tidyverse. Simon and Schuster. 
-
-![](/images/01.R_basics/data_types.png){fig-align="center" width="60%"}
-
-Here are some examples of each datatype:
-
-<div style="font-size: 22px;"><strong>Vector</strong></div>
+Vector
 
 - One-dimensional sequence of elements
 - All elements must be of the same type (numeric, character, etc.)
-```{webr-r}
-#| context: interactive
+```{r}
+
 v1 <- 1:12  # Create numeric vector using sequence
 v2 <- c(2,4,1,5,1,6, 13:18)  # Create numeric vector by combining values and sequence
 v3 <- c(rep('aa',4), rep('bb',4), rep('cc',4))  # Create character vector with repeated values
@@ -198,35 +139,34 @@ v3
 ```
 
 Now let's check the class of each vector:
-```{webr-r}
-#| context: interactive
+```{r}
+
 class(v1)  # Check class of v1
 class(v2)  # Check class of v2
 class(v3)  # Check class of v3
 ```
 
-<div style="font-size: 22px;"><strong>Matrix and array</strong></div>
+Matrix and array
 
 - Two-dimensional (matrix) and three-dimensional (array) arrangement of elements
 - All elements must be of the same type
 - Organized in rows and columns
 
-```{webr-r}
-#| context: interactive
+```{r}
+
 m1 <- matrix(v1, nrow=3, ncol=4)  # Create matrix filled by column
 arr <- array(v1, dim=c(2,2,3))  # Create 3D array
 
 m1
 ```
 
-```{webr-r}
-#| context: interactive
+```{r}
+
 arr
 ```
 
 Let's check the class of the matrix and array:
-```{webr-r}
-#| context: interactive
+```{r}
 
 class(m1)  # Check class of matrix
 class(arr)  # Check class of array
@@ -234,8 +174,7 @@ class(arr)  # Check class of array
 
 If you aren't sure which type of data structure you are working with, whether it is an array, matrix or vector, you can use the `is()` function to check. This will return `TRUE` or `FALSE` depending on what the structure is.
 
-```{webr-r}
-#| context: interactive
+```{r}
 
 # You can check in two ways:
 
@@ -252,15 +191,15 @@ is.vector(m1) # Check if m1 is a vector
 
 You may have noticed that `m1` is a matrix and an array, whilst `arr` is an array but not a matrix. This is because a matrix is essentially a three-dimensional array with one dimension set to 1.
 
-<div style="font-size: 22px;"><strong>Data frame</strong></div>
+Data frame
 
 - Two-dimensional structure similar to a spreadsheet
 - Different columns can contain different types of data
 - Most common structure for statistical analysis
 
 Suppose we have a data frame of students' grades and demographics:
-```{webr-r}
-#| context: interactive
+```{r}
+
 # Create a data frame
 students <- data.frame(
   Name = c("Alice", "Bob", "Charlie"),
@@ -273,8 +212,7 @@ students
 ```
 
 Check the class of the dataframe and a column, and display the structure of the dataframe:
-```{webr-r}
-#| context: interactive
+```{r}
 
 class(students)  # Check class of dataframe
 is.data.frame(students)  # Check if students is a dataframe
@@ -283,16 +221,14 @@ str(students)    # Display structure of dataframe
 ```
 
 When working with dataframes, we often want to select specific columns. We can use the `$` operator to do this.
-```{webr-r}
-#| context: interactive
+```{r}
 
 students$Name  # print Name column
 students$Gender  # print Gender column
 ```
 
 Or we can use the `[[` operator:
-```{webr-r}
-#| context: interactive
+```{r}
 
 students[["Math"]]    # print Math column
 students[["Science"]] # print Science column
@@ -301,8 +237,8 @@ students[["Science"]] # print Science column
 Either is fine, but you may find the `$` operator is quicker and easier to use.
 
 We can assign values within a specific column or row to a new variable:
-```{webr-r}
-#| context: interactive
+```{r}
+
 # Get the "Math" column
 students_math <- students$Math
 print(students_math)
@@ -314,9 +250,7 @@ print(students_alice)
 
 But there are always lots of ways to do the same thing in `R`. For example, here are different ways by which we can extract all students who are male:
 
-```{r, eval=FALSE}
-#| context: interactive
-
+```r
 students[students$Gender == "M", ]         # Basic subsetting
 subset(students, Gender == "M")            # using the subset() function
 students %>% filter(Gender == "M")         # using the filter() function from the dplyr package 
@@ -326,7 +260,6 @@ students %>% filter(Gender == "M")         # using the filter() function from th
 
 We commonly use logical operators in `R` to help make decisions in code and are essential in tasks like subsetting data, controlling loops, writing conditional statements, and filtering data.
 
-<div style="text-align: center; width: 50%; margin: 0 auto;">
 
 | **Operator** | **Summary**                |
 |--------------|----------------------------|
@@ -340,12 +273,8 @@ We commonly use logical operators in `R` to help make decisions in code and are 
 | `x | y`      | x OR y                    |
 | `x & y`      | x AND y                   |
 
-</div>
-<br>
-
 Some examples using the `students` dataframe:
-```{webr-r}
-#| context: interactive
+```{r}
 
 # Less than (<) - Students with Math below 90
 subset(students, Math < 90) # Returns Bob (88)
@@ -367,8 +296,8 @@ subset(students, Math > 90 & Science >= 90) # Returns Charlie only
 
 We can also perform basic statistics and operations on variables, such as getting the variance, standard deviation and summary statistics. 
 You can do this using built-in functions in `R` including `var()`, `sd()`, `sum()`, `mean()`, `min()`, and `max()`.
-```{webr-r}
-#| context: interactive
+```{r}
+
 # Create a vector of 10 random numbers between 1-100 using the sample() command
 x <- sample(1:100, 10)
 
@@ -389,82 +318,45 @@ max(x)   # Finds maximum
 
 Here are some other commands that will be useful when working with `R` more generally:
 
-<div style="font-size: 22px;"><strong>Directory and Workspace Management</strong></div>
+Directory and Workspace Management
 
 The `setwd()` command sets the working directory, which is the folder where `R` looks for files to read and where it saves output files. You can check your current working directory using `getwd()`. It is important to set your working directory appropriately, otherwise, you may run into issues when trying to read or write files, or source functions from other scripts.
-```{r, eval=FALSE}
-#| context: interactive
-
+```{r}
 getwd() # Get current working directory
-setwd("your/path/here")  # Set working directory to your path
+# setwd("your/path/here")  Set working directory to your path
 dir() # List files in current directory
 ```
 
-:::{.callout-tip title="Path management with `here`"}
-A useful package to use for directory management is [`here`](https://cran.r-project.org/web/packages/here/here.pdf). This package allows you to set your working directory relative to the location of your project root, which is particularly useful when sharing scripts with others, as it avoids hard-coded paths.
-
-Instead of of manually setting the working directory, and using hard-coded paths:
-```{r, eval=FALSE}
-# Hard-coded paths that break on different computers
-setwd("C:/Users/YourName/Documents/Project")  # Windows
-setwd("~/Documents/Project")  # Unix/Mac
-
-# Reading files with relative paths (after setwd)
-data <- read.csv("data/mydata.csv")
-source("scripts/analysis.R")
-```
-
-You can use `here`:
-```{r, eval=FALSE}
-# Install and load 
-install.packages("here")
-library(here)
-
-# Check where 'here' thinks the project root is
-here()
-#> [1] "/Users/username/Documents/MyProject"
-
-# Reading files with here
-data <- read.csv(here("data", "mydata.csv"))
-results <- read.csv(here("output", "results.csv"))
-source(here("scripts", "analysis.R"))
-```
-:::
-
-<div style="font-size: 22px;"><strong>Environment Management</strong></div>
+Environment Management
 
 The `ls()` command lists all objects in the current workspace. You can remove specific objects using `rm()`, or clear the entire workspace with `rm(list = ls())`. This is useful for cleaning up your environment before starting a new analysis.
-```{r, eval=FALSE}
-#| context: interactive
-
+```{r}
 # List objects in workspace
 ls()
+```
 
+```{r}
 # Remove all objects from workspace
 rm(list = ls())
 ```
 
 ## Packages
 
-**Packages are collections of functions, data sets, and documentation bundled together to extend the functionality of `R`.**
+Packages are collections of functions, data sets, and documentation bundled together to extend the functionality of `R`.
 They are not part of the base `R` installation but can be easily added and used in your environment.
 
 `R` packages can:
 
-- **Add functions:** They contain pre-written functions that simplify common tasks or complex analyses. For example, packages like `ggplot2` and `dplyr` offer powerful tools for data visualization and manipulation.
+- Add functions: They contain pre-written functions that simplify common tasks or complex analyses. For example, packages like `ggplot2` and `dplyr` offer powerful tools for data visualization and manipulation.
 
-- **Provide data:** Some packages include data sets that can be used for testing or teaching purposes. For example, the `datasets` package provides a collection of sample data sets.
+- Provide data: Some packages include data sets that can be used for testing or teaching purposes. For example, the `datasets` package provides a collection of sample data sets.
 
-- **Enable special features:** Packages can implement specialized features like statistical models, machine learning algorithms, or tools for web scraping, reporting, and more.
-
-::: {.callout-tip title="Loading packages for this workshop"}
-I have written 'hidden' code which automatically installs and then loads in the packages needed for this workshop everytime the browser is refreshed. However you would need to write code to load packages in the RStudio environment when writing your own scripts.
-:::
+- Enable special features: Packages can implement specialized features like statistical models, machine learning algorithms, or tools for web scraping, reporting, and more.
 
 ### How to use packages in R
 
 Installing: You can install a package from CRAN (the Comprehensive R Archive Network) using the `install.packages()` function.
-```{r, eval=FALSE}
+```{r}
 install.packages("ggplot2")
 ```
 
@@ -474,15 +366,13 @@ library('ggplot2')
 ```
 
 Usage: After loading the package, you can use its functions. For example, with `ggplot2`, you can create a plot like this:
-```{webr-r}
+```{r}
 #| context: interactive
 ggplot(data = mtcars, aes(x = mpg, y = hp)) + 
   geom_point()
 ```
 
-::: {.callout-note, title="Sourcing packages"}
 Packages are hosted on several repositories, CRAN being the most common. Other repositories include Bioconductor (for bioinformatics) and GitHub. The `install.packages()` function installs packages from CRAN, while for GitHub packages, you can use the `devtools` or `remotes` package to install directly from a GitHub repository.
-:::
 
 Popular R packages include:
 
@@ -505,7 +395,7 @@ One of the main benefits of `R` is to create publication quality figures and gra
 
 We will now briefly cover `ggplot2()` as it is the most versatile and used approach to create complex figures.
 
-**`ggplot2` is a powerful `R` package for creating complex and customizable data visualizations.**
+`ggplot2` is a powerful `R` package for creating complex and customizable data visualizations.**
 It provides a systematic approach to building plots by combining two main components: geometries (`geom`) and aesthetics (`aes`).
 
 `plot = geometric (points, lines, bars) + aesthetic (color, shape, size)`
@@ -526,34 +416,26 @@ Aesthetics (`aes`): These define how data is mapped to visual properties. The ae
 
 Importantly, `ggplot2()` is built upon the layering of different components. For example, you can simply add more `aes` components to add a line of best fit, and standard error:
 
-![](/images/01.R_basics/ggplot_layering.png){fig-align="center" width="100%"}
 
-::: {.callout-tip title="The R Graph Gallery"}
-You can create many, many, many different types of graphs and plots using `ggplot2()`. You can check out it's versatility by seeing examples at the [R Graph Gallery](https://r-graph-gallery.com/).
-:::
-
-<div style="font-size: 22px;"><strong>Getting Help</strong></div>
+Getting Help
 
 You can access help documentation for functions and packages in `R` using the `?` or `??` commands. `?` is for direct help on a specific function, object, or topic when you know its exact name:
-```{r, eval=FALSE}
-#| context: interactive
+```{r}
+# Run these one by one
 
 # Get help on a specific function
 ?mean
-?lm
-?ggplot
 
 # Help on datasets
 ?mtcars
-?iris
 
 # Help on packages
-?stats
 ?dplyr
 ```
 
 Conversely, `??` performs a broader search across all installed packages' documentation:
-```{r, eval=FALSE}
+```{r}
+# Run these one by one
 
 # Search for topics related to "regression"
 ??regression
@@ -565,10 +447,8 @@ Conversely, `??` performs a broader search across all installed packages' docume
 ??sandwich::bread
 ```
 
-::: {.callout-tip title="Essential RStudio Shortcuts"}
-Here are some shortcuts that you can use in RStudio:
 
-<div style="text-align: center; width: 50%; margin: 0 auto;">
+Here are some shortcuts that you can use in RStudio:
 
 | Shortcut | Action |
 |----------|---------|
@@ -578,8 +458,4 @@ Here are some shortcuts that you can use in RStudio:
 | `Ctrl(hold) + ↑` | Search command history with current input |
 | `Ctrl + Enter` | Execute selected code in script |
 
-</div>
-<div style="height: 20px;"></div>
-
 These shortcuts work on Windows/Linux. For Mac, replace Ctrl with Cmd (⌘).
-:::

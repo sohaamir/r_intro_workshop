@@ -1,5 +1,5 @@
 ---
-title: "Tips and best practices for programming in R"
+title: "Tips for programming and project management"
 subtitle: "Take them at face value..."
 format: html
 webr: 
@@ -21,7 +21,7 @@ Programming can be tricky, particularly for beginners who may not be aware of be
 
 Here are some of my tips for programming and data analysis, not that I'm an expert by any means, but this follows my own experience and the recommendations of others.
 
-## Organise your projects
+## 1. Organise your projects appropriately
 
 For projects, particularly larger ones, organising your project folder appropriately is important. It makes it a lot easier to find files and to keep track of what you are doing. There's no single recommended way, but you can follow existing templates such as the `cookiecutter` initiative, which automatically creates a specific folder structure. `Cookiecutter` may be a bit overkill, particualrly if you are new to programming, but you can always simplify it. 
 
@@ -44,7 +44,7 @@ my_project/
 └── my_project.Rproj
 ```
 
-## Discretize using Markdown chunks instead of writing continuous scripts
+## 2. Discretize using Markdown chunks instead of writing continuous scripts
 
 Organisation is also important within the scripts that you write. Markdown is a great way to do this, which you can also use to create interactive documents - like this course!
 
@@ -64,7 +64,7 @@ Chunk 4 - Analysis 2
 
 If you have to make changes to a specific analysis, you can do so easily without having to change other analyses, as they naturally follow each other.
 
-## Version control using `git`, share using GitHub
+## 3. Version control using `git`, share using GitHub
 
 Similar to how you track changes made in a Word document, version control allows you to track changes made to your code. This is particularly useful when you are working on a project with multiple people, or if you want to keep track of your own changes over time. `git` is the most widely used version control system, and it is free and open source. GitHub on-the-other-hand is a web-based platform that uses `git` for version control, where you can share code with others, and download code that others have created. 
 
@@ -119,7 +119,7 @@ Following these two prior commits, you work on an entirely new analysis, but it 
 
 `git` and GitHub are important for programming, particularly on collaborative projects, where multiple people are working on the same code. Sharing code on GitHub or OSF is also recommended when publishing papers for transparency and reproducibility.
 
-## Leverage large language models but wisely
+## 4. Leverage large language models but wisely
 
 Programming has significantly changes since the advent of large language models (LLMs), which can provide increasingly sophisticated code in response to user-generated prompts. However, using LLMs for this purpose is often a double-edged sword. Whilst you may be more productive, you may also be less likely to understand what the code is doing. In addition, LLMs may not be as appropriate for certain tasks, e.g., for advising analyses and hypotheses. 
 
@@ -145,7 +145,7 @@ Best practices for programming using LLMs is a whole separate topic in of itself
 A framework for using LLMs in scientific work (Sohail & Lin, 2025)
 :::
 
-## Tutorials are fine, but get stuck in
+## 5. Tutorials are fine, but get stuck in
 
 Ultimately, the best way to learn programming is through experience, ideally by working on your own project. This way you will get experience with all stages of the data analysis pipeline, including data preprocessing, analysis and visualisation. Whilst tutorials are useful, they don't reflect the process of working with data and the problems that may arise. There's a reason why the phrase "tutorial hell" exists! [^2]
 
