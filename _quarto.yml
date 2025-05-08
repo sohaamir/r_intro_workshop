@@ -34,7 +34,7 @@ website:
     search: true
     collapse-level: 1
     contents:
-      - href: qmd/index.qmd
+      - href: index.qmd
         text: "Welcome"
       - href: qmd/introduction_to_r.qmd
         text: "Introduction to R/RStudio"

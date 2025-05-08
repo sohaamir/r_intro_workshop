@@ -31,20 +31,20 @@ The course is designed to be ran directly in the browser, using `webR`. This doe
 
 However, you can also choose to run the code directly in RStudio as well. To do this, please do the following (assuming you have `R`, `RStudio` and `git` installed): 
 
-1. Clone the GitHub repository
+#### 1. Clone the GitHub repository
 
 ```bash
 git clone https://github.com/sohaamir/r_intro_workshop.git
 cd r_intro_workshop
 ```
 
-2. Restore the `R` environment
+#### 2. Restore the `R` environment
 
 ```bash
 renv::restore()
 ```
 
-3. Open the `rmd` folder and run the scripts!
+#### 3. Open the `rmd` folder and run the scripts!
 
 ## Contributors
 

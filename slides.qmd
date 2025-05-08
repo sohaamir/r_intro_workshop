@@ -1,0 +1,156 @@
+---
+format:
+  revealjs:
+    incremental: true
+    slide-number: true
+    include-in-header:
+      text: |
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+filters:
+  - fontawesome
+engine: knitr
+---
+
+## 
+
+![](images/slides/gpt_aamir_teaching.png){fig-align="center" width="600" height="400"}
+
+::: {style="text-align: left; margin-top: 20px; font-size: 1.3em"}
+<b>Introduction to `R` for Behavioural Researchers</b>
+:::
+
+
+Aamir Sohail  
+University of Birmingham
+
+## Overview
+
+::: incremental
+We will cover the following topics: 
+
+- Introduction to `R` and RStudio 
+- Data types and structures in `R` 
+- Data visualization using `ggplot2` 
+- Basic statistical analysis including t-tests and ANOVA 
+- Best practices for data analysis and reproducibility (e.g., using `git` and GitHub)
+:::
+
+## 
+
+::: {style="height: 20px;"}
+:::
+
+![](images/slides/globe.png){fig-align="center" width="250" height="250"}
+
+::: {.r-fit-text .absolute top="50%" style="text-align: center; font-size: 1.5em;"}
+Go to the following website:
+:::
+
+::: {.r-fit-text .absolute top="65%" style="text-align: center; font-size: 1.2em;"}
+<https://sohaamir.github.io/r_intro_workshop>
+:::
+
+## 
+
+![](images/slides/code_joke_cartoon.jpg){fig-align="center" width="800" height="400"}
+
+::: {style="text-align: center; margin-top: 20px; font-size: 1.6em"}
+<b>Tips for effective programming and project management</b>
+:::
+
+## Organise your projects appropriately!
+
+Use designated folders for data, scripts, and output
+
+<div style="height: 20px;"></div>
+
+``` r
+my_project/
+├── data/
+│   ├── raw/
+│   └── processed/
+├── scripts/
+│   ├── R/
+│   └── Rmd
+├── output/
+│   ├── figures/
+│   └── txt/
+├── docs/
+├── .gitignore
+├── README.md
+└── my_project.Rproj
+```
+
+Existing templates e.g., `cookiecutter` 🍪 can be useful!
+
+## Discretize using chunks instead of writing long scripts
+
+An example `Rmd` script could look like this:
+
+``` r
+Chunk 1 - Load packages
+...
+Chunk 2 - Process data
+...
+Chunk 3 - Analysis 1
+...
+Chunk 4 - Analysis 2
+```
+
+<div style="height: 20px;"></div>
+
+- Easier to understand what exactly is being done at each step
+- You can run each chunk independently instead of running the entire analysis
+- Easier to make changes
+
+## Version control using `git`
+
+`git` allows you to keep track of changes in your code
+
+``` bash
+git status
+git add <file>
+git commit -m "message"
+git push
+```
+
+<div style="height: 40px;"></div>
+
+![](images/slides/version_control_meme.jpg){fig-align="center" width="550" height="300"}
+
+## Leverage large language models but wisely
+
+Generative AI models can make your work more productive, but they are more suited for certain tasks
+
+::: {style="height: 20px;"}
+:::
+
+![](/images/r_tips/chatgpt_prompt.png){fig-align="center" width="60%"}
+
+## Tutorials are fine, but get stuck in
+
+Try to avoid tutorial hell!
+
+::: {style="height: 20px;"}
+:::
+
+![](/images/r_tips/tutorial_hell.png){fig-align="center" width="30%"}
+
+
+## Thanks to
+
+::: {style="text-align: left; margin-top: 20px; font-size: 0.8em"}
+Lei Zhang 
+
+Gabriella Rossetti, Julie Lovegrove, Jon Gibbins and Anastasia Christakou as well as the rest of the HAVEN team for data
+:::
+
+::: {style="text-align: left; margin-top: 300px; font-size: 0.8em"}
+<i class="fa-solid fa-envelope fa-xl" style="color: #c68c53;"></i> axs2210@bham.ac.uk<br>
+<div style="height: 20px;"></div>
+<i class="fa-brands fa-github fa-xl" style="color: #171515;"></i> sohaamir<br>
+<div style="height: 15px;"></div>
+<i class="fa-solid fa-globe fa-xl" style="color: #66b3ff;"></i> sohaamir.github.io
+:::
+
+

@@ -526,7 +526,7 @@ Aesthetics (`aes`): These define how data is mapped to visual properties. The ae
 
 Importantly, `ggplot2()` is built upon the layering of different components. For example, you can simply add more `aes` components to add a line of best fit, and standard error:
 
-![](/images/01.R_basics/ggplot_layering.png){fig-align="center" width="100%"}
+![](/images/r_basics/ggplot_layering.png){fig-align="center" width="100%"}
 
 ::: {.callout-tip title="The R Graph Gallery"}
 You can create many, many, many different types of graphs and plots using `ggplot2()`. You can check out it's versatility by seeing examples at the [R Graph Gallery](https://r-graph-gallery.com/).

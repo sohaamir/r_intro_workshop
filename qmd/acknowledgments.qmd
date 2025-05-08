@@ -18,9 +18,8 @@ execute:
 
 This resource would not be possible without the support and contributions of others, in particular the following:
 
-- Gabriella Rossetti (MMU), Julie Lovegrove (Reading), Jon Gibbins (Reading) and Anastasia Christakou (Reading) as well as the rest of the HAVEN team for data
-- Lei Zhang (Birmingham) for figures and feedback on the material
-
+- Gabriella Rossetti, Julie Lovegrove, Jon Gibbins and Anastasia Christakou as well as the rest of the HAVEN team for data
+- Lei Zhang for figures and feedback on the material
 
 Run the code below to finish the course!
 ```{webr-r}

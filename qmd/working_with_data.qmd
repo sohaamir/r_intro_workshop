@@ -338,7 +338,7 @@ model_female <- lm(`lesion_volume` ~ age, data = sub_data_filtered[sub_data_filt
 p_value_male <- summary(model_male)$coefficients[2, "Pr(>|t|)"]
 p_value_female <- summary(model_female)$coefficients[2, "Pr(>|t|)"]
 
-# Create a scatter plot separating Males and Females
+# Create a scatter plot separating by gender
 ggplot(sub_data_filtered, aes(x = age, y = lesion_volume, color = gender)) +
   geom_point() +
   geom_smooth(method = "lm", se = TRUE, linetype = "solid") +
@@ -366,7 +366,7 @@ The episodic memory task was a recall task, where about an hour prior, participa
 
 ![](/images/working_with_data/haven_memory_task.png){fig-align="center" width="80%"}
 
-::: {.image-caption style="font-size: 1.3em;"}
+::: {.image-caption style="font-size: 2em;"}
 Episodic memory task design from the HAVEN study
 :::
 
@@ -407,7 +407,7 @@ In this code, we specifically create a custom theme for the plot, which increase
 ```{webr-r}
 #| context: interactive
 
-# Create a theme for scientific publication
+# Create a theme for the plots
 theme_publication <- theme_minimal() +
   theme(
     axis.title = element_text(size = 20),
@@ -418,7 +418,7 @@ theme_publication <- theme_minimal() +
     axis.line = element_line(color = "black", size = 0.5)
   )
 
-# Plot Age against correct_rt
+# Plot age against correct_rt
 rt_model <- lm(correct_rt ~ age, data = rt_data)
 rt_corr <- cor.test(rt_data$age, rt_data$correct_rt)
 rt_r_value <- rt_corr$estimate
@@ -435,7 +435,7 @@ rt_plot <- ggplot(rt_data, aes(x = age, y = correct_rt)) +
            label = sprintf("r = %.3f, p = %.3f", rt_r_value, rt_p_value),
            hjust = 0, vjust = 1, linewidth = 5)
 
-# Plot Age against correct_percent (green color scheme)
+# Plot age against correct_percent
 percent_model <- lm(correct_percent ~ age, data = rt_data)
 percent_corr <- cor.test(rt_data$age, rt_data$correct_percent)
 percent_r_value <- percent_corr$estimate
@@ -475,7 +475,7 @@ female_corr <- cor.test(female_data$age, female_data$correct_rt)
 percent_plot_by_gender <- ggplot(rt_data, aes(x = age, y = correct_rt, color = gender, fill = gender)) +
   geom_point(size = 3, alpha = 0.4) +
   geom_smooth(method = "lm", se = TRUE, alpha = 0.2) +
-  scale_color_manual(values = c("M" = "#1E90FF", "F" = "#ff6666")) +  # Blue for male, pink for female
+  scale_color_manual(values = c("M" = "#1E90FF", "F" = "#ff6666")) +
   scale_fill_manual(values = c("M" = "#1E90FF", "F" = "#ff6666")) +
   labs(x = "Age",
        y = "Correct Percentage (%)",
