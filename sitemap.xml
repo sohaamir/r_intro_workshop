@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://sohaamir.github.io/r_intro_workshop/qmd/working_with_data.html</loc>
-    <lastmod>2025-05-05T14:09:27.581Z</lastmod>
+    <loc>https://sohaamir.github.io/r_intro_workshop/slides.html</loc>
+    <lastmod>2025-05-09T12:00:42.968Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sohaamir.github.io/r_intro_workshop/qmd/resources.html</loc>
+    <lastmod>2025-05-05T13:37:38.894Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sohaamir.github.io/r_intro_workshop/qmd/introduction_to_r.html</loc>
+    <lastmod>2025-05-09T10:31:58.093Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sohaamir.github.io/r_intro_workshop/index.html</loc>
+    <lastmod>2025-05-08T16:06:51.774Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sohaamir.github.io/r_intro_workshop/qmd/acknowledgments.html</loc>
+    <lastmod>2025-05-08T16:16:18.768Z</lastmod>
   </url>
   <url>
     <loc>https://sohaamir.github.io/r_intro_workshop/qmd/r_tips.html</loc>
     <lastmod>2025-05-05T13:37:38.893Z</lastmod>
   </url>
   <url>
-    <loc>https://sohaamir.github.io/r_intro_workshop/qmd/index.html</loc>
-    <lastmod>2025-05-05T14:02:53.222Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sohaamir.github.io/r_intro_workshop/qmd/acknowledgments.html</loc>
-    <lastmod>2025-05-05T13:37:38.892Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sohaamir.github.io/r_intro_workshop/qmd/introduction_to_r.html</loc>
-    <lastmod>2025-05-05T13:37:38.892Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sohaamir.github.io/r_intro_workshop/qmd/resources.html</loc>
-    <lastmod>2025-05-05T13:37:38.894Z</lastmod>
+    <loc>https://sohaamir.github.io/r_intro_workshop/qmd/working_with_data.html</loc>
+    <lastmod>2025-05-09T10:53:36.950Z</lastmod>
   </url>
 </urlset>

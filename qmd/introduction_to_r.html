@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../qmd/working_with_data.html" rel="next">
-<link href="../qmd/index.html" rel="prev">
+<link href="../index.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -1703,7 +1703,7 @@ globalThis.qwebrExecuteCode = async function (
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../qmd/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
   </div>
 </li>
@@ -2212,7 +2212,7 @@ Case sensitivity
 <p><code>R</code> offers several data structures that serve different purposes. Each structure is designed to handle specific types of data organization, from simple one-dimensional vectors to complex nested lists<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../images/01.R_basics/data_types.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+<p><img src="../images/r_basics/data_types.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
 </figure>
 </div>
 <p>Here are some examples of each datatype:</p>
@@ -2275,7 +2275,7 @@ Case sensitivity
 <div class="cell" data-context="interactive">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>students[students<span class="sc">$</span>Gender <span class="sc">==</span> <span class="st">"M"</span>, ]         <span class="co"># Basic subsetting</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(students, Gender <span class="sc">==</span> <span class="st">"M"</span>)            <span class="co"># using the subset() function</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>students <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Gender <span class="sc">==</span> <span class="st">"M"</span>)         <span class="co"># using the filter() function from the dplyr package </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>students <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Gender <span class="sc">==</span> <span class="st">"M"</span>)         <span class="co"># using the filter() function</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="logical-operators-control-flow-and-functions" class="level2">
@@ -2437,7 +2437,19 @@ Loading packages for this workshop
 <p>Usage: After loading the package, you can use its functions. For example, with <code>ggplot2</code>, you can create a plot like this:</p>
 <div id="qwebr-insertion-location-23"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>::: {.callout-note, title=“Sourcing packages”} Packages are hosted on several repositories, CRAN being the most common. Other repositories include Bioconductor (for bioinformatics) and GitHub. The <code>install.packages()</code> function installs packages from CRAN, while for GitHub packages, you can use the <code>devtools</code> or <code>remotes</code> package to install directly from a GitHub repository. :::</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Sourcing packages">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Sourcing packages
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Packages are hosted on several repositories, CRAN being the most common. Other repositories include Bioconductor (for bioinformatics) and GitHub. The <code>install.packages()</code> function installs packages from CRAN, while for GitHub packages, you can use the <code>devtools</code> or <code>remotes</code> package to install directly from a GitHub repository.</p>
+</div>
+</div>
 <p>Popular R packages include:</p>
 <ul>
 <li><code>ggplot2</code>: A powerful package for data visualization based on the grammar of graphics.</li>
@@ -2477,7 +2489,7 @@ Loading packages for this workshop
 <p>Importantly, <code>ggplot2()</code> is built upon the layering of different components. For example, you can simply add more <code>aes</code> components to add a line of best fit, and standard error:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../images/01.R_basics/ggplot_layering.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+<p><img src="../images/r_basics/ggplot_layering.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled" title="The R Graph Gallery">
@@ -2984,7 +2996,7 @@ Essential RStudio Shortcuts
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../qmd/index.html" class="pagination-link" aria-label="Welcome">
+      <a href="../index.html" class="pagination-link" aria-label="Welcome">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Welcome</span>
       </a>          
   </div>
