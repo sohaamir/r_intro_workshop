@@ -358,7 +358,7 @@ We can now see that there is only a significant difference in the relationship b
 
 In the HAVEN study, we were interested with understanding the potential influence of demographical and brain factors upon memory function. To do this we can look at participants' reaction times and accuracy during an episodic memory task using the `rt_data` dataset. 
 
-:::{.callout-info title="The episodic memory task"}
+:::{.callout-note title="The episodic memory task"}
 The episodic memory task was a recall task, where about an hour prior, participants watched a video (actually an episode of the TV series 'Outnumbered'). Inside the MRI scanner, they were presented with two pictures, representing scenes from the episode, and there were asked to select the one which happened first.
 :::
 
@@ -366,7 +366,7 @@ The episodic memory task was a recall task, where about an hour prior, participa
 
 ![](/images/working_with_data/haven_memory_task.png){fig-align="center" width="80%"}
 
-::: {.image-caption style="font-size: 2em;"}
+::: {.image-caption style="font-size: 1.5em;"}
 Episodic memory task design from the HAVEN study
 :::
 
@@ -428,7 +428,7 @@ rt_plot <- ggplot(rt_data, aes(x = age, y = correct_rt)) +
   geom_point(color = "#4682B4", size = 3, alpha = 0.4) +
   geom_smooth(method = "lm", se = TRUE, color = "#1E3A8A", fill = "#4682B4", alpha = 0.2) +
   labs(x = "Age",
-       y = "Mean Correct Reaction Time (ms)") +
+       y = "Correct RT (s)") +
   scale_x_continuous(breaks = c(50, 60, 70, 80), limits = c(50, 80)) +
   theme_publication +
   annotate("text", x = max(rt_data$age) * 0.7, y = max(rt_data$correct_rt) * 0.9,
@@ -478,7 +478,7 @@ percent_plot_by_gender <- ggplot(rt_data, aes(x = age, y = correct_rt, color = g
   scale_color_manual(values = c("M" = "#1E90FF", "F" = "#ff6666")) +
   scale_fill_manual(values = c("M" = "#1E90FF", "F" = "#ff6666")) +
   labs(x = "Age",
-       y = "Correct Percentage (%)",
+       y = "Correct RT (s)",
        color = "gender",
        fill = "gender") +
   scale_x_continuous(breaks = c(50, 60, 70, 80), limits = c(50, 80)) +
@@ -522,7 +522,7 @@ You can see that a lot happens underneath the hood! Importantly, we can use the 
 summary(age_model)
 ```
 
-The coefficients tell us how much the dependent variable (correct reaction time) changes for each unit increase in the predictor variable (age). The p-value Pr(>|t|) tells us whether this relationship is statistically significant. Importantly, the age co-efficient is significant (p = 0.029) meaning that as people get older, their reaction times tend to increase.
+The coefficients tell us how much the dependent variable (correct reaction time) changes for each unit increase in the predictor variable (age). The p-value $Pr(>|t|)$ tells us whether this relationship is statistically significant. Importantly, the age co-efficient is significant (p = 0.029) meaning that as people get older, their reaction times tend to increase.
 
 To specifically test the influence of age and gender on performance - as indicated by the correlation plot, we need to add gender to our model. But there are a few things to note:
 
@@ -556,7 +556,7 @@ anova(age_model, age_gender_model)
 
 We can see from the output that compared to the simple age model, adding in gender as an interaction significantly improves the model fit (p = 0.035).
 
-:::{.callout-info title="ANOVA for model comparison"}
+:::{.callout-note title="ANOVA for model comparison"}
 ANOVA - in this specific case - compared the models by measuring how much the prediction accuracy (through the residual sum of squares - RSS) increases when you add each new predictor. It then tests whether this is statistically significant using an F-test. A significant p-value means the added predictor significantly improves the model, while a non-significant p-value suggests it doesn't.
 :::
 

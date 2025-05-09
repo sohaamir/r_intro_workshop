@@ -178,7 +178,7 @@ X * y # This will throw an error
 
 [^2]: Kabacoff, R. I. (2022). R in action: data analysis and graphics with R and Tidyverse. Simon and Schuster. 
 
-![](/images/01.R_basics/data_types.png){fig-align="center" width="60%"}
+![](/images/r_basics/data_types.png){fig-align="center" width="80%"}
 
 Here are some examples of each datatype:
 
@@ -319,7 +319,7 @@ But there are always lots of ways to do the same thing in `R`. For example, here
 
 students[students$Gender == "M", ]         # Basic subsetting
 subset(students, Gender == "M")            # using the subset() function
-students %>% filter(Gender == "M")         # using the filter() function from the dplyr package 
+students %>% filter(Gender == "M")         # using the filter() function
 ```
 
 ## Logical operators, control flow and functions
@@ -480,7 +480,7 @@ ggplot(data = mtcars, aes(x = mpg, y = hp)) +
   geom_point()
 ```
 
-::: {.callout-note, title="Sourcing packages"}
+::: {.callout-note title="Sourcing packages"}
 Packages are hosted on several repositories, CRAN being the most common. Other repositories include Bioconductor (for bioinformatics) and GitHub. The `install.packages()` function installs packages from CRAN, while for GitHub packages, you can use the `devtools` or `remotes` package to install directly from a GitHub repository.
 :::
 

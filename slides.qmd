@@ -21,7 +21,8 @@ engine: knitr
 
 
 Aamir Sohail  
-University of Birmingham
+
+<span style="display: inline-block; margin-right: 50px;">📅 23/5/2025</span><span>📍 University of Birmingham</span>
 
 ## Overview
 
@@ -40,13 +41,9 @@ We will cover the following topics:
 ::: {style="height: 20px;"}
 :::
 
-![](images/slides/globe.png){fig-align="center" width="250" height="250"}
+![](images/slides/globe.png){fig-align="center" width="250" height="250" top="80%"}
 
-::: {.r-fit-text .absolute top="50%" style="text-align: center; font-size: 1.5em;"}
-Go to the following website:
-:::
-
-::: {.r-fit-text .absolute top="65%" style="text-align: center; font-size: 1.2em;"}
+::: {.r-fit-text .absolute top="50%" style="text-align: center; font-size: 1.1em;"}
 <https://sohaamir.github.io/r_intro_workshop>
 :::
 
@@ -54,7 +51,7 @@ Go to the following website:
 
 ![](images/slides/code_joke_cartoon.jpg){fig-align="center" width="800" height="400"}
 
-::: {style="text-align: center; margin-top: 20px; font-size: 1.6em"}
+::: {style="text-align: left; margin-top: 20px; font-size: 1.6em"}
 <b>Tips for effective programming and project management</b>
 :::
 
@@ -116,7 +113,7 @@ git push
 
 <div style="height: 40px;"></div>
 
-![](images/slides/version_control_meme.jpg){fig-align="center" width="550" height="300"}
+![](images/slides/version_control_meme.jpg){fig-align="center" width="650" height="350"}
 
 ## Leverage large language models but wisely
 
@@ -127,7 +124,7 @@ Generative AI models can make your work more productive, but they are more suite
 
 ![](/images/r_tips/chatgpt_prompt.png){fig-align="center" width="60%"}
 
-## Tutorials are fine, but get stuck in
+## Tutorials are fine to an extent
 
 Try to avoid tutorial hell!
 
@@ -136,21 +133,57 @@ Try to avoid tutorial hell!
 
 ![](/images/r_tips/tutorial_hell.png){fig-align="center" width="30%"}
 
+## Further reading
+
+Papers
+
+::: {.nonincremental style="text-align: left; margin-top: 20px; font-size: 0.5em"}
+- Balaban, G., Grytten, I., Rand, K. D., Scheffer, L., & Sandve, G. K. (2021). Ten simple rules for quick and dirty scientific programming. PLoS Computational Biology, 17(3), e1008549. [[link](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008549)]
+
+- Gentzkow, M., & Shapiro, J. M. (2014). Code and data for the social sciences: A practitioner’s guide. Working Paper, University of Chicago.  [[link](http://recherche.enac.fr/~steve.lawford/teaching_papers/econometrics1_2023/poly_OLD/IENAC20/used/L.pdf)]
+
+- Roth, J., Duan, Y., Mahner, F. P., Kaniuth, P., Wallis, T. S., & Hebart, M. N. (2025). Ten principles for reliable, efficient, and adaptable coding in psychology and cognitive neuroscience. Communications Psychology, 3(1), 62. [[link](https://www.nature.com/articles/s44271-025-00236-3)]
+:::
+
+<div style="height: 10px;"></div>
+
+Courses
+
+::: {.nonincremental style="text-align: left; margin-top: 18px; font-size: 0.5em"}
+- Mineault, P.J., & The Good Research Code Handbook Community. (2021). The Good Research Code Handbook. Zenodo. [[link](https://goodresearch.dev/index.html)]
+:::
+
+<div style="height: 20px;"></div>
+
+📋 Check out [the website](https://sohaamir.github.io/r_intro_workshop/qmd/resources.html) or [my list](https://sohaamir.github.io/neuro_resources/) for more resources!
 
 ## Thanks to
 
-::: {style="text-align: left; margin-top: 20px; font-size: 0.8em"}
+<span style="font-size: 2em;">👤</span>
+
+::: {style="text-align: left; margin-top: 15px; font-size: 0.8em"}
 Lei Zhang 
 
 Gabriella Rossetti, Julie Lovegrove, Jon Gibbins and Anastasia Christakou as well as the rest of the HAVEN team for data
 :::
 
-::: {style="text-align: left; margin-top: 300px; font-size: 0.8em"}
-<i class="fa-solid fa-envelope fa-xl" style="color: #c68c53;"></i> axs2210@bham.ac.uk<br>
 <div style="height: 20px;"></div>
-<i class="fa-brands fa-github fa-xl" style="color: #171515;"></i> sohaamir<br>
-<div style="height: 15px;"></div>
-<i class="fa-solid fa-globe fa-xl" style="color: #66b3ff;"></i> sohaamir.github.io
+
+<span style="font-size: 2em;">🌐</span>
+
+::: {style="text-align: left; margin-top: 15px; font-size: 0.8em" color="#cccccc"}
+ChatGPT for AI-generated images
+
+Flaticons for icons
 :::
+
+::: {style="text-align: left; margin-top: 60px; font-size: 0.8em; display: flex; align-items: center;"}
+<div style="margin-right: 30px;"><i class="fa-solid fa-envelope fa-xl" style="color: #c68c53;"></i> axs2210@bham.ac.uk</div>
+<div style="margin-right: 30px;"><i class="fa-brands fa-github fa-xl" style="color: #171515;"></i> sohaamir</div>
+<div><i class="fa-solid fa-globe fa-xl" style="color: #66b3ff;"></i> sohaamir.github.io</div>
+:::
+
+
+
 
 
