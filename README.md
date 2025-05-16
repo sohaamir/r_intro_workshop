@@ -49,7 +49,13 @@ renv::restore()
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
-
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="25%"><a href="http://sohaamir.github.io"><img src="https://avatars.githubusercontent.com/u/35841800?v=4?s=100" width="100px;" alt="Aamir Sohail"/><br /><sub><b>Aamir Sohail</b></sub></a><br /><a href="https://github.com/sohaamir/r_intro_workshop/commits?author=sohaamir" title="Code">💻</a> <a href="#maintenance-sohaamir" title="Maintenance">🚧</a></td>
+    </tr>
+  </tbody>
+</table>
 
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
