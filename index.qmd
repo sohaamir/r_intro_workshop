@@ -12,11 +12,11 @@ subtitle: "Using R and RStudio for Data Analysis"
 [![GitHub repo size](https://img.shields.io/github/repo-size/sohaamir/r_intro_workshop?color=brightgreen&logo=github)](https://github.com/sohaamir/r_intro_workshop)
 :::
 
-This website is an introduction to R, designed to be used as a course for students who are new to `R` and RStudio, assuming no prior programming experience[^1]:
+This website is an introduction to `R`, designed to be used as a course for students who are new to `R` and RStudio, assuming no prior programming experience[^1]:
 
 [^1]: OpenAI (2025). Image created using ChatGPT (GPT4o) (https://chat.openai.com/). 5th May 2025.
 
-In the course, students will learn basics of the R programming language, navigate RStudio and learn how to perform basic data analysis and visualization.
+In the course, students will learn basics of the `R` programming language, navigate RStudio and learn how to perform basic data analysis and visualization.
 
 The course is designed for students with no prior programming experience, and will cover the following topics:
 - Introduction to `R` and RStudio

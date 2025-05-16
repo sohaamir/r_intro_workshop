@@ -1,4 +1,8 @@
-![](images/introduction/gpt_aamir_teaching.png){width="90%" fig-align="center"}
+# Introduction to `R` for Behavioural Researchers
+
+<p align="center">
+  <img src="https://github.com/sohaamir/r_intro_workshop/blob/main/images/introduction/gpt_aamir_teaching.png" alt="Aamir Teaching R Cartoon" width="80%">
+</p>
 
 ::: {.content-visible when-format="html"}
 ![Visitors](https://pageview.vercel.app/?github_user=sohaamir/r_intro_workshop)
@@ -7,7 +11,7 @@
 [![GitHub repo size](https://img.shields.io/github/repo-size/sohaamir/r_intro_workshop?color=brightgreen&logo=github)](https://github.com/sohaamir/r_intro_workshop)
 :::
 
-This website is an introduction to R, designed to be used as a course for students who are new to `R` and RStudio, assuming no prior programming experience[^1]:
+This website is an introduction to `R`, designed to be used as a course for students who are new to `R` and RStudio, assuming no prior programming experience[^1]:
 
 [^1]: OpenAI (2025). Image created using ChatGPT (GPT4o) (https://chat.openai.com/). 5th May 2025.
 
@@ -49,6 +53,10 @@ You are free to share, copy, and redistribute the material in any medium or form
 However, you must provide appropriate attribution, including credit to the original source, a link to the license, and an indication if changes were made. Furthermore, if you remix, transform, or build upon the material, you are required to distribute your contributions under the same license as the original.
 
 ![](images/introduction/cc_by_sa.png){width="20%"}
+
+<p align="center">
+  <img src="https://github.com/sohaamir/r_intro_workshop/blob/main/images/introduction/cc_by_sa.png" alt="CC-BY SA" width="20%">
+</p>
 
 ## Contact
 
