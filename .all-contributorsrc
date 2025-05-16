@@ -1,0 +1,17 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitType": "docs",
+  "commitConvention": "angular",
+  "contributors": [
+  ],
+  "contributorsPerLine": 4,
+  "skipCi": true,
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "projectName": "r_intro_workshop",
+  "projectOwner": "sohaamir"
+}
