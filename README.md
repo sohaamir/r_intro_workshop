@@ -1,8 +1,3 @@
----
-title: "Introduction to R for Behavioural Researchers"
-subtitle: "Using R and RStudio for Data Analysis"
----
-
 ![](images/introduction/gpt_aamir_teaching.png){width="90%" fig-align="center"}
 
 ::: {.content-visible when-format="html"}
@@ -45,25 +40,6 @@ renv::restore()
 ```
 
 #### 3. Open the `rmd` folder and run the scripts!
-
-## Contributors
-
-![](images/introduction/aamir.png){width="20%"}
-
-<span style="font-size: 1.2em;">**Aamir Sohail**</span>
-
-<div class="social-links">
-<div class="social-item"><a href="mailto:axs2210@bham.ac.uk"><i class="fa-solid fa-envelope fa-xl"></i></a></div>
-<div class="social-item"><a href="https://github.com/sohaamir" target="_blank"><i class="fa-brands fa-github fa-xl"></i></a></div>
-<div class="social-item"><a href="https://twitter.com/AamirNSohail" target="_blank"><i class="fa-brands fa-x-twitter fa-xl"></i></a></div>
-<div class="social-item"><a href="https://orcid.org/0009-0000-6584-4579" target="_blank"><i class="fa-brands fa-orcid fa-xl"></i></a></div>
-<div class="social-item"><a href="https://alpn-lab.github.io/" target="_blank"><i class="fa-solid fa-globe fa-xl"></i></a></div>
-<div class="social-item"><a href="https://bsky.app/profile/aamirsohail.bsky.social" target="_blank">{{< iconify fa6-brands:bluesky size=1.5em title='Bluesky'>}}</a></div>
-</div>
-
-<div style="height: 20px;"></div>
-
-[Aamir Sohail](https://sohaamir.github.io/) is an MRC Advanced Interdisciplinary Methods (AIM) DTP PhD student based at the Centre for Human Brain Health (CHBH), University of Birmingham, where he is supervised by [Lei Zhang](https://www.birmingham.ac.uk/staff/profiles/psychology/zhang-lei) and [Patricia Lockwood](https://www.birmingham.ac.uk/staff/profiles/psychology/lockwood-patricia). He completed a BSc in Biomedical Science at Imperial College London, followed by an MSc in Brain Imaging at the University of Nottingham. He then worked as a Junior Research Fellow at the Centre for Integrative Neuroscience and Neurodynamics (CINN), University of Reading with [Anastasia Christakou](https://anastasia.christakou.org/). His research interests involve using a combination of behavioural tasks, computational modeling and neuroimaging to understand social decision-making, and using this knowledge to inform the precision-based treatment of mental health disorders. Outside of research, he is also passionate about facilitating inclusivity and diversity in academia, as well as promoting open and reproducible science.
 
 ## License
 

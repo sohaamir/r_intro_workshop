@@ -38,10 +38,10 @@ We will cover the following topics:
 
 ## 
 
-::: {style="height: 20px;"}
+::: {style="height: 35px;"}
 :::
 
-![](images/slides/globe.png){fig-align="center" width="250" height="250" top="80%"}
+![](images/slides/globe.png){fig-align="center" width="250" height="250" top="60%"}
 
 ::: {.r-fit-text .absolute top="50%" style="text-align: center; font-size: 1.1em;"}
 <https://sohaamir.github.io/r_intro_workshop>

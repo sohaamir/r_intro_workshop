@@ -35,7 +35,7 @@ website:
     collapse-level: 1
     contents:
       - href: index.qmd
-        text: "Welcome"
+        text: "Course Summary"
       - href: qmd/introduction_to_r.qmd
         text: "Introduction to R/RStudio"
       - href: qmd/working_with_data.qmd
