@@ -225,12 +225,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Programming can be tricky, particularly for beginners who may not be aware of best practices and strategies for writing code. It is important to learn and develop good practices early, as it will help significantly when actually working with your data.</p>
+<p>Programming can be tricky, particularly for beginners who may not be aware of best practices and strategies for writing code. <strong>It is important to learn and develop good practices early, as it will help significantly when actually working with your data.</strong></p>
 <p>Here are some of my tips for programming and data analysis, not that I’m an expert by any means, but this follows my own experience and the recommendations of others.</p>
 <section id="organise-your-projects-appropriately" class="level2">
 <h2 class="anchored" data-anchor-id="organise-your-projects-appropriately">1. Organise your projects appropriately</h2>
-<p>For projects, particularly larger ones, organising your project folder appropriately is important. It makes it a lot easier to find files and to keep track of what you are doing. There’s no single recommended way, but you can follow existing templates such as the <code>cookiecutter</code> initiative, which automatically creates a specific folder structure. <code>Cookiecutter</code> may be a bit overkill, particualrly if you are new to programming, but you can always simplify it.</p>
-<p>For example, you may choose to have a folder structure like this where core features of your project i.e, data, scripts and results, are nicely organised into distinct folders and subfolders.</p>
+<p>For projects, particularly larger ones, <strong>organising your project folder appropriately is important.</strong> It makes it a lot easier to find files and to keep track of what you are doing. There’s no single recommended way, but you can follow existing templates such as the <code>cookiecutter</code> initiative, which automatically creates a specific folder structure. <code>Cookiecutter</code> may be a bit overkill, particularly if you are new to programming, but you can always simplify its template.</p>
+<p>For example, you may choose to have a folder structure like this where core features of your project i.e, data, scripts and results, are nicely organised into distinct folders and sub-folders.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>my_project<span class="sc">/</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>├── data<span class="sc">/</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>│   ├── raw<span class="sc">/</span></span>
@@ -249,7 +249,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="discretize-using-markdown-chunks-instead-of-writing-continuous-scripts" class="level2">
 <h2 class="anchored" data-anchor-id="discretize-using-markdown-chunks-instead-of-writing-continuous-scripts">2. Discretize using Markdown chunks instead of writing continuous scripts</h2>
 <p>Organisation is also important within the scripts that you write. Markdown is a great way to do this, which you can also use to create interactive documents - like this course!</p>
-<p>Within each script, you can separate your analyses into discrete chunks, which will run independently, instead of having one long script. This makes it easier to understand what exactly is being done at each step, both for yourself and for others who may not know your code. It also means that you can run each chunk independently, which is useful if you are working with a long pipeline and want to run a specific analysis without having to run the entire script.</p>
+<p><strong>Within each script, you can separate your analyses into discrete chunks, which will run independently, instead of having one long script.</strong> This makes it easier to understand what exactly is being done at each step, both for yourself and for others who may not know your code. It also means that you can run each chunk independently, which is useful if you are working with a long pipeline and want to run a specific analysis without having to run the entire script.</p>
 <p>For example, you can have a script like this:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Chunk <span class="dv">1</span> <span class="sc">-</span> Load packages</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>...</span>
@@ -262,7 +262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="version-control-using-git-share-using-github" class="level2">
 <h2 class="anchored" data-anchor-id="version-control-using-git-share-using-github">3. Version control using <code>git</code>, share using GitHub</h2>
-<p>Similar to how you track changes made in a Word document, version control allows you to track changes made to your code. This is particularly useful when you are working on a project with multiple people, or if you want to keep track of your own changes over time. <code>git</code> is the most widely used version control system, and it is free and open source. GitHub on-the-other-hand is a web-based platform that uses <code>git</code> for version control, where you can share code with others, and download code that others have created.</p>
+<p>Similar to how you track changes made in a Word document, <strong>version control allows you to track changes made to your code.</strong> This is particularly useful when you are working on a project with multiple people, or if you want to keep track of your own changes over time. <code>git</code> is the most widely used version control system, and it is free and open source. GitHub on-the-other-hand is a web-based platform that uses <code>git</code> for version control, where you can share code with others, and download code that others have created.</p>
 <p><code>git</code> is mainly used as a command line tool, but there are many graphical user interfaces (GUIs) available which make it easier to use. Personally, I think using <code>git</code> through the command line is the best way, and it is simpler than you might think. Whilst there are many commands, the basic use of <code>git</code> for version control involves just four commands:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="op">&lt;</span>file<span class="op">&gt;</span></span>
@@ -296,15 +296,15 @@ Commit messages
 <p>It is important to properly tag your commits with appropriate messages so you can track exactly what each commit has changed from before. For example, let’s say you have the following commit history:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"working correlation code for height and weight"</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"working linear regression model with age and sex"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Following these two prior commits, you work on an entirely new analysis, but it doesn’t work, and now the regression model also doesn’t work. You can just simply reset your analysis back to a point where it did work using <code>git</code>.</p>
+<p>Following these two prior commits, let’s say you work on an entirely new analysis, but it doesn’t work (predictably), and now the regression model that worked fine before also doesn’t work. You can just simply reset your analysis back to a point where it did work using <code>git</code>!</p>
 </div>
 </div>
-<p><code>git</code> and GitHub are important for programming, particularly on collaborative projects, where multiple people are working on the same code. Sharing code on GitHub or OSF is also recommended when publishing papers for transparency and reproducibility.</p>
+<p><code>git</code> and GitHub are important tools for programming, particularly on collaborative projects where multiple people are working on the same code. Sharing code on GitHub or OSF is also recommended when publishing papers for transparency and reproducibility.</p>
 </section>
 <section id="leverage-large-language-models-but-wisely" class="level2">
 <h2 class="anchored" data-anchor-id="leverage-large-language-models-but-wisely">4. Leverage large language models but wisely</h2>
-<p>Programming has significantly changes since the advent of large language models (LLMs), which can provide increasingly sophisticated code in response to user-generated prompts. However, using LLMs for this purpose is often a double-edged sword. Whilst you may be more productive, you may also be less likely to understand what the code is doing. In addition, LLMs may not be as appropriate for certain tasks, e.g., for advising analyses and hypotheses.</p>
-<p>LLMs are best suited to perform low-level tasks that don’t require human-based reasoning. A great example would be for plot-generation, which doesn’t require much reasoning, but does require a lot of code, particularly for more complex plots. For example, you can ask ChatGPT to generate a plot using <code>ggplot2</code> in R, and it will generate the code for you in no time!</p>
+<p>Programming has significantly changes since the advent of large language models (LLMs), which can provide increasingly sophisticated code in response to user-generated prompts. However, using LLMs for this purpose is often a double-edged sword. <strong>Whilst you may be more productive, you may also be less likely to understand what the code is doing.</strong> In addition, LLMs may not be as appropriate for certain tasks, e.g., for advising scientific analyses and hypotheses.</p>
+<p><strong>LLMs are best suited to perform low-level tasks that don’t require human-based or scientific reasoning.</strong> A great example would be for plot-generation, which doesn’t require much thought, but does require a lot of code, particularly for more complex plots. For example, you can ask ChatGPT to generate a plot using <code>ggplot2</code> in R, and it will generate the code for you in no time!</p>
 <div style="height: 10px;">
 
 </div>
@@ -316,7 +316,7 @@ Commit messages
 <div class="image-caption" style="font-size: 1.3em;">
 <p>Prompting ChatGPT to generate a plot using <code>ggplot2</code></p>
 </div>
-<p>Best practices for programming using LLMs is a whole separate topic in of itself, but ultimately, it is important to remember that LLMs are just that - language models. One framework for working with LLMs is presented below, where the first stage is to understand the task and whether it is suitable for the model. The second stage is to discern the model output, and whether it is appropriate for your aim. The third stage is to calibrate the output appropriately based on how well the code performs, and finally, you can iteratively refine the output by submitting follow-up prompts<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>Understanding the best practices for programming using LLMs is a whole separate topic in of itself, but ultimately, it is important to remember that LLMs are just that - language models. One framework for working with LLMs is presented below, where the first stage is to understand the task and whether it is suitable for the model. The second stage is to discern the model output, and whether it is appropriate for your aim. The third stage is to calibrate the output appropriately based on how well the code performs, and finally, you can iteratively refine the output by submitting follow-up prompts<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 <div style="height: 20px;">
 
 </div>
@@ -337,10 +337,10 @@ Commit messages
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../images/r_tips/tutorial_hell.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:30.0%"></p>
+<p><img src="../images/r_tips/tutorial_hell.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
 </figure>
 </div>
-<p>So, ultimately, use tutorials to get a basic understanding of a programming language or software, and determine whether that may be something that you could use. But then actually learn by working on your own projects.</p>
+<p><strong>Use tutorials to get a basic understanding of a programming language or software, and determine whether that may be something that you could use. But then actually learn by working on your own projects.</strong></p>
 
 
 </section>
