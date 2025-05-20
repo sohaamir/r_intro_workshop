@@ -2,7 +2,7 @@
 title: Resources for learning R and best practices for data analysis
 ---
 
-That being said, there are many resources available which help both with learning `R` and for developing appropriate practices. To start with, you can visit [my website](https://sohaamir.github.io/neuro_resources/) where I collate these, with a particular emphasis on practical examples which you can work with online (i.e., not through textbooks which are often hundreds of pages and cumbersome to work through). But try not to get stuck in tutorial hell!
+There are many resources available which help both with learning `R` and for developing appropriate practices. To start with, you can visit [my website](https://sohaamir.github.io/neuro_resources/) where I collate these, with a particular emphasis on practical examples which you can work with online (i.e., not through textbooks which are often hundreds of pages and cumbersome to work through). But try not to get stuck in tutorial hell!
 
 ## Papers for conducting data analysis
 

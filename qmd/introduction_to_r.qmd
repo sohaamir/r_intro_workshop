@@ -25,8 +25,8 @@ The workshop uses executable code chunks in the browser via [`WebR`](https://doc
 If the code fails to run or throws up an error, it is most likely because it relies upon variables that were set in a previous chunk which were not run. Please make sure that you run all of the chunks in order! Refreshing the browser will also reset everything!
 :::
 
-`R` is a powerful open-source programming language and software environment primarily designed for statistical computing, data analysis, and graphical visualization.
-`R` has its own interface; when you install `R` onto your own computer(Windows/Mac) you can open `R` on it's own. However, working in this way with `R` ('base `R`') isn't very user friendly!
+`R` is a powerful **open-source programming language and software environment primarily designed for statistical computing, data analysis, and graphical visualization.**
+`R` has its own interface, however working in this way with `R` ('base `R`') isn't very user friendly!
 
 Instead, we use an IDE (Integrated Development Environment) to work with the `R` programming language. A popular example - and the one that we will be using - is [RStudio](https://posit.co/download/rstudio-desktop/).
 
@@ -250,7 +250,7 @@ is.array(arr)   # Check if arr is an array
 is.vector(m1) # Check if m1 is a vector
 ```
 
-You may have noticed that `m1` is a matrix and an array, whilst `arr` is an array but not a matrix. This is because a matrix is essentially a three-dimensional array with one dimension set to 1.
+You may have noticed that `m1` is a matrix and an array, whilst `arr` is an array but not a matrix. This is because **a matrix is essentially a three-dimensional array with one dimension set to 1.**
 
 <div style="font-size: 22px;"><strong>Data frame</strong></div>
 
@@ -298,7 +298,7 @@ students[["Math"]]    # print Math column
 students[["Science"]] # print Science column
 ```
 
-Either is fine, but you may find the `$` operator is quicker and easier to use.
+**Either is fine, but you may find the `$` operator quicker and easier to use.**
 
 We can assign values within a specific column or row to a new variable:
 ```{webr-r}
@@ -391,7 +391,7 @@ Here are some other commands that will be useful when working with `R` more gene
 
 <div style="font-size: 22px;"><strong>Directory and Workspace Management</strong></div>
 
-The `setwd()` command sets the working directory, which is the folder where `R` looks for files to read and where it saves output files. You can check your current working directory using `getwd()`. It is important to set your working directory appropriately, otherwise, you may run into issues when trying to read or write files, or source functions from other scripts.
+The `setwd()` command sets the working directory, which is the folder where `R` looks for files to read and where it saves output files. You can check your current working directory using `getwd()`. It is important to set your working directory appropriately, otherwise you may run into issues when trying to read or write files, or source functions from other scripts.
 ```{r, eval=FALSE}
 #| context: interactive
 
@@ -493,17 +493,9 @@ Popular R packages include:
 
 We will be using `tidyverse` - a collection of packages for data manipulation and visualization including `dplyr`, `tidyr`, and `ggplot2` - in this workshop.
 
-You can find and install R packages from a number of sources:
-
-- [CRAN](https://cran.r-project.org/): The main repository for `R` packages.
-- [Bioconductor](https://www.bioconductor.org/): A repository specializing in bioinformatics packages.
-- [GitHub](https://github.com/): Many `R` developers host their packages on GitHub, which you can install using `devtools` or `remotes` packages.
-
 ## Data visualization using `ggplot2()`
 
-One of the main benefits of `R` is to create publication quality figures and graphs. There are a number of different functions within `R` that we can use.
-
-We will now briefly cover `ggplot2()` as it is the most versatile and used approach to create complex figures.
+One of the main benefits of `R` is to create publication quality figures and graphs. We will now briefly cover `ggplot2()` as it is the most versatile and used approach to create complex figures.
 
 **`ggplot2` is a powerful `R` package for creating complex and customizable data visualizations.**
 It provides a systematic approach to building plots by combining two main components: geometries (`geom`) and aesthetics (`aes`).

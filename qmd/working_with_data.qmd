@@ -29,13 +29,13 @@ When working with data in our studies, we can consider `R` to be the central sof
 
 In this section we will directly work with some participant data from the [HAVEN](https://research.reading.ac.uk/cinn/research-studies/haven/) study.
 
-HAVEN was a study investigating the relationship between cognition, neurovascular health and platelet function in older adults. For the purposes of this workshop, we will be using a subset of the data from the study, specifically focusing on simple demographical and behavioural data.
+HAVEN was a study investigating the relationship between cognition, neurovascular health and platelet function in older adults. For the purposes of this workshop, we will be using a **subset of the data from the study, specifically focusing on simple demographical and behavioural data.**
 
-We will firstly plot the data using a variety of plots to understand how certain graphs are preferred for certain data. We will then perform basic statistical tests to understand whether the relationship between the variables are significant.
+We will firstly plot the data using a variety of plots to understand how certain graphs are preferred for visualizing specific relationships. We will then perform basic statistical tests to understand whether the relationship between the variables are significant.
 
 ### Load and display the data
 
-First thing first, we need to load and read the data. The first dataset is in the `participant_data.csv` file. This file format is called 'comma separated values' or CSV, which we can read into R using the `read_csv` function. We firstly assign the data to a variable called `sub_data` (short for subject data), which we can now work directly with.
+We first need to load in and read the data. The first dataset is in the `participant_data.csv` file. This file format is called 'comma separated values' or CSV, which we can read into R using the `read_csv` function. We firstly assign the data to a variable called `sub_data` (short for subject data), which we can now work directly with.
 
 In the code below, we are downloading the data from a GitHub repository and saving it to our working directory. We can then read it in using the `read.csv` function from `tidyverse`. The first two lines are only required for the online workshop where we run code in the browser; in `R` you can just run the bottom line.
 
@@ -58,7 +58,7 @@ Just to see if we have loaded in the correct file and correctly assigned it, we 
 head(sub_data)
 ```
 
-So you can see we have a variety of different variables, including `age`, `gender`, `height`, `weight`, `bmi` and `lesion_volume`.
+So you can see we have different variables, including `age`, `gender`, `height`, `weight`, `bmi` and `lesion_volume`.
 
 We can calculate summary statistics for each variable using the `summary` function. The summary statistics will give us the mean, range etc. for each.
 
@@ -67,7 +67,7 @@ We can calculate summary statistics for each variable using the `summary` functi
 summary(sub_data)
 ```
 
-And we now that to access a specific column, we can use the `$` operator. For example, if we wanted to see the age of each participant, we can run:
+We know to use the `$` operator to access a specific column. For example, if we wanted to see the age of each participant, we can run:
 ```{webr-r}
 #| context: interactive
 summary(sub_data$age)
@@ -75,7 +75,7 @@ summary(sub_data$age)
 
 ## Data Visualization using `ggplot2()`
 
-An important practice when working with data is to understand what the data looks like. This is important for several reasons, including understanding the distribution of the data, identifying outliers, and understanding the relationships between different variables - even basic!
+An important practice when working with data is to have a basic understanding to what the data looks like. This is important for several reasons: seeing the distribution of the data, identifying outliers, and understanding the relationships between different variables - even basic ones!
 
 For example, if we wanted to understand whether people who are older have a higher lesion volume (possibly as a result of aging) we can create a scatter plot of age and total lesion volume, and add a line of best fit. We will use the `ggplot2` package, which - as mentioned - is a powerful and flexible plotting system.
 
@@ -95,7 +95,7 @@ ggplot(sub_data, aes(x = age, y = `lesion_volume`)) +
 
 Here we are specifically using the `ggplot2` package using the `geom_point` function to create the points, and the `geom_smooth` function to add a line of best fit. The `method = "lm"` argument specifies that we want to use a simple linear regression model for the line of best fit.
 
-So, you can see a positive correlation, namely that (generally) the older you are, the higher the total lesion volume will be.
+So, you can see a positive correlation, namely that (generally) **the older you are, the higher the total lesion volume will be.**
 
 If we wanted to understand whether there is a difference between the height and weight between males and females, we can also do this using a scatter plot, but grouped by gender:
 ```{webr-r}
@@ -108,11 +108,11 @@ ggplot(sub_data, aes(x=height, y=weight, colour=gender)) +
   theme_minimal()
 ```
 
-The `colour` argument within `aes` separates the data by the variable assigned. You can see that males are generally towards the top and right (i.e., taller and heavier).
+The `colour` argument within `aes` separates the data by the variable assigned. You can see - as we would expect - that **males are generally towards the top and right (i.e., taller and heavier).**
 
 ### Boxplot
 
-To see the specific differences between males and females, we can create a boxplot, which visualizes the mean and quartiles:
+To see the specific differences between males and females, we can create a boxplot, which visualizes the mean and quartiles in each group:
 ```{webr-r}
 #| context: interactive
 
@@ -159,9 +159,9 @@ So you can see that the most common BMI is 25, with the variable normally distri
 
 ## Basic statistics and significance testing
 
-So we have been able to visualise the data, and now have a general idea of some of the trends. But how can we test whether these relationships are significant? Can we statistically say that men are taller than women? Can we say that the older you are the higher lesion volume you have?
+So we have been able to visualise the data, and now have a general idea of some of the trends. But how can we test whether these relationships are significant? Can we statistically say that men are taller than women? Can we say that the older you are the more lesions you have?
 
-To answer these questions, lets firstly get some more summary statistics, this time for height and weight specificially. We firstly group the data by gender and run the `summarise` function to calculate the mean and standard deviation for each group.
+To answer these questions, lets firstly get some more summary statistics, this time for height and weight specifically. We firstly group the data by gender and run the `summarise` function to calculate the mean and standard deviation for each group.
 
 ```{webr-r}
 #| context: interactive
@@ -181,11 +181,11 @@ group_by(sub_data, gender) %>%
   )
 ```
 
-You can see that the mean height for women (n=29) is 1.64 and men (n=23) is 1.80 (meters), whilst the mean weight is 65.9 and 85.5 (kg) respectively.
+You can see that the mean height for women (n=29) is 1.64 and men (n=23) is 1.80 (metres), whilst the mean weight is 65.9 and 85.5 (kg) respectively.
 
 ### T-test
 
-But is this difference significant? To find out the statistical difference between the mean of two groups we can simply run a t-test. We do this using the `t.test` function, which will calculate the t-statistic and p-value for us. The default is a two-tailed t-test, which tests whether the means of two groups are significantly different from each other without direction. We can also run a one-tailed t-test, but we need to specify the direction of the difference.
+But is this difference significant? To find out the statistical difference between the mean of two groups we can simply run a t-test. We do this using the `t.test` function, which will calculate the t-statistic and p-value for us. **The default is a two-tailed t-test,** which tests whether the means of two groups are significantly different from each other without direction. We can also run a one-tailed t-test, but we need to specify the direction of the difference.
 ```{webr-r}
 #| context: interactive
 
@@ -208,7 +208,7 @@ t.test(females$height, males$height, alternative = "greater")
 t.test(females$weight, males$weight, alternative = "greater")
 ```
 
-So, we can see in either case, the p-values that there is a statistically significant difference between the height and weight between males and females. (9.77e-10 is a 0 followed by 10 more zeroes so 0.000000000977). We can also see that the p-value for the one-tailed test where we test the alternative hypothesis that women weigh more than men is 1. This makes sense, as this is not the case!
+So, we can see in either case, the p-values that there is a statistically significant difference between the height and weight between males and females. (9.77e-10 is a 0 followed by 9 more zeroes, so 0.000000000977). We can also see that the p-value for the one-tailed test - where we test the alternative hypothesis that women weigh more than men - is 1. This makes sense, as it is not the case!
 
 ### Correlation
 
@@ -227,7 +227,7 @@ str(cor_result)
 
 You can also see that in addition to the various statistics, it also mentions the method, which is Pearson's product-moment correlation. This is the default method used in `R`, but you can also use Spearman's rank correlation or other correlation methods by changing the `method` argument.
 
-Using the `names` function, we can print the data recorded, and see that it contains several components, including the correlation coefficient (r), p-value, confidence intervals and t-statistic.
+Using the `names` function, we can see the different data recorded, and see that it contains several components, including the correlation coefficient (r), p-value, confidence intervals and t-statistic.
 ```{webr-r}
 #| context: interactive
 
@@ -267,9 +267,9 @@ ggplot(sub_data, aes(x = age, y = lesion_volume)) +
            hjust = 0, vjust = 1)
 ```
 
-So, whilst there is a significant relationship between age and lesion volume (excluding other predictors), we can see one or two outliers in our data. What would the data look like if we removed them?
+So, whilst there is a significant relationship between age and lesion volume (excluding other predictors), **we can see one or two outliers in our data.** What would the data look like if we removed them?
 
-We need to remove those with lesion volumes greater than 5. In `R` there are often several ways to perform the same operation, here are some examples which we can use:
+We need to remove those with lesion volumes greater than 5. In `R` there are often several ways to perform the same operation, here are some examples for this case:
 ```{r, eval=FALSE}
 
 # Remove rows where lesion_volume exceeds 5
@@ -315,15 +315,14 @@ The linear regression model `lm(lesion_volume ~ age, data = sub_data_filtered)` 
 # Perform correlation test between age and lesion volume
 cor_result <- cor.test(sub_data_filtered$age, sub_data_filtered$lesion_volume)
 
-# Extract correlation coefficient and p-value
+# Extract p-value
 r_value <- cor_result$estimate
 p_value <- cor_result$p.value
 
 print(p_value)
-print(r_value)
 ```
 
-So, the relationship is still significant, but less so than before.
+**So, the relationship is still significant, but less so than before.**
 
 Finally, we may also want to see if there is a difference between males and females with lesion volume and age. If so, we would expect to see a significant difference in the correlations between the two groups. Let's run a correlation for males and females with lesion volume separately, and plot them on the same graph:
 
@@ -352,11 +351,31 @@ ggplot(sub_data_filtered, aes(x = age, y = lesion_volume, color = gender)) +
            hjust = 0, vjust = 1)
 ```
 
-We can now see that there is only a significant difference in the relationship between age and total lesion volume for females, and not for males.
+But as we are performing two independent tests, we need to correct for multiple comparisons. We can do this using the `p.adjust` function, which will adjust the p-values for us. The most common method is the Bonferroni correction, which divides the p-value by the number of tests performed.
+```{webr-r}
+#| context: interactive
+
+# Multiple comparisons correction
+
+# Combine the two p-values into a vector
+p_values <- c(p_value_male, p_value_female)
+
+# Adjust using Bonferroni (we can use other methods, e.g., "holm", "fdr")
+p_values_adjusted <- p.adjust(p_values, method = "bonferroni")
+
+# Extract and print adjusted p-values
+p_adj_male <- p_values_adjusted[1]
+p_adj_female <- p_values_adjusted[2]
+
+print(p_adj_female)
+print(p_adj_male)
+```
+
+We can see that there is a significant difference in the relationship between age and total lesion volume **for females, and not for males.**
 
 ## Regression models
 
-In the HAVEN study, we were interested with understanding the potential influence of demographical and brain factors upon memory function. To do this we can look at participants' reaction times and accuracy during an episodic memory task using the `rt_data` dataset. 
+In the HAVEN study, we were interested with understanding the influence of different factors upon memory function. To do this we can look at participants' reaction times and accuracy during an episodic memory task using the `rt_data` dataset. 
 
 :::{.callout-note title="The episodic memory task"}
 The episodic memory task was a recall task, where about an hour prior, participants watched a video (actually an episode of the TV series 'Outnumbered'). Inside the MRI scanner, they were presented with two pictures, representing scenes from the episode, and there were asked to select the one which happened first.
@@ -393,21 +412,21 @@ And `summary ` to see the summary statistics:
 summary(rt_data)
 ```
 
-You can see that it is essentially an expanded version of the previous dataset, which includes accuracy and mean reaction time for correct and incorrect responses. Our goal is to create a model to describe how various factors influence participants' performance on the task.
+You can see that it is essentially an expanded version of the previous dataset, which includes accuracy and mean reaction time for correct and incorrect responses. Our goal is to **create a model to describe how various factors influence participants' performance on the task.**
 
-As before, let's plot the relationship between age and performance on the task, both for the reaction time (only for ones they got correct) and the percentage accuracy.
+As before, let's plot the relationship between age and performance on the task, measured by the percentage accuracy.
 
 :::{.callout-tip title="Look at your data"}
 Remember, before running any modelling analyses, it is always a good idea to look at your data and it's relationships, even it is rudimentary!
 :::
 
-We can do this using `ggplot2` and the `lm` function to create a simple linear model. We will also add a line of best fit to the plot, and annotate it with the p-value from the model. Note that this time the plotting code is significantly longer than before. This is to demonstrate how you can customise your plots to make them look more suitable for a scientific publication. The previous code I kept purposely simple to make it easier to understand and manipulate.
+Note that this time the plotting code is significantly longer than before. **This is to demonstrate how you can customise your plots to make them look more suitable for a scientific publication.** 
 
-In this code, we specifically create a custom theme for the plot, which increases the font size and removes the grid lines. 
+In this code, we firstly create a custom theme for the plot, which increases the font size and removes the grid lines, before plotting the data using our newly made theme. 
 ```{webr-r}
 #| context: interactive
 
-# Create a theme for the plots
+# Create a publication-style theme
 theme_publication <- theme_minimal() +
   theme(
     axis.title = element_text(size = 20),
@@ -418,24 +437,24 @@ theme_publication <- theme_minimal() +
     axis.line = element_line(color = "black", size = 0.5)
   )
 
-# Plot age against correct_rt
-rt_model <- lm(correct_rt ~ age, data = rt_data)
-rt_corr <- cor.test(rt_data$age, rt_data$correct_rt)
-rt_r_value <- rt_corr$estimate
-rt_p_value <- rt_corr$p.value
+## Plot 1: Age vs Lesion Number
+lesion_model <- lm(lesion_number ~ age, data = rt_data)
+lesion_corr <- cor.test(rt_data$age, rt_data$lesion_number)
+lesion_r_value <- lesion_corr$estimate
+lesion_p_value <- lesion_corr$p.value
 
-rt_plot <- ggplot(rt_data, aes(x = age, y = correct_rt)) +
+lesion_plot <- ggplot(rt_data, aes(x = age, y = lesion_number)) +
   geom_point(color = "#4682B4", size = 3, alpha = 0.4) +
   geom_smooth(method = "lm", se = TRUE, color = "#1E3A8A", fill = "#4682B4", alpha = 0.2) +
   labs(x = "Age",
-       y = "Correct RT (s)") +
+       y = "Lesion Number") +
   scale_x_continuous(breaks = c(50, 60, 70, 80), limits = c(50, 80)) +
   theme_publication +
-  annotate("text", x = max(rt_data$age) * 0.7, y = max(rt_data$correct_rt) * 0.9,
-           label = sprintf("r = %.3f, p = %.3f", rt_r_value, rt_p_value),
+  annotate("text", x = max(rt_data$age) * 0.7, y = max(rt_data$lesion_number) * 0.9,
+           label = sprintf("r = %.3f, p = %.4f", lesion_r_value, lesion_p_value),
            hjust = 0, vjust = 1, linewidth = 5)
 
-# Plot age against correct_percent
+## Plot 2: Age vs Correct Percent
 percent_model <- lm(correct_percent ~ age, data = rt_data)
 percent_corr <- cor.test(rt_data$age, rt_data$correct_percent)
 percent_r_value <- percent_corr$estimate
@@ -452,69 +471,56 @@ percent_plot <- ggplot(rt_data, aes(x = age, y = correct_percent)) +
            label = sprintf("r = %.3f, p = %.3f", percent_r_value, percent_p_value),
            hjust = 0, vjust = 1, linewidth = 5)
 
-# Display the plots
-print(rt_plot)
-print(percent_plot)
-```
+## Plot 3: Lesion Number vs Correct Percent
+lesion_perf_model <- lm(correct_percent ~ lesion_number, data = rt_data)
+lesion_perf_corr <- cor.test(rt_data$lesion_number, rt_data$correct_percent)
+lesion_perf_r_value <- lesion_perf_corr$estimate
+lesion_perf_p_value <- lesion_perf_corr$p.value
 
-So we can see that older participants took longer (on correct trials), and made more mistakes. Both of these are significant.
-
-But is there a difference between males and females? Let's plot the correct reaction time for both separately.
-
-```{webr-r}
-#| context: interactive
-
-## Calculate correlation and p-values for each gender
-male_data <- rt_data[rt_data$gender == "M", ]
-female_data <- rt_data[rt_data$gender == "F", ]
-
-male_corr <- cor.test(male_data$age, male_data$correct_rt)
-female_corr <- cor.test(female_data$age, female_data$correct_rt)
-
-# Create plot with separate colors and regression lines for each gender
-percent_plot_by_gender <- ggplot(rt_data, aes(x = age, y = correct_rt, color = gender, fill = gender)) +
-  geom_point(size = 3, alpha = 0.4) +
-  geom_smooth(method = "lm", se = TRUE, alpha = 0.2) +
-  scale_color_manual(values = c("M" = "#1E90FF", "F" = "#ff6666")) +
-  scale_fill_manual(values = c("M" = "#1E90FF", "F" = "#ff6666")) +
-  labs(x = "Age",
-       y = "Correct RT (s)",
-       color = "gender",
-       fill = "gender") +
-  scale_x_continuous(breaks = c(50, 60, 70, 80), limits = c(50, 80)) +
+lesion_perf_plot <- ggplot(rt_data, aes(x = lesion_number, y = correct_percent)) +
+  geom_point(color = "#228B22", size = 3, alpha = 0.4) +
+  geom_smooth(method = "lm", se = TRUE, color = "#006400", fill = "#228B22", alpha = 0.2) +
+  labs(x = "Lesion Number",
+       y = "Correct Percentage (%)") +
   theme_publication +
-  theme(legend.position = "right") +
-  # Add annotation for male correlation
-  annotate("text", x = max(rt_data$age) * 0.65, y = max(rt_data$correct_rt) * 0.95,
-           label = sprintf("Male: r = %.3f, p = %.3f", male_corr$estimate, male_corr$p.value),
-           hjust = 0, vjust = 1, size = 4.5, color = "#1E90FF") +
-  # Add annotation for female correlation
-  annotate("text", x = max(rt_data$age) * 0.65, y = max(rt_data$correct_rt) * 0.87,
-           label = sprintf("Female: r = %.3f, p = %.3f", female_corr$estimate, female_corr$p.value),
-           hjust = 0, vjust = -6, size = 4.5, color = "#ff6666")
+  annotate("text", x = max(rt_data$lesion_number) * 0.6, y = max(rt_data$correct_percent) * 0.9,
+           label = sprintf("r = %.3f, p = %.3f", lesion_perf_r_value, lesion_perf_p_value),
+           hjust = 0, vjust = 1, linewidth = 5)
 
-print(percent_plot_by_gender)
+# Print plots
+print(lesion_plot)
+print(percent_plot)
+print(lesion_perf_plot)
 ```
 
-Importantly, we can see a gender effect; whilst females show a significantly positive correlation between age and task performance, there is no such effect within males.
+We can see that older participants tend to have more brain lesions and perform worse on the task. However, there’s no direct relationship between the number of lesions and task accuracy. This raises an important question:
+
+::: {.quote-large style="font-size: 1.3em"}
+> Is it age itself that explains lower performance, or do age-related brain changes (like lesions) play a role?
+:::
 
 ### Creating a linear regression model for task performance
 
-Linear regression helps us understand how different independent variables ("predictors") influence a dependent (outcome) variable. In our case, we want to see how predictors influence task performance (accuracy).
+**Regression models help us understand how different independent variables ("predictors") influence a dependent (outcome) variable.** In our case, we want to see how the predictors age and lesion number influence task performance.
+
+We will keep things simple and just add each predictor separately - first age, then lesion number, and then both together in the same model. Doing this helps us understand how much each variable contributes on its own and whether one explains the effect of the other.
+
+- If age still predicts performance even when we include lesion number, it suggests that age has its own independent effect on accuracy.
+
+- If the effect of age disappears when we include lesion number, it suggests that lesions might be the reason older adults perform worse.
 
 Let's start with one predictor - age. The `lm` function - as previously used - creates a linear model, and the `str` function shows the structure of the model. 
 ```{webr-r}
 #| context: interactive
 
 # Simple regression model
-age_model <- lm(correct_rt ~ age, data = rt_data)
+age_model <- lm(correct_percent ~ age, data = rt_data)
 
 # See model structure
 str(age_model)
 ```
 
 You can see that a lot happens underneath the hood! Importantly, we can use the `summary` function to see the results of the model, including the coefficients, p-values and R-squared value.
-
 ```{webr-r}
 #| context: interactive
 
@@ -522,66 +528,43 @@ You can see that a lot happens underneath the hood! Importantly, we can use the 
 summary(age_model)
 ```
 
-The coefficients tell us how much the dependent variable (correct reaction time) changes for each unit increase in the predictor variable (age). The p-value $Pr(>|t|)$ tells us whether this relationship is statistically significant. Importantly, the age co-efficient is significant (p = 0.029) meaning that as people get older, their reaction times tend to increase.
+The coefficients tell us how much the dependent variable (correct percent) changes for each unit increase in the predictor variable (age). The p-value $Pr(>|t|)$ tells us whether this relationship is statistically significant. **Importantly, the age co-efficient is significant (p = 0.0089) meaning that as people get older, their accuracy tends to decrease.**
 
-To specifically test the influence of age and gender on performance - as indicated by the correlation plot, we need to add gender to our model. But there are a few things to note:
+Now let's run a model with just lesion number:
 
-1) Because gender is a categorical variable, it should be implemented in the model as a factor. We actually do not need to do this explicitly, as the `lm` function will automatically convert it to a factor. However, it is good practice to do so, so we will do it explicitly as well.
-2) We should add gender as an interaction term with age, rather than a separate fixed effect. This is because we are explicitly interested in whether two slopes are significantly different. Adding both as separate terms would just test the effect of each separately, and not the interaction.
-
-Here is the code to create and run this model:
 ```{webr-r}
 #| context: interactive
 
-# Convert gender to factor (not explicitly needed)
-rt_data$gender <- factor(rt_data$gender, levels = c("F", "M"))
-
-# Multiple regression model - * indicates interaction
-age_gender_model <- lm(correct_rt ~ age * gender, data = rt_data)
+# Simple regression model
+lesion_model <- lm(correct_percent ~ lesion_number, data = rt_data)
 
 # View results
-summary(age_gender_model)
+summary(lesion_model)
 ```
 
-From the results, we can see that the interaction term is not significant (p = 0.249). This means that despite what we observed in our plot, the difference in how age affects reaction time between males and females is not statistically significant.
+The p-value is 0.419, which is not statistically significant. This means we do not have evidence that lesion number is reliably related to performance.
 
-### Model selection
+Let's now add lesion number to our model, firstly as a fixed effect. This allows us to answer the question:
 
-But which is the best model to use? We can run an ANOVA (analysis of variance) to compare the models. This will tell us whether the additional predictors significantly improve the model fit.
-```{webr-r}
-#| context: interactive
-
-anova(age_model, age_gender_model)
-```
-
-We can see from the output that compared to the simple age model, adding in gender as an interaction significantly improves the model fit (p = 0.035).
-
-:::{.callout-note title="ANOVA for model comparison"}
-ANOVA - in this specific case - compared the models by measuring how much the prediction accuracy (through the residual sum of squares - RSS) increases when you add each new predictor. It then tests whether this is statistically significant using an F-test. A significant p-value means the added predictor significantly improves the model, while a non-significant p-value suggests it doesn't.
+::: {.quote-large style="font-size: 1.3em"}
+> Does lesion number help explain performance even when we already account for age?
 :::
 
-For a more formal test of model selection, we can use information criterion. The most common is the Akaike Information Criterion (AIC), which penalizes models for complexity. The model with the lowest AIC is considered the best fit. We can also use the Bayesian Information Criterion (BIC), which is similar but penalizes complexity more heavily.
 ```{webr-r}
 #| context: interactive
 
-# Calculate AIC and BIC for both models
-aic_age <- AIC(age_model)
-aic_age_gender <- AIC(age_gender_model)
+# Multiple regression model
+age_lesion_model <- lm(correct_percent ~ age + lesion_number, data = rt_data)
 
-bic_age <- BIC(age_model)
-bic_age_gender <- BIC(age_gender_model)
-
-print(paste("AIC for age model:", aic_age))
-print(paste("AIC for age + gender model:", aic_age_gender))
-print(paste("BIC for age model:", aic_age))
-print(paste("BIC for age + gender model:", aic_age_gender))
+# View results
+summary(age_lesion_model)
 ```
 
-You can see that the AIC favours the more complex interaction model, whilst conversely, the BIC favors the simpler model. This is because the BIC penalizes complexity more heavily than the AIC. The choice of which model to use also depends on the specific context and goals of your analysis. In this case, because we are interested in specifically modeling the interaction effects, we can stick with that model.
+This result model shows that age predicts performance (p = 0.0118), even when we include lesion number. Moreover, lesion number still does not independently explain performance, once we account for age. **This suggests that age, not lesion number, is the key factor driving the drop in task accuracy.**
 
 ## Calculating group differences using ANOVA and Tukey's HSD
 
-ANOVAs are commonly used to determine whether there is a significant difference between multiple groups (>2). In our data, we know that there is a negative correlation between age and task performance, but is there a difference between age groups? We can use an ANOVA to test this.
+ANOVAs are commonly used to determine whether there is a significant difference between multiple groups (>2). In our data, we already know that there is a negative correlation between age and task performance, but is there a difference between age groups? We can use an ANOVA to test this.
 
 Firstly, let's create the age groups, which will be subjects in their 50s, 60s and 70s. 
 ```{webr-r}
@@ -609,10 +592,9 @@ rt_data %>%
 The piping operator `%>%` is a powerful feature of the `dplyr` package that allows you to chain together multiple operations. It basically translates to 'and then'.
 :::
 
-So in our code, we are creating a new column called `age_group` which is based on the age of the participants. We then group by these groups, and then summarise the data to get the count, minimum and maximum age within each group.
+So in our code, we are creating a new column called `age_group` which is based on the age of the participants. We then group by these groups, and then summarise the data to get the count, minimum and maximum age within each.
 
 Let's now get the average accuracy within each group:
-
 ```{webr-r}
 #| context: interactive
 
@@ -622,7 +604,7 @@ rt_data %>%
   summarise(mean_accuracy = mean(correct_percent, na.rm = TRUE))
 ```
 
-Following the plot earlier, we can see that the average accuracy also decreases with age, even after splitting by age group. But is there a significant difference? We can run an ANOVA to test this using the `aov` function. This function takes two arguments, the variables consisting of the dependent variable (correct percentage) and the independent variable (the age groups), and the data.
+Following the plot earlier, we can see that the average accuracy also decreases with age, even after splitting by age group. But is there a significant difference? We can run an ANOVA to test this using the `aov` function. This function takes two arguments, the variables - consisting of the dependent variable (correct percentage) and independent variable (age groups) - and the data.
 ```{webr-r}
 #| context: interactive
 
@@ -632,9 +614,9 @@ anova_model <- aov(correct_percent ~ age_group, data = rt_data)
 # View results
 summary(anova_model)
 ```
-The results tell us that there is evidence that at least one age group has a significantly different mean accuracy from the others. But it doesn't tell us which one(s) specifically.
+The results tell us that there is evidence that **at least one age group has a significantly different mean accuracy from the others.** But it doesn't tell us which one(s) specifically.
 
-To do that, we can run a post-hoc test. We will run Tukey's HSD (Honestly Significant Difference) test, which is a common post-hoc test used after ANOVA specifically for this.
+To find this out, we can run a post-hoc test. We will run Tukey's HSD (Honestly Significant Difference) test, which is a common post-hoc test used after ANOVA specifically for this reason.
 ```{webr-r}
 #| context: interactive
 
@@ -644,4 +626,6 @@ print(tukey_result)
 
 plot(tukey_result)
 ```
-Contrary to the ANOVA, this tell us that there is no significant difference between any of the groups. There was a trend for the 50s group to be more accurate than the 70s group, but not significant (p=0.06). So, we can conclude that there is in fact no significant difference in accuracy between age groups.
+Contrary to the ANOVA, Tukey's HSD tells us that there is no significant difference between any of the groups. This is partly because it examines each pair of group means, correcting for multiple comparisons using a family-wise error rate (FWER) correction.
+
+There was a trend for the 50s group to be more accurate than the 70s group, but this narrowly misses significance (p = 0.06). **So, we can conclude that there is in fact no significant difference in accuracy between age groups.**

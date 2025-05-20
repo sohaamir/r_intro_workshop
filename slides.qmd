@@ -115,18 +115,18 @@ git push
 
 ![](images/slides/version_control_meme.jpg){fig-align="center" width="650" height="350"}
 
-## Leverage large language models but wisely
+## Use large language models but wisely
 
 Generative AI models can make your work more productive, but they are more suited for certain tasks
 
 ::: {style="height: 20px;"}
 :::
 
-![](/images/r_tips/chatgpt_prompt.png){fig-align="center" width="60%"}
+![](/images/r_tips/chatgpt_prompt.png){fig-align="center" width="50%"}
 
 ## Tutorials are fine to an extent
 
-Try to avoid tutorial hell!
+But ultimately, you learn best through experience (and failure)
 
 ::: {style="height: 20px;"}
 :::

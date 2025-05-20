@@ -3,7 +3,7 @@ title: "Introduction to R for Behavioural Researchers"
 subtitle: "Using R and RStudio for Data Analysis"
 ---
 
-![](images/introduction/gpt_aamir_teaching.png){width="90%" fig-align="center"}
+![](images/introduction/gpt_aamir_teaching.png){width="70%" fig-align="center"}
 
 ::: {.content-visible when-format="html"}
 ![Visitors](https://pageview.vercel.app/?github_user=sohaamir/r_intro_workshop)
@@ -12,13 +12,14 @@ subtitle: "Using R and RStudio for Data Analysis"
 [![GitHub repo size](https://img.shields.io/github/repo-size/sohaamir/r_intro_workshop?color=brightgreen&logo=github)](https://github.com/sohaamir/r_intro_workshop)
 :::
 
-This website is an introduction to `R`, designed to be used as a course for students who are new to `R` and RStudio, assuming no prior programming experience[^1]:
+This website is an introduction to `R`, designed to be used as a course for students who are new to `R` and RStudio, assuming little to no prior programming experience[^1]:
 
 [^1]: OpenAI (2025). Image created using ChatGPT (GPT4o) (https://chat.openai.com/). 5th May 2025.
 
 In the course, students will learn basics of the `R` programming language, navigate RStudio and learn how to perform basic data analysis and visualization.
 
-The course is designed for students with no prior programming experience, and will cover the following topics:
+It will cover the following topics:
+
 - Introduction to `R` and RStudio
 - Data types and structures in `R`
 - Data visualization using `ggplot2`
@@ -27,7 +28,7 @@ The course is designed for students with no prior programming experience, and wi
 
 ### Working with the course material 
 
-The course is designed to be ran directly in the browser, using `webR`. This does not require any dependencies or software to be installed, and allows for changes to be made to the code directly in real time.
+The course is designed to be taught directly in the browser, using `webR`. This does not require any dependencies or software to be installed, and allows for changes to be made to the code directly in real time.
 
 However, you can also choose to run the code directly in RStudio as well. To do this, please do the following (assuming you have `R`, `RStudio` and `git` installed): 
 
@@ -72,7 +73,7 @@ This course is licensed under a [Creative Commons Attribution-ShareAlike 4.0 Int
 You are free to share, copy, and redistribute the material in any medium or format. Additionally, you can adapt, remix, transform, and build upon the material for any purpose, including commercial use.
 However, you must provide appropriate attribution, including credit to the original source, a link to the license, and an indication if changes were made. Furthermore, if you remix, transform, or build upon the material, you are required to distribute your contributions under the same license as the original.
 
-![](images/introduction/cc_by_sa.png){width="20%"}
+![](images/introduction/cc_by_sa.png){width="15%"}
 
 ## Contact
 

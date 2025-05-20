@@ -17,15 +17,15 @@ execute:
   eval: true
 ---
 
-Programming can be tricky, particularly for beginners who may not be aware of best practices and strategies for writing code. It is important to learn and develop good practices early, as it will help significantly when actually working with your data. 
+Programming can be tricky, particularly for beginners who may not be aware of best practices and strategies for writing code. **It is important to learn and develop good practices early, as it will help significantly when actually working with your data.**
 
 Here are some of my tips for programming and data analysis, not that I'm an expert by any means, but this follows my own experience and the recommendations of others.
 
 ## 1. Organise your projects appropriately
 
-For projects, particularly larger ones, organising your project folder appropriately is important. It makes it a lot easier to find files and to keep track of what you are doing. There's no single recommended way, but you can follow existing templates such as the `cookiecutter` initiative, which automatically creates a specific folder structure. `Cookiecutter` may be a bit overkill, particualrly if you are new to programming, but you can always simplify it. 
+For projects, particularly larger ones, **organising your project folder appropriately is important.** It makes it a lot easier to find files and to keep track of what you are doing. There's no single recommended way, but you can follow existing templates such as the `cookiecutter` initiative, which automatically creates a specific folder structure. `Cookiecutter` may be a bit overkill, particularly if you are new to programming, but you can always simplify its template. 
 
-For example, you may choose to have a folder structure like this where core features of your project i.e, data, scripts and results, are nicely organised into distinct folders and subfolders.
+For example, you may choose to have a folder structure like this where core features of your project i.e, data, scripts and results, are nicely organised into distinct folders and sub-folders.
 
 ```r
 my_project/
@@ -48,7 +48,7 @@ my_project/
 
 Organisation is also important within the scripts that you write. Markdown is a great way to do this, which you can also use to create interactive documents - like this course!
 
-Within each script, you can separate your analyses into discrete chunks, which will run independently, instead of having one long script. This makes it easier to understand what exactly is being done at each step, both for yourself and for others who may not know your code. It also means that you can run each chunk independently, which is useful if you are working with a long pipeline and want to run a specific analysis without having to run the entire script.
+**Within each script, you can separate your analyses into discrete chunks, which will run independently, instead of having one long script.** This makes it easier to understand what exactly is being done at each step, both for yourself and for others who may not know your code. It also means that you can run each chunk independently, which is useful if you are working with a long pipeline and want to run a specific analysis without having to run the entire script.
 
 For example, you can have a script like this:
 
@@ -66,7 +66,7 @@ If you have to make changes to a specific analysis, you can do so easily without
 
 ## 3. Version control using `git`, share using GitHub
 
-Similar to how you track changes made in a Word document, version control allows you to track changes made to your code. This is particularly useful when you are working on a project with multiple people, or if you want to keep track of your own changes over time. `git` is the most widely used version control system, and it is free and open source. GitHub on-the-other-hand is a web-based platform that uses `git` for version control, where you can share code with others, and download code that others have created. 
+Similar to how you track changes made in a Word document, **version control allows you to track changes made to your code.** This is particularly useful when you are working on a project with multiple people, or if you want to keep track of your own changes over time. `git` is the most widely used version control system, and it is free and open source. GitHub on-the-other-hand is a web-based platform that uses `git` for version control, where you can share code with others, and download code that others have created. 
 
 `git` is mainly used as a command line tool, but there are many graphical user interfaces (GUIs) available which make it easier to use. Personally, I think using `git` through the command line is the best way, and it is simpler than you might think. Whilst there are many commands, the basic use of `git` for version control involves just four commands:
 
@@ -114,16 +114,16 @@ git commit -m "working correlation code for height and weight"
 git commit -m "working linear regression model with age and sex"
 ```
 
-Following these two prior commits, you work on an entirely new analysis, but it doesn't work, and now the regression model also doesn't work. You can just simply reset your analysis back to a point where it did work using `git`.
+Following these two prior commits, let's say you work on an entirely new analysis, but it doesn't work (predictably), and now the regression model that worked fine before also doesn't work. You can just simply reset your analysis back to a point where it did work using `git`!
 :::
 
-`git` and GitHub are important for programming, particularly on collaborative projects, where multiple people are working on the same code. Sharing code on GitHub or OSF is also recommended when publishing papers for transparency and reproducibility.
+`git` and GitHub are important tools for programming, particularly on collaborative projects where multiple people are working on the same code. Sharing code on GitHub or OSF is also recommended when publishing papers for transparency and reproducibility.
 
 ## 4. Leverage large language models but wisely
 
-Programming has significantly changes since the advent of large language models (LLMs), which can provide increasingly sophisticated code in response to user-generated prompts. However, using LLMs for this purpose is often a double-edged sword. Whilst you may be more productive, you may also be less likely to understand what the code is doing. In addition, LLMs may not be as appropriate for certain tasks, e.g., for advising analyses and hypotheses. 
+Programming has significantly changes since the advent of large language models (LLMs), which can provide increasingly sophisticated code in response to user-generated prompts. However, using LLMs for this purpose is often a double-edged sword. **Whilst you may be more productive, you may also be less likely to understand what the code is doing.** In addition, LLMs may not be as appropriate for certain tasks, e.g., for advising scientific analyses and hypotheses. 
 
-LLMs are best suited to perform low-level tasks that don't require human-based reasoning. A great example would be for plot-generation, which doesn't require much reasoning, but does require a lot of code, particularly for more complex plots. For example, you can ask ChatGPT to generate a plot using `ggplot2` in R, and it will generate the code for you in no time!
+**LLMs are best suited to perform low-level tasks that don't require human-based or scientific reasoning.** A great example would be for plot-generation, which doesn't require much thought, but does require a lot of code, particularly for more complex plots. For example, you can ask ChatGPT to generate a plot using `ggplot2` in R, and it will generate the code for you in no time!
 
 <div style="height: 10px;"></div>
 
@@ -133,7 +133,7 @@ LLMs are best suited to perform low-level tasks that don't require human-based r
 Prompting ChatGPT to generate a plot using `ggplot2`
 :::
 
-Best practices for programming using LLMs is a whole separate topic in of itself, but ultimately, it is important to remember that LLMs are just that - language models. One framework for working with LLMs is presented below, where the first stage is to understand the task and whether it is suitable for the model. The second stage is to discern the model output, and whether it is appropriate for your aim. The third stage is to calibrate the output appropriately based on how well the code performs, and finally, you can iteratively refine the output by submitting follow-up prompts[^1].
+Understanding the best practices for programming using LLMs is a whole separate topic in of itself, but ultimately, it is important to remember that LLMs are just that - language models. One framework for working with LLMs is presented below, where the first stage is to understand the task and whether it is suitable for the model. The second stage is to discern the model output, and whether it is appropriate for your aim. The third stage is to calibrate the output appropriately based on how well the code performs, and finally, you can iteratively refine the output by submitting follow-up prompts[^1].
 
 [^1]: Sohail, A. & Lin, Z. (2025). Recalibrating Academic Expertise in the Age of Generative AI. SSRN.
 
@@ -153,6 +153,6 @@ Ultimately, the best way to learn programming is through experience, ideally by 
 
 <div style="height: 20px;"></div>
 
-![](/images/r_tips/tutorial_hell.png){fig-align="center" width="30%"}
+![](/images/r_tips/tutorial_hell.png){fig-align="center" width="60%"}
 
-So, ultimately, use tutorials to get a basic understanding of a programming language or software, and determine whether that may be something that you could use. But then actually learn by working on your own projects.
+**Use tutorials to get a basic understanding of a programming language or software, and determine whether that may be something that you could use. But then actually learn by working on your own projects.**
