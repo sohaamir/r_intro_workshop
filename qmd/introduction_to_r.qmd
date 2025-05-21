@@ -278,7 +278,6 @@ Check the class of the dataframe and a column, and display the structure of the 
 
 class(students)  # Check class of dataframe
 is.data.frame(students)  # Check if students is a dataframe
-class(students$Name)  # Check class of Name column
 str(students)    # Display structure of dataframe
 ```
 
@@ -371,6 +370,7 @@ You can do this using built-in functions in `R` including `var()`, `sd()`, `sum(
 #| context: interactive
 # Create a vector of 10 random numbers between 1-100 using the sample() command
 x <- sample(1:100, 10)
+x
 
 # Variance and Standard Deviation
 var(x)   # Calculates variance
@@ -391,7 +391,9 @@ Here are some other commands that will be useful when working with `R` more gene
 
 <div style="font-size: 22px;"><strong>Directory and Workspace Management</strong></div>
 
-The `setwd()` command sets the working directory, which is the folder where `R` looks for files to read and where it saves output files. You can check your current working directory using `getwd()`. It is important to set your working directory appropriately, otherwise you may run into issues when trying to read or write files, or source functions from other scripts.
+It is important to set your working directory appropriately, otherwise you may run into issues when trying to read or write files, or source functions from other scripts.
+
+The `setwd()` command sets the working directory, which is the folder where `R` looks for files to read and where it saves output files. You can check your current working directory using `getwd()`. 
 ```{r, eval=FALSE}
 #| context: interactive
 
@@ -401,7 +403,7 @@ dir() # List files in current directory
 ```
 
 :::{.callout-tip title="Path management with `here`"}
-A useful package to use for directory management is [`here`](https://cran.r-project.org/web/packages/here/here.pdf). This package allows you to set your working directory relative to the location of your project root, which is particularly useful when sharing scripts with others, as it avoids hard-coded paths.
+A useful package to use for directory management is [`here`](https://cran.r-project.org/web/packages/here/here.pdf). This package allows you to set your working directory relative to the location of your project `root`, which is particularly useful when sharing scripts with others, as it avoids hard-coded paths.
 
 Instead of of manually setting the working directory, and using hard-coded paths:
 ```{r, eval=FALSE}

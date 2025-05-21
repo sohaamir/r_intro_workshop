@@ -35,10 +35,9 @@ We will firstly plot the data using a variety of plots to understand how certain
 
 ### Load and display the data
 
-We first need to load in and read the data. The first dataset is in the `participant_data.csv` file. This file format is called 'comma separated values' or CSV, which we can read into R using the `read_csv` function. We firstly assign the data to a variable called `sub_data` (short for subject data), which we can now work directly with.
+We first need to load in and read the data. The first dataset is in the `participant_data.csv` file within the `/data` folder. This file format is called 'comma separated values' or CSV, which we can read into `R` using the `read.csv` function. We firstly assign the data to a variable called `sub_data` (short for subject data), which we can now work directly with.
 
-In the code below, we are downloading the data from a GitHub repository and saving it to our working directory. We can then read it in using the `read.csv` function from `tidyverse`. The first two lines are only required for the online workshop where we run code in the browser; in `R` you can just run the bottom line.
-
+In the code below, we are downloading the data from a GitHub repository and saving it to our working directory. The first two lines are only required for the online workshop where we run code in the browser; in `R` you can just run the bottom line.
 ```{webr-r}
 #| context: interactive
 
@@ -48,7 +47,7 @@ sub_data <- read.csv("participant_data.csv")
 ```
 
 :::{.callout-tip title="Naming variables"}
-It is good practice to name your variables appropriately. For example, I assigned the data to `sub_data` instead of `data` because `data` is a reserved word in R. This means that if you try to use `data` as a variable name, it may overwrite the built-in function `data()`, which can cause confusion and errors in your code. An alternative is to use `df` short for data frame, or `dat` (short for data) but these are too generic and don't provide any information about the data (which is particularly useful when working with multiple datasets). So, I would recommend using `sub_data` or `participant_data` instead.
+It is good practice to name your variables appropriately. For example, I assigned the data to `sub_data` instead of `data` because `data` is a reserved word in R. This means that if you try to use `data` as a variable name, it may overwrite the built-in function `data()`, which can cause confusion and errors in your code. An alternative is to use `df` short for data frame, or `dat` (short for data) but these are generic and do not provide any information about the data (which is particularly useful when working with multiple datasets). So, I would recommend using `sub_data` or `participant_data` instead.
 :::
 
 Just to see if we have loaded in the correct file and correctly assigned it, we can display the first few rows of `sub_data` using the `head` function. This is a pre-built function in `R` which will show the first 6 rows of the data. You can also specify how many rows you want to see by adding a number in brackets, e.g., `head(sub_data, 10)` will show the first 10 rows.
@@ -75,7 +74,7 @@ summary(sub_data$age)
 
 ## Data Visualization using `ggplot2()`
 
-An important practice when working with data is to have a basic understanding to what the data looks like. This is important for several reasons: seeing the distribution of the data, identifying outliers, and understanding the relationships between different variables - even basic ones!
+An important practice when working with data is to have a basic understanding of what the data looks like. This is important for several reasons: seeing the distribution of the data, identifying outliers, and understanding the relationships between different variables - even basic ones!
 
 For example, if we wanted to understand whether people who are older have a higher lesion volume (possibly as a result of aging) we can create a scatter plot of age and total lesion volume, and add a line of best fit. We will use the `ggplot2` package, which - as mentioned - is a powerful and flexible plotting system.
 
@@ -159,7 +158,7 @@ So you can see that the most common BMI is 25, with the variable normally distri
 
 ## Basic statistics and significance testing
 
-So we have been able to visualise the data, and now have a general idea of some of the trends. But how can we test whether these relationships are significant? Can we statistically say that men are taller than women? Can we say that the older you are the more lesions you have?
+So we have been able to visualise the data, and now have a general idea of some of the trends. **But how can we test whether these relationships are significant?** Can we statistically say that men are taller than women? Can we say that the older you are the more lesions you have?
 
 To answer these questions, lets firstly get some more summary statistics, this time for height and weight specifically. We firstly group the data by gender and run the `summarise` function to calculate the mean and standard deviation for each group.
 
@@ -185,7 +184,7 @@ You can see that the mean height for women (n=29) is 1.64 and men (n=23) is 1.80
 
 ### T-test
 
-But is this difference significant? To find out the statistical difference between the mean of two groups we can simply run a t-test. We do this using the `t.test` function, which will calculate the t-statistic and p-value for us. **The default is a two-tailed t-test,** which tests whether the means of two groups are significantly different from each other without direction. We can also run a one-tailed t-test, but we need to specify the direction of the difference.
+But is this difference significant? To find out the statistical difference between the mean of two groups we can simply run a t-test. We do this in `R` using the `t.test` function, which will calculate the t-statistic and p-value for us. **The default is a two-tailed t-test,** which tests whether the means of two groups are significantly different from each other without direction. We can also run a one-tailed t-test, but we need to specify the direction of the difference.
 ```{webr-r}
 #| context: interactive
 
@@ -208,13 +207,13 @@ t.test(females$height, males$height, alternative = "greater")
 t.test(females$weight, males$weight, alternative = "greater")
 ```
 
-So, we can see in either case, the p-values that there is a statistically significant difference between the height and weight between males and females. (9.77e-10 is a 0 followed by 9 more zeroes, so 0.000000000977). We can also see that the p-value for the one-tailed test - where we test the alternative hypothesis that women weigh more than men - is 1. This makes sense, as it is not the case!
+So, we can see in either case, we can see that there is a statistically significant difference between the height and weight between males and females. We can also see that the p-value for the one-tailed test - where we test the alternative hypothesis that women weigh more than men - is 1. This makes sense, as it is not the case!
 
 ### Correlation
 
 Similarly, if we want to see whether there is a significant relationship between two continuous variables, i.e., between age and lesion volume across the entire group, we can run a correlation. We can do this using the `cor.test` function, which will give us the correlation coefficient (r) and the corresponding p-value.
 
-Conversely to the `t.test` function, when we run the `cor.test` it actually generates a list of values. The `str` function will show this structure.
+As with the `t.test` function, when we run the `cor.test` it actually generates a list of values. The `str` function will show this structure.
 ```{webr-r}
 #| context: interactive
 
@@ -224,6 +223,18 @@ cor_result <- cor.test(sub_data$age, sub_data$lesion_volume)
 # Explore the structure of cor_result
 str(cor_result)
 ```
+
+::: {.callout-note title="T-test structure"}
+Run this code to see the structure of the t-test that we ran above:
+```{webr-r}
+#| context: interactive
+
+# Perform t-test between age and lesion volume
+t_result <- t.test(males$height, females$height)
+
+str(t_result)
+```
+:::
 
 You can also see that in addition to the various statistics, it also mentions the method, which is Pearson's product-moment correlation. This is the default method used in `R`, but you can also use Spearman's rank correlation or other correlation methods by changing the `method` argument.
 
@@ -501,13 +512,13 @@ We can see that older participants tend to have more brain lesions and perform w
 
 ### Creating a linear regression model for task performance
 
-**Regression models help us understand how different independent variables ("predictors") influence a dependent (outcome) variable.** In our case, we want to see how the predictors age and lesion number influence task performance.
+Regression models help us understand how different independent variables ("predictors") influence a dependent (outcome) variable. In our case, we want to see how the predictors age and lesion number influence task performance.
 
 We will keep things simple and just add each predictor separately - first age, then lesion number, and then both together in the same model. Doing this helps us understand how much each variable contributes on its own and whether one explains the effect of the other.
 
-- If age still predicts performance even when we include lesion number, it suggests that age has its own independent effect on accuracy.
+- **If age still predicts performance even when we include lesion number,** it suggests that age has its own independent effect on accuracy.
 
-- If the effect of age disappears when we include lesion number, it suggests that lesions might be the reason older adults perform worse.
+- **If the effect of age disappears when we include lesion number,** it suggests that lesions might be the reason older adults perform worse.
 
 Let's start with one predictor - age. The `lm` function - as previously used - creates a linear model, and the `str` function shows the structure of the model. 
 ```{webr-r}
@@ -592,7 +603,7 @@ rt_data %>%
 The piping operator `%>%` is a powerful feature of the `dplyr` package that allows you to chain together multiple operations. It basically translates to 'and then'.
 :::
 
-So in our code, we are creating a new column called `age_group` which is based on the age of the participants. We then group by these groups, and then summarise the data to get the count, minimum and maximum age within each.
+So in our code, we are creating a new column called `age_group` which is based on the age of the participants, those in their 50s (n=17), 60s (n=19) and 70s (n=12). We then group by these groups, and then summarise the data to get the count, minimum and maximum age within each.
 
 Let's now get the average accuracy within each group:
 ```{webr-r}
