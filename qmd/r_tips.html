@@ -197,7 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#organise-your-projects-appropriately" id="toc-organise-your-projects-appropriately" class="nav-link active" data-scroll-target="#organise-your-projects-appropriately">1. Organise your projects appropriately</a></li>
   <li><a href="#discretize-using-markdown-chunks-instead-of-writing-continuous-scripts" id="toc-discretize-using-markdown-chunks-instead-of-writing-continuous-scripts" class="nav-link" data-scroll-target="#discretize-using-markdown-chunks-instead-of-writing-continuous-scripts">2. Discretize using Markdown chunks instead of writing continuous scripts</a></li>
   <li><a href="#version-control-using-git-share-using-github" id="toc-version-control-using-git-share-using-github" class="nav-link" data-scroll-target="#version-control-using-git-share-using-github">3. Version control using <code>git</code>, share using GitHub</a></li>
-  <li><a href="#leverage-large-language-models-but-wisely" id="toc-leverage-large-language-models-but-wisely" class="nav-link" data-scroll-target="#leverage-large-language-models-but-wisely">4. Leverage large language models but wisely</a></li>
+  <li><a href="#use-large-language-models-but-wisely" id="toc-use-large-language-models-but-wisely" class="nav-link" data-scroll-target="#use-large-language-models-but-wisely">4. Use large language models but wisely</a></li>
   <li><a href="#tutorials-are-fine-but-get-stuck-in" id="toc-tutorials-are-fine-but-get-stuck-in" class="nav-link" data-scroll-target="#tutorials-are-fine-but-get-stuck-in">5. Tutorials are fine, but get stuck in</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/sohaamir/r_intro_workshop/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
@@ -250,7 +250,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="discretize-using-markdown-chunks-instead-of-writing-continuous-scripts">2. Discretize using Markdown chunks instead of writing continuous scripts</h2>
 <p>Organisation is also important within the scripts that you write. Markdown is a great way to do this, which you can also use to create interactive documents - like this course!</p>
 <p><strong>Within each script, you can separate your analyses into discrete chunks, which will run independently, instead of having one long script.</strong> This makes it easier to understand what exactly is being done at each step, both for yourself and for others who may not know your code. It also means that you can run each chunk independently, which is useful if you are working with a long pipeline and want to run a specific analysis without having to run the entire script.</p>
-<p>For example, you can have a script like this:</p>
+<p>For example, you can have a script like this, where each chunk represents a different analysis or step in the data analysis pipeline:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Chunk <span class="dv">1</span> <span class="sc">-</span> Load packages</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>...</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Chunk <span class="dv">2</span> <span class="sc">-</span> Process data</span>
@@ -258,7 +258,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>Chunk <span class="dv">3</span> <span class="sc">-</span> Analysis <span class="dv">1</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>...</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>Chunk <span class="dv">4</span> <span class="sc">-</span> Analysis <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>If you have to make changes to a specific analysis, you can do so easily without having to change other analyses, as they naturally follow each other.</p>
+<p>Subsequently, if you have to make changes to a specific analysis, you can do so easily without having to change other analyses, as they naturally follow each other.</p>
 </section>
 <section id="version-control-using-git-share-using-github" class="level2">
 <h2 class="anchored" data-anchor-id="version-control-using-git-share-using-github">3. Version control using <code>git</code>, share using GitHub</h2>
@@ -301,8 +301,8 @@ Commit messages
 </div>
 <p><code>git</code> and GitHub are important tools for programming, particularly on collaborative projects where multiple people are working on the same code. Sharing code on GitHub or OSF is also recommended when publishing papers for transparency and reproducibility.</p>
 </section>
-<section id="leverage-large-language-models-but-wisely" class="level2">
-<h2 class="anchored" data-anchor-id="leverage-large-language-models-but-wisely">4. Leverage large language models but wisely</h2>
+<section id="use-large-language-models-but-wisely" class="level2">
+<h2 class="anchored" data-anchor-id="use-large-language-models-but-wisely">4. Use large language models but wisely</h2>
 <p>Programming has significantly changes since the advent of large language models (LLMs), which can provide increasingly sophisticated code in response to user-generated prompts. However, using LLMs for this purpose is often a double-edged sword. <strong>Whilst you may be more productive, you may also be less likely to understand what the code is doing.</strong> In addition, LLMs may not be as appropriate for certain tasks, e.g., for advising scientific analyses and hypotheses.</p>
 <p><strong>LLMs are best suited to perform low-level tasks that don’t require human-based or scientific reasoning.</strong> A great example would be for plot-generation, which doesn’t require much thought, but does require a lot of code, particularly for more complex plots. For example, you can ask ChatGPT to generate a plot using <code>ggplot2</code> in R, and it will generate the code for you in no time!</p>
 <div style="height: 10px;">
