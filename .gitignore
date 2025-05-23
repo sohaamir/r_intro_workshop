@@ -8,8 +8,9 @@
 .Rprofile
 .Renviron
 
-# Quarto build directories
+# Quarto and site build directories
 /.quarto/
+/_site/
 
 # renv cache (optional, usually outside project dir)
 /renv/library/
