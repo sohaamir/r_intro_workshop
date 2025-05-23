@@ -1,0 +1,409 @@
+[
+  {
+    "objectID": "slides.html#section",
+    "href": "slides.html#section",
+    "title": "An IntRoduction to R and RStudio",
+    "section": "",
+    "text": "Introduction to R for Behavioural Researchers\n\nAamir Sohail\n📅 23/5/2025📍 University of Birmingham"
+  },
+  {
+    "objectID": "slides.html#overview",
+    "href": "slides.html#overview",
+    "title": "An IntRoduction to R and RStudio",
+    "section": "Overview",
+    "text": "Overview\nWe will cover the following topics:\n\nIntroduction to R and RStudio\nData types and structures in R\nData visualization using ggplot2\nBasic statistical analysis including t-tests and ANOVA\nBest practices for data analysis and reproducibility (e.g., using git and GitHub)"
+  },
+  {
+    "objectID": "slides.html#section-1",
+    "href": "slides.html#section-1",
+    "title": "An IntRoduction to R and RStudio",
+    "section": "",
+    "text": "https://sohaamir.github.io/r_intro_workshop"
+  },
+  {
+    "objectID": "slides.html#section-2",
+    "href": "slides.html#section-2",
+    "title": "An IntRoduction to R and RStudio",
+    "section": "",
+    "text": "Tips for effective programming and project management"
+  },
+  {
+    "objectID": "slides.html#organise-your-projects-appropriately",
+    "href": "slides.html#organise-your-projects-appropriately",
+    "title": "An IntRoduction to R and RStudio",
+    "section": "Organise your projects appropriately!",
+    "text": "Organise your projects appropriately!\nUse designated folders for data, scripts, and output\n\n\n\nmy_project/\n├── data/\n│   ├── raw/\n│   └── processed/\n├── scripts/\n│   ├── R/\n│   └── Rmd\n├── output/\n│   ├── figures/\n│   └── txt/\n├── docs/\n├── .gitignore\n├── README.md\n└── my_project.Rproj\nExisting templates e.g., cookiecutter 🍪 can be useful!"
+  },
+  {
+    "objectID": "slides.html#discretize-using-chunks-instead-of-writing-long-scripts",
+    "href": "slides.html#discretize-using-chunks-instead-of-writing-long-scripts",
+    "title": "An IntRoduction to R and RStudio",
+    "section": "Discretize using chunks instead of writing long scripts",
+    "text": "Discretize using chunks instead of writing long scripts\nAn example Rmd script could look like this:\nChunk 1 - Load packages\n...\nChunk 2 - Process data\n...\nChunk 3 - Analysis 1\n...\nChunk 4 - Analysis 2\n\n\n\n\nEasier to understand what exactly is being done at each step\nYou can run each chunk independently instead of running the entire analysis\nEasier to make changes"
+  },
+  {
+    "objectID": "slides.html#version-control-using-git",
+    "href": "slides.html#version-control-using-git",
+    "title": "An IntRoduction to R and RStudio",
+    "section": "Version control using git",
+    "text": "Version control using git\ngit allows you to keep track of changes in your code\ngit status\ngit add &lt;file&gt;\ngit commit -m \"message\"\ngit push"
+  },
+  {
+    "objectID": "slides.html#use-large-language-models-but-wisely",
+    "href": "slides.html#use-large-language-models-but-wisely",
+    "title": "An IntRoduction to R and RStudio",
+    "section": "Use large language models but wisely",
+    "text": "Use large language models but wisely\nGenerative AI models can make your work more productive, but they are more suited for certain tasks"
+  },
+  {
+    "objectID": "slides.html#tutorials-are-fine-to-an-extent",
+    "href": "slides.html#tutorials-are-fine-to-an-extent",
+    "title": "An IntRoduction to R and RStudio",
+    "section": "Tutorials are fine to an extent",
+    "text": "Tutorials are fine to an extent\nBut ultimately, you learn best through experience (and failure)"
+  },
+  {
+    "objectID": "slides.html#further-reading",
+    "href": "slides.html#further-reading",
+    "title": "An IntRoduction to R and RStudio",
+    "section": "Further reading",
+    "text": "Further reading\nPapers\n\n\nBalaban, G., Grytten, I., Rand, K. D., Scheffer, L., & Sandve, G. K. (2021). Ten simple rules for quick and dirty scientific programming. PLoS Computational Biology, 17(3), e1008549. [link]\nGentzkow, M., & Shapiro, J. M. (2014). Code and data for the social sciences: A practitioner’s guide. Working Paper, University of Chicago. [link]\nRoth, J., Duan, Y., Mahner, F. P., Kaniuth, P., Wallis, T. S., & Hebart, M. N. (2025). Ten principles for reliable, efficient, and adaptable coding in psychology and cognitive neuroscience. Communications Psychology, 3(1), 62. [link]\n\n\n\n\n\nCourses\n\n\nMineault, P.J., & The Good Research Code Handbook Community. (2021). The Good Research Code Handbook. Zenodo. [link]\n\n\n\n\n\n📋 Check out the website or my list for more resources!"
+  },
+  {
+    "objectID": "slides.html#thanks-to",
+    "href": "slides.html#thanks-to",
+    "title": "An IntRoduction to R and RStudio",
+    "section": "Thanks to",
+    "text": "Thanks to\n👤\n\nLei Zhang\nGabriella Rossetti, Julie Lovegrove, Jon Gibbins and Anastasia Christakou as well as the rest of the HAVEN team for data\n\n\n\n\n🌐\n\nChatGPT for AI-generated images\nFlaticons for icons\n\n\n\n axs2210@bham.ac.uk\n\n\n sohaamir\n\n\n sohaamir.github.io"
+  },
+  {
+    "objectID": "qmd/resources.html",
+    "href": "qmd/resources.html",
+    "title": "Resources for learning R and best practices for data analysis",
+    "section": "",
+    "text": "There are many resources available which help both with learning R and for developing appropriate practices. To start with, you can visit my website where I collate these, with a particular emphasis on practical examples which you can work with online (i.e., not through textbooks which are often hundreds of pages and cumbersome to work through). But try not to get stuck in tutorial hell!",
+    "crumbs": [
+      "Resources"
+    ]
+  },
+  {
+    "objectID": "qmd/resources.html#papers-for-conducting-data-analysis",
+    "href": "qmd/resources.html#papers-for-conducting-data-analysis",
+    "title": "Resources for learning R and best practices for data analysis",
+    "section": "Papers for conducting data analysis",
+    "text": "Papers for conducting data analysis\nHere are some papers which provide a good overview of best practices for data analysis, often using practical examples.\n\nBalaban, G., Grytten, I., Rand, K. D., Scheffer, L., & Sandve, G. K. (2021). Ten simple rules for quick and dirty scientific programming. PLoS Computational Biology, 17(3), e1008549. link\nGentzkow, M., & Shapiro, J. M. (2014). Code and data for the social sciences: A practitioner’s guide. Working Paper, University of Chicago. link\nRoth, J., Duan, Y., Mahner, F. P., Kaniuth, P., Wallis, T. S., & Hebart, M. N. (2025). Ten principles for reliable, efficient, and adaptable coding in psychology and cognitive neuroscience. Communications Psychology, 3(1), 62. link\nWilson, G., Aruliah, D.A., Brown, C.T., Chue Hong, N.P., Davis, M., Guy, R.T., Haddock, S.H., Huff, K.D., Mitchell, I.M., Plumbley, M.D. and Waugh, B., 2014. Best practices for scientific computing. PLoS biology, 12(1), p.e1001745. link",
+    "crumbs": [
+      "Resources"
+    ]
+  },
+  {
+    "objectID": "qmd/resources.html#guidescourses-on-programming-and-data-science",
+    "href": "qmd/resources.html#guidescourses-on-programming-and-data-science",
+    "title": "Resources for learning R and best practices for data analysis",
+    "section": "Guides/courses on programming and data science",
+    "text": "Guides/courses on programming and data science\nComplimenting the papers above, there are many guides and courses available which provide a good overview of best practices for data analysis.\n\nThe Good Research Code Handbook. A handbook for organising code with an emphasis on project management. Created by Patrick Mineault, Amaranth Foundation.\nFriends Don’t Make Friends Make Bad Graphs. A self-titled ‘opinionated essay about good and bad practices in data visualization’ with examples demonstrated through R plots. Created by Chenxin Li, University of Georgia.\nResearch Data Management (RDM) Workshop. A workshop designed to give a generic overview of RDM principles and practices, including OSF, data management, pre-registration, project and data organisation, version control, data storage and sharing, and copyright and licenses. Created by Julia-Katharina Pfarr, Philipps-Universität Marburg.\nComputational and Inferential Thinking: The Foundations of Data Science. A online course in data science originally developed for the UC Berkeley course Data 8: Foundations of Data Science by Ani Adhikari, John DeNero and David Wagner.\nCoding for data. An introduction to data science by Matthew Brett, borrowing from the Berkeley textbook above.",
+    "crumbs": [
+      "Resources"
+    ]
+  },
+  {
+    "objectID": "qmd/resources.html#online-courses-for-programming-in-r",
+    "href": "qmd/resources.html#online-courses-for-programming-in-r",
+    "title": "Resources for learning R and best practices for data analysis",
+    "section": "Online courses for programming in R",
+    "text": "Online courses for programming in R\nAnd finally, there are many online courses available which provide a good overview of programming in R and with incorporating best practices.\n\nHands-On Programming with R. The online (and free) version of Garrett Grolemund’s R textbook, written for non-programmers using hands-on examples.\nPsyTeachR Courses. A whole range of courses covering different capabilities of R, created by the psyTeachR team at the University of Glasgow.\nR for Reproducible Scientific Analysis. Software Carpentries’ 2-day workshop on R, with a theme on open and reproducible research. Ran by the University of Reading.\nR, Open Research, and Reproducibility. Andrew Stewart’s 12-week workshop course on R, Open Research, and Reproducibility, taught to students at the University of Manchester.\nR, Git and bash. Software Carpentries’ 3-day workshop on git, bash and R, with a theme on open and reproducible research. Ran by the University of Reading.\nAn introduction to R. An online interactive book detailing R for beginners, including: data manipulation, plotting with ggplot2, basic statistics, functions, markdown and reproducilbity with git/GitHub. Written by Alex Douglas, Deon Roos, Francesca Mancini, Ana Couto & David Lusseau.\nIntroduction to R 2021. A basic introduction to R, covering data types, functions and plotting. Created by Sarah Bonnin.\nData Science for Psychologists. An introduction to data science that is tailored to the needs of students in psychology, but is also suitable for students of the humanities and other biological or social sciences. Created by Hansjorg Neth, University of Konstanz.\nStatistical Inference via Data Science: A ModernDive into R and the Tidyverse. The electronic version of the data science book which covers data science with tidyverse, data modeling with moderndive and statistical inference with infer. Created by Chester Ismay (Flatiron School) and Albert Y. Kim (Smith College).\nAn Introduction to Data Analysis. Basic reading material for an introduction to data analysis with R, covering the use of R for data wrangling and plotting, and data analysis from a Bayesian and a frequentist tradition. Created by Michael Franke.\nJust Enough R. Working with data, models (regression, ANOVA, linear models), confidence intervals, multiple comparisons, fixed/random effects. Created by Ben Whalley.\neasystats. ‘A collection of R packages, which aims to provide a unifying and consistent framework to tame, discipline, and harness the scary R statistics and their pesky models.’ Developed by Daniel Lüdecke, Dominique Makowski, Mattan S. Ben-Shachar, Indrajeet Patil, Brenton M. Wiernik, Etienne Bacher and Rémi Thériault.",
+    "crumbs": [
+      "Resources"
+    ]
+  },
+  {
+    "objectID": "qmd/introduction_to_r.html",
+    "href": "qmd/introduction_to_r.html",
+    "title": "An introduction to R/RStudio",
+    "section": "",
+    "text": "Running code in the browser\n\n\n\nThe workshop uses executable code chunks in the browser via WebR. Press  to run the code!\nR is a powerful open-source programming language and software environment primarily designed for statistical computing, data analysis, and graphical visualization. R has its own interface, however working in this way with R (‘base R’) isn’t very user friendly!\nInstead, we use an IDE (Integrated Development Environment) to work with the R programming language. A popular example - and the one that we will be using - is RStudio.\nThe RStudio interface consists of 4 windows 1:\nYou can check your version of R using the following command:\nR.version\n\n               _                           \nplatform       x86_64-apple-darwin20       \narch           x86_64                      \nos             darwin20                    \nsystem         x86_64, darwin20            \nstatus                                     \nmajor          4                           \nminor          4.1                         \nyear           2024                        \nmonth          06                          \nday            14                          \nsvn rev        86737                       \nlanguage       R                           \nversion.string R version 4.4.1 (2024-06-14)\nnickname       Race for Your Life",
+    "crumbs": [
+      "Introduction to R/RStudio"
+    ]
+  },
+  {
+    "objectID": "qmd/introduction_to_r.html#basic-r-operations",
+    "href": "qmd/introduction_to_r.html#basic-r-operations",
+    "title": "An introduction to R/RStudio",
+    "section": "Basic R operations",
+    "text": "Basic R operations\nWe will now cover some basic operations and values within R.\n\nCalculator Functions\n\n\n\n\nWe can perform basic mathematical operations:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nSpecial values\n\n\n\n\nIn addition to numbers, variables can also take on other values:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Introduction to R/RStudio"
+    ]
+  },
+  {
+    "objectID": "qmd/introduction_to_r.html#data-types-classes-and-variables",
+    "href": "qmd/introduction_to_r.html#data-types-classes-and-variables",
+    "title": "An introduction to R/RStudio",
+    "section": "Data types, classes and variables",
+    "text": "Data types, classes and variables\nThere are many types of data in R, here are some commonly used:\n\n\n\n\n\n\nChecking your data type\n\n\n\nYou can check data types using the class command.\n\n\nNumeric - Decimal and ‘whole’ numbers (the most common numeric type)\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n Character - Text data in quotes\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n Logical - Boolean values for conditional logic\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n Factor - a data type for categorical variables with fixed levels (categories).\nIn the example below, we create a vector of letters, some of which are repeated. However, the levels within are limited to each individual letter.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n Storing and manipulating variables\nWe commonly assign numbers and data to variables, which we can then compute directly:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nCase sensitivity\n\n\n\nR is case sensitive, so X and x are not the same object!\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Introduction to R/RStudio"
+    ]
+  },
+  {
+    "objectID": "qmd/introduction_to_r.html#data-structures",
+    "href": "qmd/introduction_to_r.html#data-structures",
+    "title": "An introduction to R/RStudio",
+    "section": "Data structures",
+    "text": "Data structures\nR offers several data structures that serve different purposes. Each structure is designed to handle specific types of data organization, from simple one-dimensional vectors to complex nested lists2.\n\n\n\n\n\nHere are some examples of each datatype:\n\nVector\n\n\nOne-dimensional sequence of elements\nAll elements must be of the same type (numeric, character, etc.)\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNow let’s check the class of each vector:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nMatrix and array\n\n\nTwo-dimensional (matrix) and three-dimensional (array) arrangement of elements\nAll elements must be of the same type\nOrganized in rows and columns\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nLet’s check the class of the matrix and array:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nIf you aren’t sure which type of data structure you are working with, whether it is an array, matrix or vector, you can use the is() function to check. This will return TRUE or FALSE depending on what the structure is.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nYou may have noticed that m1 is a matrix and an array, whilst arr is an array but not a matrix. This is because a matrix is essentially a three-dimensional array with one dimension set to 1.\n\nData frame\n\n\nTwo-dimensional structure similar to a spreadsheet\nDifferent columns can contain different types of data\nMost common structure for statistical analysis\n\nSuppose we have a data frame of students’ grades and demographics:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nCheck the class of the dataframe and a column, and display the structure of the dataframe:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWhen working with dataframes, we often want to select specific columns. We can use the $ operator to do this.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nOr we can use the [[ operator:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nEither is fine, but you may find the $ operator quicker and easier to use.\nWe can assign values within a specific column or row to a new variable:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nBut there are always lots of ways to do the same thing in R. For example, here are different ways by which we can extract all students who are male:\n\nstudents[students$Gender == \"M\", ]         # Basic subsetting\nsubset(students, Gender == \"M\")            # using the subset() function\nstudents %&gt;% filter(Gender == \"M\")         # using the filter() function",
+    "crumbs": [
+      "Introduction to R/RStudio"
+    ]
+  },
+  {
+    "objectID": "qmd/introduction_to_r.html#logical-operators-control-flow-and-functions",
+    "href": "qmd/introduction_to_r.html#logical-operators-control-flow-and-functions",
+    "title": "An introduction to R/RStudio",
+    "section": "Logical operators, control flow and functions",
+    "text": "Logical operators, control flow and functions\nWe commonly use logical operators in R to help make decisions in code and are essential in tasks like subsetting data, controlling loops, writing conditional statements, and filtering data.\n\n\n\n\nOperator\nSummary\n\n\n\n\n&lt;\nLess than\n\n\n&gt;\nGreater than\n\n\n&lt;=\nLess than or equal to\n\n\n&gt;=\nGreater than or equal to\n\n\n==\nEqual to\n\n\n!=\nNot equal to\n\n\n!x\nNOT x\n\n\nx | y\nx OR y\n\n\nx & y\nx AND y\n\n\n\n\n\nSome examples using the students dataframe:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nBasic statistical functions in R\nWe can also perform basic statistics and operations on variables, such as getting the variance, standard deviation and summary statistics. You can do this using built-in functions in R including var(), sd(), sum(), mean(), min(), and max().\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Introduction to R/RStudio"
+    ]
+  },
+  {
+    "objectID": "qmd/introduction_to_r.html#miscellaneous-commands",
+    "href": "qmd/introduction_to_r.html#miscellaneous-commands",
+    "title": "An introduction to R/RStudio",
+    "section": "Miscellaneous commands",
+    "text": "Miscellaneous commands\nHere are some other commands that will be useful when working with R more generally:\n\nDirectory and Workspace Management\n\nIt is important to set your working directory appropriately, otherwise you may run into issues when trying to read or write files, or source functions from other scripts.\nThe setwd() command sets the working directory, which is the folder where R looks for files to read and where it saves output files. You can check your current working directory using getwd().\n\ngetwd() # Get current working directory\nsetwd(\"your/path/here\")  # Set working directory to your path\ndir() # List files in current directory\n\n\n\n\n\n\n\nPath management with here\n\n\n\nA useful package to use for directory management is here. This package allows you to set your working directory relative to the location of your project root, which is particularly useful when sharing scripts with others, as it avoids hard-coded paths.\nInstead of of manually setting the working directory, and using hard-coded paths:\n\n# Hard-coded paths that break on different computers\nsetwd(\"C:/Users/YourName/Documents/Project\")  # Windows\nsetwd(\"~/Documents/Project\")  # Unix/Mac\n\n# Reading files with relative paths (after setwd)\ndata &lt;- read.csv(\"data/mydata.csv\")\nsource(\"scripts/analysis.R\")\n\nYou can use here:\n\n# Install and load \ninstall.packages(\"here\")\nlibrary(here)\n\n# Check where 'here' thinks the project root is\nhere()\n#&gt; [1] \"/Users/username/Documents/MyProject\"\n\n# Reading files with here\ndata &lt;- read.csv(here(\"data\", \"mydata.csv\"))\nresults &lt;- read.csv(here(\"output\", \"results.csv\"))\nsource(here(\"scripts\", \"analysis.R\"))\n\n\n\n\nEnvironment Management\n\nThe ls() command lists all objects in the current workspace. You can remove specific objects using rm(), or clear the entire workspace with rm(list = ls()). This is useful for cleaning up your environment before starting a new analysis.\n\n# List objects in workspace\nls()\n\n# Remove all objects from workspace\nrm(list = ls())",
+    "crumbs": [
+      "Introduction to R/RStudio"
+    ]
+  },
+  {
+    "objectID": "qmd/introduction_to_r.html#packages",
+    "href": "qmd/introduction_to_r.html#packages",
+    "title": "An introduction to R/RStudio",
+    "section": "Packages",
+    "text": "Packages\nPackages are collections of functions, data sets, and documentation bundled together to extend the functionality of R. They are not part of the base R installation but can be easily added and used in your environment.\nR packages can:\n\nAdd functions: They contain pre-written functions that simplify common tasks or complex analyses. For example, packages like ggplot2 and dplyr offer powerful tools for data visualization and manipulation.\nProvide data: Some packages include data sets that can be used for testing or teaching purposes. For example, the datasets package provides a collection of sample data sets.\nEnable special features: Packages can implement specialized features like statistical models, machine learning algorithms, or tools for web scraping, reporting, and more.\n\n\n\n\n\n\n\nLoading packages for this workshop\n\n\n\nI have written ‘hidden’ code which automatically installs and then loads in the packages needed for this workshop everytime the browser is refreshed. However you would need to write code to load packages in the RStudio environment when writing your own scripts.\n\n\n\nHow to use packages in R\nInstalling: You can install a package from CRAN (the Comprehensive R Archive Network) using the install.packages() function.\n\ninstall.packages(\"ggplot2\")\n\nLoading: Once installed, you can load the package into your R session with the library() function.\n\nlibrary('ggplot2')\n\nUsage: After loading the package, you can use its functions. For example, with ggplot2, you can create a plot like this:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nSourcing packages\n\n\n\nPackages are hosted on several repositories, CRAN being the most common. Other repositories include Bioconductor (for bioinformatics) and GitHub. The install.packages() function installs packages from CRAN, while for GitHub packages, you can use the devtools or remotes package to install directly from a GitHub repository.\n\n\nPopular R packages include:\n\nggplot2: A powerful package for data visualization based on the grammar of graphics.\ndplyr: A package for data manipulation (filtering, selecting, grouping, etc.).\ntidyr: Used for tidying data, such as reshaping and pivoting.\nshiny: For building interactive web applications in R.\n\nWe will be using tidyverse - a collection of packages for data manipulation and visualization including dplyr, tidyr, and ggplot2 - in this workshop.",
+    "crumbs": [
+      "Introduction to R/RStudio"
+    ]
+  },
+  {
+    "objectID": "qmd/introduction_to_r.html#data-visualization-using-ggplot2",
+    "href": "qmd/introduction_to_r.html#data-visualization-using-ggplot2",
+    "title": "An introduction to R/RStudio",
+    "section": "Data visualization using ggplot2()",
+    "text": "Data visualization using ggplot2()\nOne of the main benefits of R is to create publication quality figures and graphs. We will now briefly cover ggplot2() as it is the most versatile and used approach to create complex figures.\nggplot2 is a powerful R package for creating complex and customizable data visualizations. It provides a systematic approach to building plots by combining two main components: geometries (geom) and aesthetics (aes).\nplot = geometric (points, lines, bars) + aesthetic (color, shape, size)\nGeometries (geom): These define the type of plot or visual elements you want to display. Common geoms include:\n\ngeom_point(): Displays data points (scatter plot).\ngeom_line(): Plots lines connecting data points (line plot).\ngeom_bar(): Creates bar charts.\ngeom_histogram(): Displays histograms using counts for continuous data.\ngeom_boxplot(): Creates box plots.\n\nAesthetics (aes): These define how data is mapped to visual properties. The aesthetics determine the appearance of the plot, such as:\n\ncolor: Specifies the color of the points, lines, or bars.\nshape: Defines the shape of data points (e.g., circles, squares).\nsize: Controls the size of the points or lines.\n\nImportantly, ggplot2() is built upon the layering of different components. For example, you can simply add more aes components to add a line of best fit, and standard error:\n\n\n\n\n\n\n\n\n\n\n\nThe R Graph Gallery\n\n\n\nYou can create many, many, many different types of graphs and plots using ggplot2(). You can check out it’s versatility by seeing examples at the R Graph Gallery.\n\n\n\nGetting Help\n\nYou can access help documentation for functions and packages in R using the ? or ?? commands. ? is for direct help on a specific function, object, or topic when you know its exact name:\n\n# Get help on a specific function\n?mean\n?lm\n?ggplot\n\n# Help on datasets\n?mtcars\n?iris\n\n# Help on packages\n?stats\n?dplyr\n\nConversely, ?? performs a broader search across all installed packages’ documentation:\n\n# Search for topics related to \"regression\"\n??regression\n\n# Search for anything related to \"anova\"\n??anova\n\n# Search for cases of the word \"bread\" in the sandwich package\n??sandwich::bread\n\n\n\n\n\n\n\nEssential RStudio Shortcuts\n\n\n\nHere are some shortcuts that you can use in RStudio:\n\n\n\n\nShortcut\nAction\n\n\n\n\nCtrl + L\nClean console\n\n\nCtrl + Shift + N\nCreate a new script\n\n\n↑\nAccess command history\n\n\nCtrl(hold) + ↑\nSearch command history with current input\n\n\nCtrl + Enter\nExecute selected code in script\n\n\n\n\n\n\n\nThese shortcuts work on Windows/Linux. For Mac, replace Ctrl with Cmd (⌘).",
+    "crumbs": [
+      "Introduction to R/RStudio"
+    ]
+  },
+  {
+    "objectID": "qmd/introduction_to_r.html#footnotes",
+    "href": "qmd/introduction_to_r.html#footnotes",
+    "title": "An introduction to R/RStudio",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nZhang, L & Sohail, A. BayesCog: Bayesian Statistics and Hierarchical Bayesian Modeling for Psychological Science (2025). GitHub. https://alpn-lab.github.io/BayesCog/↩︎\nKabacoff, R. I. (2022). R in action: data analysis and graphics with R and Tidyverse. Simon and Schuster.↩︎",
+    "crumbs": [
+      "Introduction to R/RStudio"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction to R for Behavioural Researchers",
+    "section": "",
+    "text": "This website is an introduction to R, designed to be used as a course for students who are new to R and RStudio, assuming little to no prior programming experience1:\nIn the course, students will learn basics of the R programming language, navigate RStudio and learn how to perform basic data analysis and visualization.\nIt will cover the following topics:",
+    "crumbs": [
+      "Course Summary"
+    ]
+  },
+  {
+    "objectID": "index.html#contributors",
+    "href": "index.html#contributors",
+    "title": "Introduction to R for Behavioural Researchers",
+    "section": "Contributors",
+    "text": "Contributors\n\nAamir Sohail\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAamir Sohail is an MRC Advanced Interdisciplinary Methods (AIM) DTP PhD student based at the Centre for Human Brain Health (CHBH), University of Birmingham, where he is supervised by Lei Zhang and Patricia Lockwood. He completed a BSc in Biomedical Science at Imperial College London, followed by an MSc in Brain Imaging at the University of Nottingham. He then worked as a Junior Research Fellow at the Centre for Integrative Neuroscience and Neurodynamics (CINN), University of Reading with Anastasia Christakou. His research interests involve using a combination of behavioural tasks, computational modeling and neuroimaging to understand social decision-making, and using this knowledge to inform the precision-based treatment of mental health disorders. Outside of research, he is also passionate about facilitating inclusivity and diversity in academia, as well as promoting open and reproducible science.",
+    "crumbs": [
+      "Course Summary"
+    ]
+  },
+  {
+    "objectID": "index.html#license",
+    "href": "index.html#license",
+    "title": "Introduction to R for Behavioural Researchers",
+    "section": "License",
+    "text": "License\nThis course is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.\nYou are free to share, copy, and redistribute the material in any medium or format. Additionally, you can adapt, remix, transform, and build upon the material for any purpose, including commercial use. However, you must provide appropriate attribution, including credit to the original source, a link to the license, and an indication if changes were made. Furthermore, if you remix, transform, or build upon the material, you are required to distribute your contributions under the same license as the original.",
+    "crumbs": [
+      "Course Summary"
+    ]
+  },
+  {
+    "objectID": "index.html#contact",
+    "href": "index.html#contact",
+    "title": "Introduction to R for Behavioural Researchers",
+    "section": "Contact",
+    "text": "Contact\nFor bug reports, issues or comments, please contact Aamir Sohail, or open a thread on the GitHub repository.",
+    "crumbs": [
+      "Course Summary"
+    ]
+  },
+  {
+    "objectID": "index.html#footnotes",
+    "href": "index.html#footnotes",
+    "title": "Introduction to R for Behavioural Researchers",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nOpenAI (2025). Image created using ChatGPT (GPT4o) (https://chat.openai.com/). 5th May 2025.↩︎",
+    "crumbs": [
+      "Course Summary"
+    ]
+  },
+  {
+    "objectID": "qmd/acknowledgments.html",
+    "href": "qmd/acknowledgments.html",
+    "title": "Acknowledgments",
+    "section": "",
+    "text": "This resource would not be possible without the support and contributions of others, in particular the following:\n\nGabriella Rossetti, Julie Lovegrove, Jon Gibbins and Anastasia Christakou as well as the rest of the HAVEN team for data\nLei Zhang for figures and feedback on the material\n\nRun the code below to finish the course!\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Acknowledgments"
+    ]
+  },
+  {
+    "objectID": "qmd/r_tips.html",
+    "href": "qmd/r_tips.html",
+    "title": "Tips for programming and project management",
+    "section": "",
+    "text": "Programming can be tricky, particularly for beginners who may not be aware of best practices and strategies for writing code. It is important to learn and develop good practices early, as it will help significantly when actually working with your data.\nHere are some of my tips for programming and data analysis, not that I’m an expert by any means, but this follows my own experience and the recommendations of others.",
+    "crumbs": [
+      "Tips for programming and project management"
+    ]
+  },
+  {
+    "objectID": "qmd/r_tips.html#organise-your-projects-appropriately",
+    "href": "qmd/r_tips.html#organise-your-projects-appropriately",
+    "title": "Tips for programming and project management",
+    "section": "1. Organise your projects appropriately",
+    "text": "1. Organise your projects appropriately\nFor projects, particularly larger ones, organising your project folder appropriately is important. It makes it a lot easier to find files and to keep track of what you are doing. There’s no single recommended way, but you can follow existing templates such as the cookiecutter initiative, which automatically creates a specific folder structure. Cookiecutter may be a bit overkill, particularly if you are new to programming, but you can always simplify its template.\nFor example, you may choose to have a folder structure like this where core features of your project i.e, data, scripts and results, are nicely organised into distinct folders and sub-folders.\nmy_project/\n├── data/\n│   ├── raw/\n│   └── processed/\n├── scripts/\n│   ├── R/\n│   └── Rmd\n├── output/\n│   ├── figures/\n│   └── txt/\n├── docs/\n├── .gitignore\n├── README.md\n└── my_project.Rproj",
+    "crumbs": [
+      "Tips for programming and project management"
+    ]
+  },
+  {
+    "objectID": "qmd/r_tips.html#discretize-using-markdown-chunks-instead-of-writing-continuous-scripts",
+    "href": "qmd/r_tips.html#discretize-using-markdown-chunks-instead-of-writing-continuous-scripts",
+    "title": "Tips for programming and project management",
+    "section": "2. Discretize using Markdown chunks instead of writing continuous scripts",
+    "text": "2. Discretize using Markdown chunks instead of writing continuous scripts\nOrganisation is also important within the scripts that you write. Markdown is a great way to do this, which you can also use to create interactive documents - like this course!\nWithin each script, you can separate your analyses into discrete chunks, which will run independently, instead of having one long script. This makes it easier to understand what exactly is being done at each step, both for yourself and for others who may not know your code. It also means that you can run each chunk independently, which is useful if you are working with a long pipeline and want to run a specific analysis without having to run the entire script.\nFor example, you can have a script like this, where each chunk represents a different analysis or step in the data analysis pipeline:\nChunk 1 - Load packages\n...\nChunk 2 - Process data\n...\nChunk 3 - Analysis 1\n...\nChunk 4 - Analysis 2\nSubsequently, if you have to make changes to a specific analysis, you can do so easily without having to change other analyses, as they naturally follow each other.",
+    "crumbs": [
+      "Tips for programming and project management"
+    ]
+  },
+  {
+    "objectID": "qmd/r_tips.html#version-control-using-git-share-using-github",
+    "href": "qmd/r_tips.html#version-control-using-git-share-using-github",
+    "title": "Tips for programming and project management",
+    "section": "3. Version control using git, share using GitHub",
+    "text": "3. Version control using git, share using GitHub\nSimilar to how you track changes made in a Word document, version control allows you to track changes made to your code. This is particularly useful when you are working on a project with multiple people, or if you want to keep track of your own changes over time. git is the most widely used version control system, and it is free and open source. GitHub on-the-other-hand is a web-based platform that uses git for version control, where you can share code with others, and download code that others have created.\ngit is mainly used as a command line tool, but there are many graphical user interfaces (GUIs) available which make it easier to use. Personally, I think using git through the command line is the best way, and it is simpler than you might think. Whilst there are many commands, the basic use of git for version control involves just four commands:\ngit status\ngit add &lt;file&gt;\ngit commit -m \"message\"\ngit push\nThe first command git status checks the status of your project, and let’s you know if there are any changes that you have made which need committing. For example:\ngit status\n\nChanges not staged for commit:\n  (use \"git add/rm &lt;file&gt;...\" to update what will be committed)\n  (use \"git restore &lt;file&gt;...\" to discard changes in working directory)\n        modified:   script.R\n        modified:   analysis.Rmd\n        deleted:    old_data.csv\nThis tells you that there are changes made to the script.R and analysis.Rmd files, and that the old_data.csv file has been deleted. You can also see which files are staged for commit, and which files are untracked (i.e., new files that have not been added to the project yet).\nThe second command git add &lt;file&gt; adds the file to the staging area, which is a temporary area where you can prepare files for commit. For example:\ngit add script.R\nYou then tag the changes you have made with a message using the git commit command. This is important, as it allows you to keep track of what changes you have made, and why you made them. For example:\ngit commit -m \"Added new function to script.R\"\nAnd then finally - if you have a remote repository on GitHub - you push the changes to GitHub using the git push command. This isn’t needed if you don’t have a GitHub repository.\n\n\n\n\n\n\nCommit messages\n\n\n\nIt is important to properly tag your commits with appropriate messages so you can track exactly what each commit has changed from before. For example, let’s say you have the following commit history:\ngit commit -m \"working correlation code for height and weight\"\ngit commit -m \"working linear regression model with age and sex\"\nFollowing these two prior commits, let’s say you work on an entirely new analysis, but it doesn’t work (predictably), and now the regression model that worked fine before also doesn’t work. You can just simply reset your analysis back to a point where it did work using git!\n\n\ngit and GitHub are important tools for programming, particularly on collaborative projects where multiple people are working on the same code. Sharing code on GitHub or OSF is also recommended when publishing papers for transparency and reproducibility.",
+    "crumbs": [
+      "Tips for programming and project management"
+    ]
+  },
+  {
+    "objectID": "qmd/r_tips.html#use-large-language-models-but-wisely",
+    "href": "qmd/r_tips.html#use-large-language-models-but-wisely",
+    "title": "Tips for programming and project management",
+    "section": "4. Use large language models but wisely",
+    "text": "4. Use large language models but wisely\nProgramming has significantly changes since the advent of large language models (LLMs), which can provide increasingly sophisticated code in response to user-generated prompts. However, using LLMs for this purpose is often a double-edged sword. Whilst you may be more productive, you may also be less likely to understand what the code is doing. In addition, LLMs may not be as appropriate for certain tasks, e.g., for advising scientific analyses and hypotheses.\nLLMs are best suited to perform low-level tasks that don’t require human-based or scientific reasoning. A great example would be for plot-generation, which doesn’t require much thought, but does require a lot of code, particularly for more complex plots. For example, you can ask ChatGPT to generate a plot using ggplot2 in R, and it will generate the code for you in no time!\n\n\n\n\n\n\n\n\n\nPrompting ChatGPT to generate a plot using ggplot2\n\nUnderstanding the best practices for programming using LLMs is a whole separate topic in of itself, but ultimately, it is important to remember that LLMs are just that - language models. One framework for working with LLMs is presented below, where the first stage is to understand the task and whether it is suitable for the model. The second stage is to discern the model output, and whether it is appropriate for your aim. The third stage is to calibrate the output appropriately based on how well the code performs, and finally, you can iteratively refine the output by submitting follow-up prompts1.\n\n\n\n\n\n\n\n\n\nA framework for using LLMs in scientific work (Sohail & Lin, 2025)",
+    "crumbs": [
+      "Tips for programming and project management"
+    ]
+  },
+  {
+    "objectID": "qmd/r_tips.html#tutorials-are-fine-but-get-stuck-in",
+    "href": "qmd/r_tips.html#tutorials-are-fine-but-get-stuck-in",
+    "title": "Tips for programming and project management",
+    "section": "5. Tutorials are fine, but get stuck in",
+    "text": "5. Tutorials are fine, but get stuck in\nUltimately, the best way to learn programming is through experience, ideally by working on your own project. This way you will get experience with all stages of the data analysis pipeline, including data preprocessing, analysis and visualisation. Whilst tutorials are useful, they don’t reflect the process of working with data and the problems that may arise. There’s a reason why the phrase “tutorial hell” exists! 2\n\n\n\n\n\n\n\n\nUse tutorials to get a basic understanding of a programming language or software, and determine whether that may be something that you could use. But then actually learn by working on your own projects.",
+    "crumbs": [
+      "Tips for programming and project management"
+    ]
+  },
+  {
+    "objectID": "qmd/r_tips.html#footnotes",
+    "href": "qmd/r_tips.html#footnotes",
+    "title": "Tips for programming and project management",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nSohail, A. & Lin, Z. (2025). Recalibrating Academic Expertise in the Age of Generative AI. SSRN.↩︎\nOpenAI (2025). Image created using ChatGPT (GPT4o) (https://chat.openai.com/). 5th May 2025.↩︎",
+    "crumbs": [
+      "Tips for programming and project management"
+    ]
+  },
+  {
+    "objectID": "qmd/working_with_data.html",
+    "href": "qmd/working_with_data.html",
+    "title": "Basic data analysis and plotting using R",
+    "section": "",
+    "text": "Now that you have a basic understanding how how R works, and what it is used for, let’s put our newly learned skills to practical use.\nWhen working with data in our studies, we can consider R to be the central software for data management, analysis and plotting. It is quite robust for this purpose, in that it also reads in data of many different types and from many different sources. 1",
+    "crumbs": [
+      "Basic data analysis and plotting"
+    ]
+  },
+  {
+    "objectID": "qmd/working_with_data.html#working-with-behavioural-data-in-r",
+    "href": "qmd/working_with_data.html#working-with-behavioural-data-in-r",
+    "title": "Basic data analysis and plotting using R",
+    "section": "Working with behavioural data in R",
+    "text": "Working with behavioural data in R\nIn this section we will directly work with some participant data from the HAVEN study.\nHAVEN was a study investigating the relationship between cognition, neurovascular health and platelet function in older adults. For the purposes of this workshop, we will be using a subset of the data from the study, specifically focusing on simple demographical and behavioural data.\nWe will firstly plot the data using a variety of plots to understand how certain graphs are preferred for visualizing specific relationships. We will then perform basic statistical tests to understand whether the relationship between the variables are significant.\n\nLoad and display the data\nWe first need to load in and read the data. The first dataset is in the participant_data.csv file within the /data folder. This file format is called ‘comma separated values’ or CSV, which we can read into R using the read.csv function. We firstly assign the data to a variable called sub_data (short for subject data), which we can now work directly with.\nIn the code below, we are downloading the data from a GitHub repository and saving it to our working directory. The first two lines are only required for the online workshop where we run code in the browser; in R you can just run the bottom line.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nNaming variables\n\n\n\nIt is good practice to name your variables appropriately. For example, I assigned the data to sub_data instead of data because data is a reserved word in R. This means that if you try to use data as a variable name, it may overwrite the built-in function data(), which can cause confusion and errors in your code. An alternative is to use df short for data frame, or dat (short for data) but these are generic and do not provide any information about the data (which is particularly useful when working with multiple datasets). So, I would recommend using sub_data or participant_data instead.\n\n\nJust to see if we have loaded in the correct file and correctly assigned it, we can display the first few rows of sub_data using the head function. This is a pre-built function in R which will show the first 6 rows of the data. You can also specify how many rows you want to see by adding a number in brackets, e.g., head(sub_data, 10) will show the first 10 rows.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nSo you can see we have different variables, including age, gender, height, weight, bmi and lesion_volume.\nWe can calculate summary statistics for each variable using the summary function. The summary statistics will give us the mean, range etc. for each.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWe know to use the $ operator to access a specific column. For example, if we wanted to see the age of each participant, we can run:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.",
+    "crumbs": [
+      "Basic data analysis and plotting"
+    ]
+  },
+  {
+    "objectID": "qmd/working_with_data.html#data-visualization-using-ggplot2",
+    "href": "qmd/working_with_data.html#data-visualization-using-ggplot2",
+    "title": "Basic data analysis and plotting using R",
+    "section": "Data Visualization using ggplot2()",
+    "text": "Data Visualization using ggplot2()\nAn important practice when working with data is to have a basic understanding of what the data looks like. This is important for several reasons: seeing the distribution of the data, identifying outliers, and understanding the relationships between different variables - even basic ones!\nFor example, if we wanted to understand whether people who are older have a higher lesion volume (possibly as a result of aging) we can create a scatter plot of age and total lesion volume, and add a line of best fit. We will use the ggplot2 package, which - as mentioned - is a powerful and flexible plotting system.\n\nScatter plot\nLet’s create a scatter plot of age and lesion volume:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nHere we are specifically using the ggplot2 package using the geom_point function to create the points, and the geom_smooth function to add a line of best fit. The method = \"lm\" argument specifies that we want to use a simple linear regression model for the line of best fit.\nSo, you can see a positive correlation, namely that (generally) the older you are, the higher the total lesion volume will be.\nIf we wanted to understand whether there is a difference between the height and weight between males and females, we can also do this using a scatter plot, but grouped by gender:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThe colour argument within aes separates the data by the variable assigned. You can see - as we would expect - that males are generally towards the top and right (i.e., taller and heavier).\n\n\nBoxplot\nTo see the specific differences between males and females, we can create a boxplot, which visualizes the mean and quartiles in each group:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nAgain, we use ggplot2 to structure the plot, and the geom_boxplot function to actually create the violin component. You can see that indeed, men are taller and weigh more than women in the group.\n\n\nHistogram\nHistograms are useful if we want to understand the spread of a particular variable across the group. For example, if we wanted to see the distribution of BMI across the group, we can use the geom_histogram function. This will create a histogram of the BMI variable, and - using the geom_density argument we can also add a density curve to it.\nLet’s plot a histogram of BMI:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nSo you can see that the most common BMI is 25, with the variable normally distributed.",
+    "crumbs": [
+      "Basic data analysis and plotting"
+    ]
+  },
+  {
+    "objectID": "qmd/working_with_data.html#basic-statistics-and-significance-testing",
+    "href": "qmd/working_with_data.html#basic-statistics-and-significance-testing",
+    "title": "Basic data analysis and plotting using R",
+    "section": "Basic statistics and significance testing",
+    "text": "Basic statistics and significance testing\nSo we have been able to visualise the data, and now have a general idea of some of the trends. But how can we test whether these relationships are significant? Can we statistically say that men are taller than women? Can we say that the older you are the more lesions you have?\nTo answer these questions, lets firstly get some more summary statistics, this time for height and weight specifically. We firstly group the data by gender and run the summarise function to calculate the mean and standard deviation for each group.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nYou can see that the mean height for women (n=29) is 1.64 and men (n=23) is 1.80 (metres), whilst the mean weight is 65.9 and 85.5 (kg) respectively.\n\nT-test\nBut is this difference significant? To find out the statistical difference between the mean of two groups we can simply run a t-test. We do this in R using the t.test function, which will calculate the t-statistic and p-value for us. The default is a two-tailed t-test, which tests whether the means of two groups are significantly different from each other without direction. We can also run a one-tailed t-test, but we need to specify the direction of the difference.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nSo, we can see in either case, we can see that there is a statistically significant difference between the height and weight between males and females. We can also see that the p-value for the one-tailed test - where we test the alternative hypothesis that women weigh more than men - is 1. This makes sense, as it is not the case!\n\n\nCorrelation\nSimilarly, if we want to see whether there is a significant relationship between two continuous variables, i.e., between age and lesion volume across the entire group, we can run a correlation. We can do this using the cor.test function, which will give us the correlation coefficient (r) and the corresponding p-value.\nAs with the t.test function, when we run the cor.test it actually generates a list of values. The str function will show this structure.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nT-test structure\n\n\n\nRun this code to see the structure of the t-test that we ran above:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nYou can also see that in addition to the various statistics, it also mentions the method, which is Pearson’s product-moment correlation. This is the default method used in R, but you can also use Spearman’s rank correlation or other correlation methods by changing the method argument.\nUsing the names function, we can see the different data recorded, and see that it contains several components, including the correlation coefficient (r), p-value, confidence intervals and t-statistic.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWe can then extract the important values (the R and p-value) from the cor_result object using the $ operator.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nAnd we can re-plot this using ggplot as we did above, but also adding the r and p-values to the plot:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nSo, whilst there is a significant relationship between age and lesion volume (excluding other predictors), we can see one or two outliers in our data. What would the data look like if we removed them?\nWe need to remove those with lesion volumes greater than 5. In R there are often several ways to perform the same operation, here are some examples for this case:\n\n# Remove rows where lesion_volume exceeds 5\ndata_filtered &lt;- sub_data[sub_data$lesion_volume &lt;= 5, ]\n\n# Alternatively, using dplyr\nlibrary(dplyr)\nsub_data_filtered &lt;- sub_data %&gt;%\n  filter(lesion_volume &lt;= 5)\n\n# Or using the subset function\nsub_data_filtered &lt;- subset(sub_data, lesion_volume &lt;= 5)\n\nLet’s use the first approach and then plot the relationship with a line of best fit:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThe linear regression model lm(lesion_volume ~ age, data = sub_data_filtered) is equivalent to a correlation test which we can see by running the cor.test function again on the filtered data.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nSo, the relationship is still significant, but less so than before.\nFinally, we may also want to see if there is a difference between males and females with lesion volume and age. If so, we would expect to see a significant difference in the correlations between the two groups. Let’s run a correlation for males and females with lesion volume separately, and plot them on the same graph:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nBut as we are performing two independent tests, we need to correct for multiple comparisons. We can do this using the p.adjust function, which will adjust the p-values for us. The most common method is the Bonferroni correction, which divides the p-value by the number of tests performed.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWe can see that there is a significant difference in the relationship between age and total lesion volume for females, and not for males.",
+    "crumbs": [
+      "Basic data analysis and plotting"
+    ]
+  },
+  {
+    "objectID": "qmd/working_with_data.html#regression-models",
+    "href": "qmd/working_with_data.html#regression-models",
+    "title": "Basic data analysis and plotting using R",
+    "section": "Regression models",
+    "text": "Regression models\nIn the HAVEN study, we were interested with understanding the influence of different factors upon memory function. To do this we can look at participants’ reaction times and accuracy during an episodic memory task using the rt_data dataset.\n\n\n\n\n\n\nThe episodic memory task\n\n\n\nThe episodic memory task was a recall task, where about an hour prior, participants watched a video (actually an episode of the TV series ‘Outnumbered’). Inside the MRI scanner, they were presented with two pictures, representing scenes from the episode, and there were asked to select the one which happened first.\n\n\n\n\n\n\n\n\n\n\n\nEpisodic memory task design from the HAVEN study\n\nLet’s load in the data:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nRun head to see the data:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nAnd summary to see the summary statistics:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nYou can see that it is essentially an expanded version of the previous dataset, which includes accuracy and mean reaction time for correct and incorrect responses. Our goal is to create a model to describe how various factors influence participants’ performance on the task.\nAs before, let’s plot the relationship between age and performance on the task, measured by the percentage accuracy.\n\n\n\n\n\n\nLook at your data\n\n\n\nRemember, before running any modelling analyses, it is always a good idea to look at your data and it’s relationships, even it is rudimentary!\n\n\nNote that this time the plotting code is significantly longer than before. This is to demonstrate how you can customise your plots to make them look more suitable for a scientific publication.\nIn this code, we firstly create a custom theme for the plot, which increases the font size and removes the grid lines, before plotting the data using our newly made theme.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWe can see that older participants tend to have more brain lesions and perform worse on the task. However, there’s no direct relationship between the number of lesions and task accuracy. This raises an important question:\n\n\nIs it age itself that explains lower performance, or do age-related brain changes (like lesions) play a role?\n\n\n\nCreating a linear regression model for task performance\nRegression models help us understand how different independent variables (“predictors”) influence a dependent (outcome) variable. In our case, we want to see how the predictors age and lesion number influence task performance.\nWe will keep things simple and just add each predictor separately - first age, then lesion number, and then both together in the same model. Doing this helps us understand how much each variable contributes on its own and whether one explains the effect of the other.\n\nIf age still predicts performance even when we include lesion number, it suggests that age has its own independent effect on accuracy.\nIf the effect of age disappears when we include lesion number, it suggests that lesions might be the reason older adults perform worse.\n\nLet’s start with one predictor - age. The lm function - as previously used - creates a linear model, and the str function shows the structure of the model.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nYou can see that a lot happens underneath the hood! Importantly, we can use the summary function to see the results of the model, including the coefficients, p-values and R-squared value.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThe coefficients tell us how much the dependent variable (correct percent) changes for each unit increase in the predictor variable (age). The p-value \\(Pr(&gt;|t|)\\) tells us whether this relationship is statistically significant. Importantly, the age co-efficient is significant (p = 0.0089) meaning that as people get older, their accuracy tends to decrease.\nNow let’s run a model with just lesion number:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThe p-value is 0.419, which is not statistically significant. This means we do not have evidence that lesion number is reliably related to performance.\nLet’s now add lesion number to our model, firstly as a fixed effect. This allows us to answer the question:\n\n\nDoes lesion number help explain performance even when we already account for age?\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThis result model shows that age predicts performance (p = 0.0118), even when we include lesion number. Moreover, lesion number still does not independently explain performance, once we account for age. This suggests that age, not lesion number, is the key factor driving the drop in task accuracy.",
+    "crumbs": [
+      "Basic data analysis and plotting"
+    ]
+  },
+  {
+    "objectID": "qmd/working_with_data.html#calculating-group-differences-using-anova-and-tukeys-hsd",
+    "href": "qmd/working_with_data.html#calculating-group-differences-using-anova-and-tukeys-hsd",
+    "title": "Basic data analysis and plotting using R",
+    "section": "Calculating group differences using ANOVA and Tukey’s HSD",
+    "text": "Calculating group differences using ANOVA and Tukey’s HSD\nANOVAs are commonly used to determine whether there is a significant difference between multiple groups (&gt;2). In our data, we already know that there is a negative correlation between age and task performance, but is there a difference between age groups? We can use an ANOVA to test this.\nFirstly, let’s create the age groups, which will be subjects in their 50s, 60s and 70s.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nThe piping operator\n\n\n\nThe piping operator %&gt;% is a powerful feature of the dplyr package that allows you to chain together multiple operations. It basically translates to ‘and then’.\n\n\nSo in our code, we are creating a new column called age_group which is based on the age of the participants, those in their 50s (n=17), 60s (n=19) and 70s (n=12). We then group by these groups, and then summarise the data to get the count, minimum and maximum age within each.\nLet’s now get the average accuracy within each group:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nFollowing the plot earlier, we can see that the average accuracy also decreases with age, even after splitting by age group. But is there a significant difference? We can run an ANOVA to test this using the aov function. This function takes two arguments, the variables - consisting of the dependent variable (correct percentage) and independent variable (age groups) - and the data.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThe results tell us that there is evidence that at least one age group has a significantly different mean accuracy from the others. But it doesn’t tell us which one(s) specifically.\nTo find this out, we can run a post-hoc test. We will run Tukey’s HSD (Honestly Significant Difference) test, which is a common post-hoc test used after ANOVA specifically for this reason.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nContrary to the ANOVA, Tukey’s HSD tells us that there is no significant difference between any of the groups. This is partly because it examines each pair of group means, correcting for multiple comparisons using a family-wise error rate (FWER) correction.\nThere was a trend for the 50s group to be more accurate than the 70s group, but this narrowly misses significance (p = 0.06). So, we can conclude that there is in fact no significant difference in accuracy between age groups.",
+    "crumbs": [
+      "Basic data analysis and plotting"
+    ]
+  },
+  {
+    "objectID": "qmd/working_with_data.html#footnotes",
+    "href": "qmd/working_with_data.html#footnotes",
+    "title": "Basic data analysis and plotting using R",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nKabacoff, R. I. (2022). R in action: data analysis and graphics with R and Tidyverse. Simon and Schuster.↩︎",
+    "crumbs": [
+      "Basic data analysis and plotting"
+    ]
+  }
+]
